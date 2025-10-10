@@ -58,7 +58,7 @@ const Projects: React.FC = () => {
                             key={project.id}
                             variants={itemVariants}
                             whileHover={!isMobile ? { scale: 1.03, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" } : {}}
-                            onClick={() => window.open(project.link, "_blank")}
+                            onClick={() => window.open(project.github, "_blank")}
                             className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-300 cursor-pointer"
                         >
                             {/* Image */}
@@ -73,14 +73,20 @@ const Projects: React.FC = () => {
 
                             {/* Content */}
                             <div className="p-8">
-                                <h3 className="text-2xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                                    {project.title}
+                                <h3 className="text-2xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                                    {project.title} <span className="text-sm text-muted-foreground">({project.duration})</span>
                                 </h3>
-                                <p className="text-muted-foreground leading-relaxed mb-6">{project.desc}</p>
+                                <p className="text-sm text-muted-foreground mb-4">👥 Team size: {project.teamSize}</p>
+                                <p className="text-muted-foreground leading-relaxed mb-4">{project.description}</p>
+
+                                {/* Role */}
+                                <p className="text-sm text-foreground font-medium mb-4">
+                                    <span className="font-semibold">Role: </span>{project.role}
+                                </p>
 
                                 {/* Tech Stack */}
                                 <div className="flex flex-wrap gap-2 mb-6">
-                                    {project.tech.split(", ").map((tech, i) => (
+                                    {project.technologies.map((tech, i) => (
                                         <span
                                             key={i}
                                             className="px-3 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-full border border-border"
@@ -88,6 +94,18 @@ const Projects: React.FC = () => {
                                             {tech}
                                         </span>
                                     ))}
+                                </div>
+
+                                {/* Links */}
+                                <div className="flex gap-4">
+                                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-sm text-primary hover:underline">
+                                        <Github className="w-4 h-4" /> Github
+                                    </a>
+                                    {project.demo && (
+                                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-sm text-primary hover:underline">
+                                            <ExternalLink className="w-4 h-4" /> Demo
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         </motion.article>

@@ -1,0 +1,19 @@
+# Luôn dùng LF cho code (chuẩn cross-platform)
+* text=auto eol=lf
+
+# Giữ nguyên binary files, không convert line ending
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.mp4 binary
+*.mp3 binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.otf binary
+*.pdf binary
+*.zip binary
+*.gz binary

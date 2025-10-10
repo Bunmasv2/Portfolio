@@ -97,7 +97,7 @@ const Hero: React.FC = () => {
                         <Github className="w-5 h-5" /> GitHub
                     </motion.a>
                     <motion.a
-                        href="../../public/CV_ThaiBao.pdf"      // đường dẫn file trong public
+                        href="/CV_ThaiBao.pdf"      // đường dẫn file trong public
                         download                    // sẽ tải file khi click
                         whileHover={!isMobile ? { scale: 1.05 } : {}}
                         whileTap={{ scale: 0.95 }}

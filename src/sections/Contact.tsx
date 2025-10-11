@@ -3,7 +3,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Github, Facebook } from "lucide-react";
-
+import emailjs from "emailjs-com";
 // ======= ANIMATIONS =======
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -164,25 +164,49 @@ const Contact: React.FC = () => {
 
                         <form
                             className="space-y-5 flex-1 flex flex-col justify-between"
-                            onSubmit={(e) => e.preventDefault()}
+                            onSubmit={async (e) => {
+                                e.preventDefault();
+                                const form = e.currentTarget;
+                                const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+                                const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+                                const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
+
+                                try {
+                                    await emailjs.send(
+                                        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                                        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                                        { name, email, message },
+                                        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+                                    );
+                                    alert("✅ Message sent successfully!");
+                                    form.reset();
+                                } catch (error) {
+                                    console.error(error);
+                                    alert("❌ Failed to send message.");
+                                }
+                            }}
                         >
+
                             <div>
                                 <input
                                     type="text"
+                                    name="name"
                                     placeholder="Your Name"
-                                    className="w-full bg-background border border-border rounded-lg px-4 py-3 text-sm text-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all duration-200 mb-4"
+                                    className="w-full bg-background border border-border rounded-lg px-4 py-3 text-sm text-foreground dark:text-neutral-900 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all duration-200 mb-4"
                                     required
                                 />
                                 <input
                                     type="email"
+                                    name="email"
                                     placeholder="Your Email"
-                                    className="w-full bg-background border border-border rounded-lg px-4 py-3 text-sm text-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all duration-200 mb-4"
+                                    className="w-full bg-background border border-border rounded-lg px-4 py-3 text-sm text-foreground dark:text-neutral-900  focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all duration-200 mb-4"
                                     required
                                 />
                                 <textarea
                                     placeholder="Your Message"
+                                    name="message"
                                     rows={5}
-                                    className="w-full bg-background border border-border rounded-lg px-4 py-3 text-sm text-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all duration-200 resize-none"
+                                    className="w-full bg-background border border-border dark:text-neutral-900  rounded-lg px-4 py-3 text-sm text-foreground focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all duration-200 resize-none"
                                     required
                                 />
                             </div>

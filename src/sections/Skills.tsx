@@ -15,8 +15,34 @@ const skillCategories = {
         "JWT Auth",
         "Google Cloud SQL",
         "Cloudinary",
-        "GCS",
+        "Vercel",
     ],
+}
+
+// ===== Docs mapping =====
+const skillDocs: Record<string, string> = {
+    ReactJS: "https://react.dev/",
+    "Next.js": "https://nextjs.org/docs",
+    TailwindCSS: "https://tailwindcss.com/docs",
+    Bootstrap: "https://getbootstrap.com/docs/",
+    JavaScript: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    HTML: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    CSS: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    "ASP.NET Core": "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-8.0",
+    "C#": "https://learn.microsoft.com/en-us/dotnet/csharp/",
+    "Node.js": "https://nodejs.org/en/docs",
+    "Java Spring Boot": "https://spring.io/projects/spring-boot",
+    "SQL Server": "https://learn.microsoft.com/en-us/sql/sql-server/",
+    MongoDB: "https://www.mongodb.com/docs/",
+    Git: "https://git-scm.com/doc",
+    "VS Code": "https://code.visualstudio.com/docs",
+    Postman: "https://learning.postman.com/docs/",
+    Figma: "https://help.figma.com/hc/en-us",
+    SignalR: "https://learn.microsoft.com/en-us/aspnet/core/signalr/",
+    "JWT Auth": "https://jwt.io/introduction",
+    "Google Cloud SQL": "https://cloud.google.com/sql/docs",
+    Cloudinary: "https://cloudinary.com/documentation",
+    Vercel: "https://vercel.com/docs",
 }
 
 // 🎨 Animation Variants với kiểu đúng của Framer Motion
@@ -125,15 +151,22 @@ const Skills: React.FC = () => {
                                             variants={skillVariants}
                                             whileHover={{
                                                 scale: 1.05,
-                                                backgroundColor: "hsl(var(--secondary))",
+                                                backgroundColor: "#bbf7d0", // xanh lá nhạt
+                                                color: "#6366F1", // xanh lá đậm
                                                 transition: { duration: 0.15, ease: "easeOut" },
                                             }}
-                                            className="px-3 py-1.5 bg-secondary/50 text-secondary-foreground text-sm rounded-lg border border-border/50 cursor-default will-change-transform transform-gpu"
+                                            whileTap={{ scale: 0.95 }}
+                                            onClick={() => {
+                                                const url = skillDocs[skill]
+                                                if (url) window.open(url, "_blank")
+                                            }}
+                                            className="px-3 py-1.5 bg-muted text-foreground hover:bg-accent hover:text-accent-foreground text-sm rounded-lg border border-border cursor-pointer select-none transition-colors"
                                         >
                                             {skill}
                                         </motion.span>
                                     ))}
                                 </motion.div>
+
                             </div>
                         </motion.div>
                     ))}

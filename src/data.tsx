@@ -54,3 +54,32 @@ export const projects: Project[] = [
     image: "/images/Project1.png"
   }
 ]
+
+// src/data/techDocs.ts
+
+export const techDocs: Record<string, string> = {
+  ReactJS: "https://react.dev/",
+  "NextJS": "https://nextjs.org/docs",
+  TailwindCSS: "https://tailwindcss.com/docs",
+  Bootstrap: "https://getbootstrap.com/docs/",
+  "ASP.Net Core Web API": "https://learn.microsoft.com/en-us/aspnet/core/web-api/",
+  "ASP.NET Core Identity": "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity",
+  "EF Core": "https://learn.microsoft.com/en-us/ef/core/",
+  "SQL Server": "https://learn.microsoft.com/en-us/sql/sql-server/",
+  Firebase: "https://firebase.google.com/docs",
+  "Google Cloud": "https://cloud.google.com/docs",
+  Render: "https://render.com/docs",
+  SignalR: "https://learn.microsoft.com/en-us/aspnet/core/signalr/",
+  "Node.js": "https://nodejs.org/en/docs",
+  "Java Spring Boot": "https://spring.io/projects/spring-boot",
+  MongoDB: "https://www.mongodb.com/docs/",
+  Git: "https://git-scm.com/doc",
+  "VS Code": "https://code.visualstudio.com/docs",
+  Postman: "https://learning.postman.com/docs/getting-started/introduction/",
+  Figma: "https://help.figma.com/hc/en-us",
+  "JWT Auth": "https://jwt.io/introduction",
+  "Google Cloud SQL": "https://cloud.google.com/sql/docs",
+  Cloudinary: "https://cloudinary.com/documentation",
+  Vercel: "https://vercel.com/docs",
+};
+

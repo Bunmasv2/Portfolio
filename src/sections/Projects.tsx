@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, Variants } from "framer-motion";
-import { projects } from "../data";
+import { projects, techDocs } from "../data";
 import { ExternalLink, Github } from "lucide-react";
 
 const containerVariants: Variants = {
@@ -87,14 +87,27 @@ const Projects: React.FC = () => {
                                 {/* Tech Stack */}
                                 <div className="flex flex-wrap gap-2 mb-6">
                                     {project.technologies.map((tech, i) => (
-                                        <span
+                                        <motion.span
                                             key={i}
-                                            className="px-3 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-full border border-border"
+                                            whileHover={{
+                                                scale: 1.08,
+                                                backgroundColor: "#bbf7d0", // xanh lá nhạt (Tailwind: green-100)
+                                                color: "#166534", // xanh đậm hơn cho chữ
+                                                transition: { duration: 0.15, ease: "easeOut" },
+                                            }}
+                                            onClick={() => {
+                                                const baseUrl = "https://www.google.com/search?q=";
+                                                const url = techDocs[tech] || `${baseUrl}${encodeURIComponent(tech + " documentation")}`;
+                                                window.open(url, "_blank");
+                                            }}
+
+                                            className="px-3 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-full border border-border cursor-pointer select-none"
                                         >
                                             {tech}
-                                        </span>
+                                        </motion.span>
                                     ))}
                                 </div>
+
 
                                 {/* Links */}
                                 <div className="flex gap-4">

@@ -7,7 +7,7 @@ import { motion, Variants } from "framer-motion";
 const quickInfo = [
     { label: "Position", value: "Fullstack Developer (Student)" },
     { label: "Location", value: "Vietnam" },
-    { label: "Degree", value: "Software Engineer (IT) – Senior Year" },
+    { label: "Major", value: "Software Engineer (IT) – Senior Year" },
     { label: "Languages", value: "Vietnamese, English" },
 ];
 
@@ -80,8 +80,14 @@ const About: React.FC = () => {
                     {/* Left Column - Bio & Timeline */}
                     <motion.div
                         variants={itemVariants}
-                        className="lg:col-span-6 bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300"
+                        whileHover={{
+                            scale: 1.02,
+                            boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+                            transition: { duration: 0.3, ease: "easeInOut" },
+                        }}
+                        className="lg:col-span-6 bg-card border border-border rounded-2xl p-8 shadow-sm transition-all duration-300 cursor-pointer"
                     >
+
                         <div className="space-y-6">
                             <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
                                 I'm a senior-year Software Engineering student passionate about building efficient and user-friendly web applications. My experience includes healthcare management systems, chatbots, and online payment integration.
@@ -131,8 +137,14 @@ const About: React.FC = () => {
                     {/* Right Column - Quick Info */}
                     <motion.div
                         variants={itemVariants}
-                        className="lg:col-span-6 bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300"
+                        whileHover={{
+                            scale: 1.02,
+                            boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+                            transition: { duration: 0.3, ease: "easeOut" },
+                        }}
+                        className="lg:col-span-6 bg-card border border-border rounded-2xl p-8 shadow-sm transition-all duration-300 cursor-pointer"
                     >
+
                         <h3 className="text-xl sm:text-2xl font-semibold dark:text-teal-600 text-foreground mb-6 flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                             Quick Info

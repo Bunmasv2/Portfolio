@@ -28,10 +28,11 @@ export const projects: Project[] = [
       "Render",
       "Firebase",
       "Google Cloud",
-      "SignalR"
+      "SignalR",
+      "Cloudinary"
     ],
-    role: "Developed RESTful APIs, implemented authentication/authorization with custom role-based middleware, built centralized error-handling middleware, and integrated real-time notifications, online status, and user activity tracking using SignalR. Designed responsive UI for project and task collaboration features.",
-    description: "A real-time project & task management platform with team collaboration, role-based access control, online presence, and instant notifications.",
+    role: "Developed RESTful APIs with modular architecture, implemented authentication and authorization using ASP.NET Core Identity, and integrated Cloudinary for file and image management. Built real-time task updates, notifications, and member presence tracking with SignalR. Designed responsive NextJS + Tailwind interface for sprint, task, and user management.",
+    description: "A real-time project and task management system that supports team collaboration, sprint planning, drag-and-drop task organization, and file sharing with Cloudinary integration. It provides instant updates, role-based access control, and real-time communication for better workflow management.",
     image: "/images/Project2.png"
   },
   {
@@ -47,13 +48,15 @@ export const projects: Project[] = [
       "ASP.NET Core Identity",
       "EF Core",
       "SQL Server",
-      "Google Cloud"
+      "Google Cloud",
+      "VNPay",
+      "MoMo"
     ],
-    role: "Built RESTful APIs (user, scheduling, medical records), implemented JWT authentication with role-based access, developed error-handling middleware, and created UI for booking and patient records.",
-    description: "A web application developed to streamline clinic operations. The system supports efficient management of patient records, appointment bookings, medical examinations, and payment processing.",
+    role: "Developed RESTful APIs for managing users, appointments, and medical records. Implemented JWT authentication, role-based authorization, and email OTP verification. Integrated payment gateways (VNPay and MoMo) and automated appointment confirmation emails. Designed responsive UI for patients, doctors, and admin roles using React Bootstrap.",
+    description: "A comprehensive clinic management platform that handles appointment scheduling, doctor management, patient records, and secure payment processing. The system improves clinic efficiency through automated workflows and cloud-based data storage.",
     image: "/images/Project1.png"
   }
-]
+];
 
 // src/data/techDocs.ts
 

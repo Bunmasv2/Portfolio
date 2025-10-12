@@ -8,11 +8,13 @@ import Contact from "./sections/Contact";
 import ThemeToggle from "./components/ThemeToggle";
 import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
+import ClockWidget from "./components/ClockWidget";
 
 function App() {
   return (
     <div className="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen transition-colors duration-500">
       <ThemeToggle />
+      {/* <ClockWidget /> */}
       <Navbar />
       <main className="max-w-6xl mx-auto px-6 sm:px-8">
         <Hero />

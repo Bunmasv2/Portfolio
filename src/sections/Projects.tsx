@@ -77,7 +77,7 @@ const Projects: React.FC = () => {
                                     {project.title} <span className="text-sm text-muted-foreground">({project.duration})</span>
                                 </h3>
                                 <p className="text-sm text-muted-foreground mb-4">👥 Team size: {project.teamSize}</p>
-                                <p className="text-muted-foreground leading-relaxed mb-4">{project.description}</p>
+                                <p className="text-muted-foreground leading-relaxed mb-4">Description: {project.description}</p>
 
                                 {/* Role */}
                                 <p className="text-sm text-foreground font-medium mb-4">

@@ -72,6 +72,8 @@ const skillVariants: Variants = {
     },
 }
 
+const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
 const Skills: React.FC = () => {
     return (
         <section id="skills" className="py-24 px-6 bg-background transition-colors duration-300">
@@ -152,11 +154,13 @@ const Skills: React.FC = () => {
                                                 const url = skillDocs[skill]
                                                 if (url) window.open(url, "_blank")
                                             }}
-                                            className="px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer select-none border transition-colors
-                                            bg-gray-100 text-gray-800 border-gray-300
-                                            dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700
-                                            hover:bg-indigo-600 hover:text-white
-                                            dark:hover:bg-indigo-500"
+                                            className={`px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer select-none border transition-colors
+                                                bg-gray-100 text-gray-800 border-gray-300
+                                                dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700
+                                                hover:bg-indigo-600 hover:text-white
+                                                dark:hover:bg-indigo-500
+                                                ${isMobile ? "focus:outline-none focus:text-inherit active:text-inherit dark:focus:text-inherit dark:active:text-inherit" : ""}
+                                                `}
                                         >
                                             {skill}
                                         </motion.span>

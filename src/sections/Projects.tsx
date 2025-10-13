@@ -27,7 +27,7 @@ const Projects: React.FC = () => {
     const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
     return (
-        <section id="projects" className="min-h-screen bg-background py-24 px-6">
+        <section id="projects" className="min-h-screen bg-background py-24 px-6 transition-colors duration-300">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <motion.div
@@ -58,8 +58,12 @@ const Projects: React.FC = () => {
                             key={project.id}
                             variants={itemVariants}
                             whileHover={!isMobile ? { scale: 1.03, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" } : {}}
-                            onClick={() => window.open(project.github, "_blank")}
-                            className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-300 cursor-pointer"
+                            onClick={() => {
+                                if (project.github) {
+                                    window.open(project.github, "_blank");
+                                }
+                            }}
+                            className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-300 cursor-pointer flex flex-col"
                         >
                             {/* Image */}
                             <div className="relative aspect-video overflow-hidden bg-muted">
@@ -72,16 +76,20 @@ const Projects: React.FC = () => {
                             </div>
 
                             {/* Content */}
-                            <div className="p-8">
+                            <div className="p-8 flex flex-col flex-grow">
                                 <h3 className="text-2xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                                    {project.title} <span className="text-sm text-muted-foreground">({project.duration})</span>
+                                    {project.title}{" "}
+                                    <span className="text-sm text-muted-foreground">({project.duration})</span>
                                 </h3>
                                 <p className="text-sm text-muted-foreground mb-4">👥 Team size: {project.teamSize}</p>
-                                <p className="text-muted-foreground leading-relaxed mb-4">Description: {project.description}</p>
+                                <p className="text-muted-foreground leading-relaxed mb-4">
+                                    Description: {project.description}
+                                </p>
 
                                 {/* Role */}
                                 <p className="text-sm text-foreground font-medium mb-4">
-                                    <span className="font-semibold">Role: </span>{project.role}
+                                    <span className="font-semibold">Role: </span>
+                                    {project.role}
                                 </p>
 
                                 {/* Tech Stack */}
@@ -89,33 +97,47 @@ const Projects: React.FC = () => {
                                     {project.technologies.map((tech, i) => (
                                         <motion.span
                                             key={i}
-                                            whileHover={{
-                                                scale: 1.08,
-                                                backgroundColor: "#bbf7d0", // xanh lá nhạt (Tailwind: green-100)
-                                                color: "#166534", // xanh đậm hơn cho chữ
-                                                transition: { duration: 0.15, ease: "easeOut" },
-                                            }}
+                                            whileHover={{ scale: 1.08 }}
+                                            whileTap={{ scale: 0.95 }}
                                             onClick={() => {
                                                 const baseUrl = "https://www.google.com/search?q=";
-                                                const url = techDocs[tech] || `${baseUrl}${encodeURIComponent(tech + " documentation")}`;
+                                                const url =
+                                                    techDocs[tech] ||
+                                                    `${baseUrl}${encodeURIComponent(tech + " documentation")}`;
                                                 window.open(url, "_blank");
                                             }}
-
-                                            className="px-3 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-full border border-border cursor-pointer select-none"
+                                            className={`px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer select-none border transition-colors
+                                                bg-gray-100 text-gray-800 border-gray-300
+                                                dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700
+                                                hover:bg-indigo-600 hover:text-white
+                                                dark:hover:bg-indigo-500
+                                                ${isMobile ? "visited:text-inherit focus:outline-none focus:text-inherit active:text-inherit dark:visited:text-inherit dark:focus:text-inherit dark:active:text-inherit" : ""}
+                                                `}
                                         >
                                             {tech}
                                         </motion.span>
                                     ))}
                                 </div>
 
-
-                                {/* Links */}
-                                <div className="flex gap-4">
-                                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-sm text-primary hover:underline">
+                                {/* Links — cố định cuối card */}
+                                <div className="flex gap-4 mt-auto pt-4 border-t border-border">
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-1 text-sm text-primary hover:underline"
+                                        onClick={(e) => e.stopPropagation()} // tránh click toàn card
+                                    >
                                         <Github className="w-4 h-4" /> Github
                                     </a>
                                     {project.demo && (
-                                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-sm text-primary hover:underline">
+                                        <a
+                                            href={project.demo}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-1 text-sm text-primary hover:underline"
+                                            onClick={(e) => e.stopPropagation()}
+                                        >
                                             <ExternalLink className="w-4 h-4" /> Demo
                                         </a>
                                     )}
@@ -124,7 +146,6 @@ const Projects: React.FC = () => {
                         </motion.article>
                     ))}
                 </motion.div>
-
             </div>
         </section>
     );

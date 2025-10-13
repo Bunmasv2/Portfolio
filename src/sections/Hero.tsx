@@ -7,28 +7,51 @@ import { ArrowDown, Github } from "lucide-react";
 
 const Hero: React.FC = () => {
     const [isMobile, setIsMobile] = useState(false);
+
+    // 🧠 Kiểm tra kích thước màn hình
     useEffect(() => {
         if (typeof window !== "undefined") {
-            const checkMobile = window.innerWidth < 768;
-            setIsMobile(checkMobile);
-            const handleResize = () => setIsMobile(window.innerWidth < 768);
-            window.addEventListener("resize", handleResize);
-            return () => window.removeEventListener("resize", handleResize);
+            const checkMobile = () => setIsMobile(window.innerWidth < 768);
+            checkMobile();
+            window.addEventListener("resize", checkMobile);
+            return () => window.removeEventListener("resize", checkMobile);
         }
     }, []);
 
+    // 🎬 Điều khiển animation khi scroll vào/ra vùng nhìn
     const controls = useAnimation();
-    const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
+    const [ref, inView] = useInView({
+        threshold: 0.3, // xuất hiện 30% là kích hoạt
+    });
+
     useEffect(() => {
-        if (inView) controls.start("visible");
+        if (inView) {
+            controls.start("visible");
+        } else {
+            controls.start("hidden"); // fade out khi scroll ra khỏi vùng nhìn
+        }
     }, [controls, inView]);
 
+    // ✨ Khai báo các variants
     const heroVariants: Variants = {
         hidden: { opacity: 0, y: 60 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.2 },
+            transition: {
+                duration: 0.8,
+                ease: "easeOut",
+                staggerChildren: 0.2,
+            },
+        },
+    };
+
+    const itemVariants: Variants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" },
         },
     };
 
@@ -54,7 +77,7 @@ const Hero: React.FC = () => {
                 className="space-y-5 relative z-10"
             >
                 <motion.h1
-                    variants={heroVariants}
+                    variants={itemVariants}
                     className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight"
                 >
                     👋 Hi, I'm{" "}
@@ -64,18 +87,20 @@ const Hero: React.FC = () => {
                 </motion.h1>
 
                 <motion.p
-                    variants={heroVariants}
+                    variants={itemVariants}
                     className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed"
                 >
                     A passionate{" "}
-                    <span className="text-indigo-500 font-medium">Fullstack Developer</span>{" "}
+                    <span className="text-indigo-500 font-medium">
+                        Fullstack Developer
+                    </span>{" "}
                     crafting scalable web apps using{" "}
                     <span className="text-indigo-500 font-medium">React</span> &{" "}
                     <span className="text-indigo-500 font-medium">.NET Core</span>.
                 </motion.p>
 
                 <motion.div
-                    variants={heroVariants}
+                    variants={itemVariants}
                     className="flex flex-wrap justify-center gap-4 mt-5"
                 >
                     <motion.a
@@ -96,9 +121,10 @@ const Hero: React.FC = () => {
                     >
                         <Github className="w-5 h-5" /> GitHub
                     </motion.a>
+
                     <motion.a
-                        href="/CV_ThaiBao.pdf"      // đường dẫn file trong public
-                        download                    // sẽ tải file khi click
+                        href="/CV_ThaiBao.pdf"
+                        download
                         whileHover={!isMobile ? { scale: 1.05 } : {}}
                         whileTap={{ scale: 0.95 }}
                         className="bg-green-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-green-700 transition-colors font-semibold"

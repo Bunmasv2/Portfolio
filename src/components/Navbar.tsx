@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar: React.FC = () => {
-    const links = ["Home", "About", "Skills", "Projects", "Contact"];
+    const links = ["Home", "About", "Skills", "Projects", "certificates", "Contact"];
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 

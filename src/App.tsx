@@ -9,10 +9,11 @@ import ThemeToggle from "./components/ThemeToggle";
 import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
 import ClockWidget from "./components/ClockWidget";
+import Certificates from "./sections/Certificates";
 
 function App() {
   return (
-    <div className="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen transition-colors duration-500">
+    <div className="bg-background text-foreground min-h-screen transition-colors duration-500">
       <ThemeToggle />
       {/* <ClockWidget /> */}
       <Navbar />
@@ -21,6 +22,7 @@ function App() {
         <About />
         <Skills />
         <Projects />
+        <Certificates />
         <Contact />
       </main>
       <ScrollToTop />

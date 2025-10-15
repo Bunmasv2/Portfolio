@@ -2,8 +2,20 @@
 
 import React from "react";
 import { motion, Variants } from "framer-motion";
+import { Users } from "lucide-react";
 
-// ======= DATA =======
+const skillDocs: Record<string, string> = {
+    ReactJS: "https://react.dev/",
+    "ASP.NET Core": "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-8.0",
+    "SQL Server": "https://learn.microsoft.com/en-us/sql/sql-server/",
+    TailwindCSS: "https://tailwindcss.com/docs",
+    Bootstrap: "https://getbootstrap.com/docs/",
+    Git: "https://git-scm.com/doc",
+    SignalR: "https://learn.microsoft.com/en-us/aspnet/core/signalr/",
+};
+
+const skillsList = ["ReactJS", "ASP.NET Core", "SQL Server", "TailwindCSS", "Bootstrap", "Git", "SignalR"];
+
 const quickInfo = [
     { label: "Position", value: "Fullstack Developer (Student)" },
     { label: "Location", value: "Vietnam" },
@@ -17,10 +29,12 @@ const timeline = [
         title: "Clinic Management System",
         description:
             "Developed a healthcare management system including patient records, appointment booking, and payment integration with VNPay & MoMo. Implemented both frontend and backend features using React, ASP.NET Core, and SQL Server.",
+        teamSize: 3,
     },
     {
         period: "02/09/2025 – Present",
         title: "Project Management App",
+        teamSize: 3,
         description:
             "Building a collaborative project management application with task tracking, team management, and real-time notifications. Focused on creating a responsive, user-friendly interface and efficient backend services.",
     },
@@ -46,6 +60,24 @@ const itemVariants: Variants = {
         transition: { duration: 0.6, ease: "easeOut" },
     },
 };
+
+const skillPillContainerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.08 },
+    },
+};
+
+const skillPillVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        transition: { duration: 0.3, ease: "easeOut" },
+    },
+};
+
 
 // ======= COMPONENT =======
 const About: React.FC = () => {
@@ -118,12 +150,20 @@ const About: React.FC = () => {
                                     >
                                         <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-background" />
                                         <div className="pb-2">
-                                            <p className="text-sm text-primary font-medium mb-1">
+                                            <p className="text-sm text-primary font-medium">
                                                 {item.period}
                                             </p>
-                                            <h4 className="text-lg font-semibold text-foreground mb-2">
-                                                {item.title}
-                                            </h4>
+                                            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
+                                                <h4 className="text-lg font-semibold text-foreground hover:text-primary dark:text-[#66FFFF] transition-colors duration-300">
+                                                    {item.title}
+                                                </h4>
+                                                <div className="flex items-center gap-3">
+                                                    <div className="flex items-center text-sm text-muted-foreground" title={`Team size: ${item.teamSize} members`}>
+                                                        <Users size={16} className="mr-1" />
+                                                        <span>{item.teamSize}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <p className="text-sm text-muted-foreground leading-relaxed">
                                                 {item.description}
                                             </p>
@@ -188,16 +228,33 @@ const About: React.FC = () => {
                         {/* Optional Skills / Tools */}
                         <div className="mt-6">
                             <h4 className="text-sm font-semibold text-foreground dark:text-indigo-300 mb-3">Skills & Tools</h4>
-                            <div className="flex flex-wrap gap-2">
-                                {["React", "ASP.NET Core", "SQL Server", "Tailwind CSS", "Bootstrap", "Git", "SignalR"].map((skill, i) => (
-                                    <span
-                                        key={i}
-                                        className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full"
+                            <motion.div
+                                className="flex flex-wrap gap-2"
+                                variants={skillPillContainerVariants}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ amount: 0.3, once: true }}
+                            >
+                                {skillsList.map((skill) => (
+                                    <motion.span
+                                        key={skill}
+                                        variants={skillPillVariants}
+                                        whileTap={{ scale: 0.95 }}
+                                        onClick={() => {
+                                            const url = skillDocs[skill];
+                                            if (url) window.open(url, "_blank");
+                                        }}
+                                        whileHover={{ scale: 1.08 }} // <-- CẬP NHẬT: Bỏ y: -2 để giống hệt trang Skills
+                                        className="px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer select-none border transition-colors
+               bg-gray-100 text-gray-800 border-gray-300
+               dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700
+               hover:bg-indigo-600 hover:text-white
+               dark:hover:bg-indigo-500"
                                     >
                                         {skill}
-                                    </span>
+                                    </motion.span>
                                 ))}
-                            </div>
+                            </motion.div>
                         </div>
                     </motion.div>
 

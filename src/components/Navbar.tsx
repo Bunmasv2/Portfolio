@@ -2,57 +2,123 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar: React.FC = () => {
-    const links = ["Home", "About", "Skills", "Projects", "certificates", "Contact"];
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
 
-    // Change navbar style when scroll
+    // --- ĐỊNH NGHĨA CÁC NHÓM LINK CHO TỪNG TRANG ---
+
+    // 1. Links cho Trang Chủ (/)
+    const homePageLinks = [
+        { name: "About", path: "#about" },
+        { name: "Skills", path: "#skills" },
+        { name: "Projects & Certificates", path: "/project" }, // Link chuyển trang
+        { name: "Blog", path: "/blog" },       // Link chuyển trang
+        { name: "Contact", path: "#contact" },
+    ];
+
+    // 2. Links cho Trang Project (/project)
+    const projectPageLinks = [
+        { name: "Home", path: "/" },             // Link chuyển trang
+        { name: "Skills", path: "#skills" },
+        { name: "Projects", path: "#projects" },
+        { name: "Certificates", path: "#certificates" },
+        { name: "Blog", path: "/blog" },         // Link chuyển trang
+        { name: "Contact", path: "#contact" },
+    ];
+
+    // 3. Links mặc định cho các trang còn lại (như /blog, /blog/detail)
+    const defaultLinks = [
+        { name: "Home", path: "/" },
+        { name: "Projects & Certificates", path: "/project" },
+        { name: "Blog", path: "/blog" },
+    ];
+
+    // --- LOGIC CHỌN NHÓM LINK ĐỂ HIỂN THỊ ---
+
+    let linksToDisplay;
+    if (location.pathname === "/") {
+        linksToDisplay = homePageLinks;
+    } else if (location.pathname === "/project") {
+        linksToDisplay = projectPageLinks;
+    } else {
+        linksToDisplay = defaultLinks;
+    }
+
+    // --- CÁC HOOK VÀ HÀM XỬ LÝ ---
+
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 40);
-        };
+        const handleScroll = () => { setScrolled(window.scrollY > 40); };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    useEffect(() => {
+        setMenuOpen(false);
+    }, [location.pathname]);
+
+    const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+        e.preventDefault();
+        const targetId = path.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+        }
+        if (menuOpen) {
+            setMenuOpen(false);
+        }
+    };
 
     return (
         <motion.nav
             initial={{ y: -60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md
-      ${scrolled ? "bg-white/80 dark:bg-gray-900/80 shadow-md py-3" : "bg-transparent py-4"}
-      flex justify-between items-center px-6 md:px-12`}
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${scrolled
+                ? "bg-white/80 dark:bg-gray-900/80 shadow-md py-3"
+                : "bg-transparent py-4"
+                } flex justify-between items-center px-6 md:px-12`}
         >
-            {/* === Logo / Brand === */}
+            {/* Logo */}
             <motion.h1
                 whileHover={{ scale: 1.05 }}
                 className="font-bold text-lg sm:text-xl text-primary dark:text-indigo-400 cursor-pointer tracking-tight"
             >
-                Nguyễn Nguyễn Thái Bảo
+                <Link to="/">Nguyễn Nguyễn Thái Bảo</Link>
             </motion.h1>
 
-            {/* === Desktop Links === */}
+            {/* Desktop Links */}
             <ul className="hidden md:flex gap-8 text-sm font-medium text-gray-700 dark:text-gray-300">
-                {links.map((link) => (
-                    <li key={link}>
-                        <a
-                            href={`#${link.toLowerCase()}`}
-                            className="hover:text-primary dark:hover:text-indigo-400 transition-colors duration-200"
-                        >
-                            {link}
-                        </a>
+                {linksToDisplay.map((link) => (
+                    <li key={link.name}>
+                        {link.path.startsWith("#") ? (
+                            <a
+                                href={link.path}
+                                onClick={(e) => handleScrollClick(e, link.path)}
+                                className="hover:text-primary dark:hover:text-indigo-400 transition-colors duration-200"
+                            >
+                                {link.name}
+                            </a>
+                        ) : (
+                            <Link
+                                to={link.path}
+                                className={`hover:text-primary dark:hover:text-indigo-400 transition-colors duration-200 ${location.pathname === link.path ? "text-primary dark:text-indigo-400 font-semibold" : ""
+                                    }`}
+                            >
+                                {link.name}
+                            </Link>
+                        )}
                     </li>
                 ))}
             </ul>
 
-            {/* === Right Section (Theme + Menu) === */}
+            {/* Theme Toggle & Mobile Menu Icon */}
             <div className="flex items-center gap-3">
                 <ThemeToggle />
-                {/* Mobile menu icon */}
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
                     className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition"
@@ -61,7 +127,7 @@ const Navbar: React.FC = () => {
                 </button>
             </div>
 
-            {/* === Mobile Menu === */}
+            {/* Mobile Menu */}
             <AnimatePresence>
                 {menuOpen && (
                     <motion.div
@@ -72,15 +138,25 @@ const Navbar: React.FC = () => {
                         className="absolute top-full left-0 w-full bg-white/95 dark:bg-gray-900/95 shadow-md backdrop-blur-md md:hidden"
                     >
                         <ul className="flex flex-col items-center py-4 gap-4 text-gray-700 dark:text-gray-300">
-                            {links.map((link) => (
-                                <li key={link}>
-                                    <a
-                                        href={`#${link.toLowerCase()}`}
-                                        onClick={() => setMenuOpen(false)}
-                                        className="block px-4 py-2 text-base hover:text-primary dark:hover:text-indigo-400 transition-colors duration-200"
-                                    >
-                                        {link}
-                                    </a>
+                            {linksToDisplay.map((link) => (
+                                <li key={link.name}>
+                                    {link.path.startsWith("#") ? (
+                                        <a
+                                            href={link.path}
+                                            onClick={(e) => handleScrollClick(e, link.path)}
+                                            className="block px-4 py-2 text-base hover:text-primary dark:hover:text-indigo-400"
+                                        >
+                                            {link.name}
+                                        </a>
+                                    ) : (
+                                        <Link
+                                            to={link.path}
+                                            className={`block px-4 py-2 text-base hover:text-primary dark:hover:text-indigo-400 ${location.pathname === link.path ? "text-primary dark:text-indigo-400 font-semibold" : ""
+                                                }`}
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    )}
                                 </li>
                             ))}
                         </ul>

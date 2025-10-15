@@ -59,7 +59,7 @@ const cardVariants: Variants = {
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6, ease: "easeOut" },
+        transition: { duration: 0.3, ease: "easeOut" },
     },
 }
 
@@ -108,9 +108,10 @@ const Skills: React.FC = () => {
                             variants={cardVariants}
                             whileHover={{
                                 y: -6,
-                                scale: 1.02,
-                                transition: { duration: 0.25, ease: "easeOut" },
+                                scale: 1.05,
+                                transition: { duration: 0.05, ease: "easeOut" },
                             }}
+
                             className="group relative bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300"
                         >
                             {/* Glow & Border hover */}

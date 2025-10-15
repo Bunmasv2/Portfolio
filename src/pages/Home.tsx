@@ -1,0 +1,29 @@
+"use client";
+import React from "react";
+import Navbar from "../components/Navbar";
+import Hero from "../sections/Hero";
+import About from "../sections/About";
+import Skills from "../sections/Skills";
+import Contact from "../sections/Contact";
+import ThemeToggle from "../components/ThemeToggle";
+import ScrollToTop from "../components/ScrollToTop";
+import Footer from "../components/Footer";
+
+const Home = () => {
+    return (
+        <div className="bg-background text-foreground min-h-screen transition-colors duration-500">
+            <ThemeToggle />
+            <Navbar />
+            <main className="max-w-6xl mx-auto px-6 sm:px-8">
+                <Hero />
+                <About />
+                <Skills />
+                <Contact />
+            </main>
+            <ScrollToTop />
+            <Footer />
+        </div>
+    );
+};
+
+export default Home;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const ThemeToggle: React.FC = () => {
     const [theme, setTheme] = useState(
-        localStorage.getItem("theme") || "light"
+        localStorage.getItem("theme") || "dark"
     );
 
     useEffect(() => {

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, Variants } from "framer-motion";
-import { projects, techDocs } from "../data";
+import { projects, techDocs } from "../data/projectData";
 import { ExternalLink, Github } from "lucide-react";
 
 const containerVariants: Variants = {

@@ -9,3 +9,33 @@ html {
 body {
   @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300;
 }
+@layer base {
+  /* Tùy chỉnh cho khối <pre> chứa code */
+  .prose pre,
+  .prose-xl pre {
+    @apply bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl shadow-sm overflow-x-auto;
+    @apply p-6 text-sm;
+  }
+
+  /* Tùy chỉnh cho thẻ <code> bên trong <pre> (Không thay đổi) */
+  .prose pre code,
+  .prose-xl pre code {
+    @apply bg-transparent border-none p-0;
+  }
+
+  /* Tùy chỉnh cho code inline (nằm trong câu văn) 
+    🔥 FIX HERE: Thêm :not(:where(pre *)) để nó không áp dụng cho code bên trong <pre>
+  */
+  .prose :where(code):not(:where(pre *)):not(:where([class~="not-prose"] *)) {
+    @apply font-mono text-sm px-1.5 py-0.5 rounded-md
+           bg-zinc-200 text-zinc-800
+           dark:bg-zinc-700 dark:text-zinc-100
+           break-words leading-snug;
+  }
+
+  /* Tùy chỉnh cho bảng (Không thay đổi) */
+  .prose :where(tbody th):not(:where([class~="not-prose"] *)),
+  .prose :where(tbody td):not(:where([class~="not-prose"] *)) {
+    @apply text-zinc-800 dark:text-zinc-200;
+  }
+}

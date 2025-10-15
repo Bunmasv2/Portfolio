@@ -79,8 +79,7 @@ const Footer: React.FC = () => {
                     {/* Dấu gạch phân cách */}
                     <div className="h-5 w-px bg-border"></div>
 
-                    {/* ✅ FIX: Thêm lại nút Scroll-to-Top */}
-                    <motion.button
+                    {/* <motion.button
                         onClick={scrollToTop}
                         aria-label="Scroll to top"
                         whileHover={{ y: -2, scale: 1.1 }}
@@ -88,7 +87,7 @@ const Footer: React.FC = () => {
                         className="text-muted-foreground hover:text-primary transition-colors duration-300"
                     >
                         <ArrowUp size={20} />
-                    </motion.button>
+                    </motion.button> */}
                 </div>
             </div>
         </motion.footer>

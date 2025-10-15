@@ -6,6 +6,7 @@ export interface Project {
   github: string
   demo?: string
   technologies: string[]
+  features: string[]
   role: string
   description: string
   image: string
@@ -31,6 +32,12 @@ export const projects: Project[] = [
       "SignalR",
       "Cloudinary"
     ],
+    features: [
+      "Appointment booking by doctor and schedule",
+      "Role-based access control (Admin, Doctor, Patient)",
+      "Secure JWT authentication with Identity",
+      "VNPay integration for online payments",
+    ],
     role: "Developed RESTful APIs with modular architecture, implemented authentication and authorization using ASP.NET Core Identity, and integrated Cloudinary for file and image management. Built real-time task updates, notifications, and member presence tracking with SignalR. Designed responsive NextJS + Tailwind interface for sprint, task, and user management.",
     description: "A real-time project and task management system that supports team collaboration, sprint planning, drag-and-drop task organization, and file sharing with Cloudinary integration. It provides instant updates, role-based access control, and real-time communication for better workflow management.",
     image: "/images/project/Project2.png"
@@ -51,6 +58,12 @@ export const projects: Project[] = [
       "Google Cloud",
       "VNPay",
       "MoMo"
+    ],
+    features: [ // <--- THÊM MỤC NÀY
+      "Full project lifecycle: Backlog → Sprint → Task",
+      "Dynamic role and permission system",
+      "Real-time updates with SignalR",
+      "Task assignment and instant notifications",
     ],
     role: "Developed RESTful APIs for managing users, appointments, and medical records. Implemented JWT authentication, role-based authorization, and email OTP verification. Integrated payment gateways (VNPay and MoMo) and automated appointment confirmation emails. Designed responsive UI for patients, doctors, and admin roles using React Bootstrap.",
     description: "A comprehensive clinic management platform that handles appointment scheduling, doctor management, patient records, and secure payment processing. The system improves clinic efficiency through automated workflows and cloud-based data storage.",

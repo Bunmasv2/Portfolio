@@ -3,7 +3,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { projects, techDocs } from "../data/projectData";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, CheckCircle2 } from "lucide-react";
 
 const containerVariants: Variants = {
     hidden: {},
@@ -58,12 +58,12 @@ const Projects: React.FC = () => {
                             key={project.id}
                             variants={itemVariants}
                             whileHover={!isMobile ? { scale: 1.03, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" } : {}}
-                            onClick={() => {
-                                if (project.github) {
-                                    window.open(project.github, "_blank");
-                                }
-                            }}
-                            className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-300 cursor-pointer flex flex-col"
+                            // onClick={() => {
+                            //     if (project.github) {
+                            //         window.open(project.github, "_blank");
+                            //     }
+                            // }}
+                            className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-300 flex flex-col"
                         >
                             {/* Image */}
                             <div className="relative aspect-video overflow-hidden bg-muted">
@@ -77,9 +77,17 @@ const Projects: React.FC = () => {
 
                             {/* Content */}
                             <div className="p-8 flex flex-col flex-grow">
-                                <h3 className="text-2xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                                    {project.title}{" "}
-                                    <span className="text-sm text-muted-foreground">({project.duration})</span>
+                                <h3 className="text-2xl font-semibold text-foreground mb-2 transition-colors">
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={(e) => e.stopPropagation()}
+                                        className="flex items-center gap-2 text-foreground group-hover:text-cyan-400 transition-colors"
+                                    >
+                                        {project.title}
+                                        <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    </a>
                                 </h3>
                                 <p className="text-sm text-muted-foreground mb-4">👥 Team size: {project.teamSize}</p>
                                 <p className="text-muted-foreground leading-relaxed mb-4">
@@ -91,6 +99,23 @@ const Projects: React.FC = () => {
                                     <span className="font-semibold">Role: </span>
                                     {project.role}
                                 </p>
+
+
+                                {/* --- Features --- */}
+                                {project.features && project.features.length > 0 && (
+                                    <div className="my-4">
+                                        <h4 className="text-sm font-semibold text-foreground mb-3">Key Features:</h4>
+                                        <ul className="space-y-2">
+                                            {project.features.map((feature, index) => (
+                                                <li key={index} className="flex items-start gap-2.5">
+                                                    <CheckCircle2 className="w-4 h-4 mt-1 text-green-500 flex-shrink-0" />
+                                                    <span className="text-muted-foreground text-sm">{feature}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+
 
                                 {/* Tech Stack */}
                                 <div className="flex flex-wrap gap-2 mb-6">

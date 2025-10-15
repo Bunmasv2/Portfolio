@@ -17,7 +17,7 @@ export const postsData: BlogPost[] = [
   {
     title: "1️⃣ Giới thiệu ngôn ngữ lập trình Java – Bước đầu cho người mới",
     slug: "gioi-thieu-java-co-ban",
-    date: "2025-01-12",
+    date: "2025-10-15",
     image: "/images/posts/1.jpg",
     tags: ["Java", "OOP", "Beginner", "Programming"],
     excerpt:
@@ -117,7 +117,7 @@ export const postsData: BlogPost[] = [
   {
     title: "2️⃣ Cấu trúc chương trình Java & cú pháp cơ bản",
     slug: "cau-truc-chuong-trinh-java",
-    date: "2025-01-20",
+    date: "2025-10-15",
     image: "/images/posts/2.jpg",
     tags: ["Java", "Syntax", "Beginner", "Structure"],
     excerpt:
@@ -229,7 +229,7 @@ public class HelloWorld { // Khai báo một class có tên HelloWorld
   {
     title: "3️⃣ Lập trình hướng đối tượng trong Java (OOP)",
     slug: "lap-trinh-huong-doi-tuong-java",
-    date: "2025-02-05",
+    date: "2025-10-15",
     image: "/images/posts/3.jpg",
     tags: ["Java", "OOP", "Class", "Object"],
     excerpt:
@@ -416,14 +416,14 @@ public class Main {
   },
 
   {
-  title: "4️⃣ JavaScript Essentials 1 – Làm quen với ngôn ngữ của Web",
-  slug: "javascript-essentials-1",
-  date: "2025-03-01",
-  image: "/images/posts/4.png",
-  tags: ["JavaScript", "Frontend", "DOM", "WebDev", "Beginner"],
-  excerpt:
-    "Bước chân vào thế giới của JavaScript – ngôn ngữ không thể thiếu để tạo ra các trang web động, tương tác và sống động.",
-  content: `
+    title: "4️⃣ JavaScript Essentials 1 – Làm quen với ngôn ngữ của Web",
+    slug: "javascript-essentials-1",
+    date: "2025-10-15",
+    image: "/images/posts/4.png",
+    tags: ["JavaScript", "Frontend", "DOM", "WebDev", "Beginner"],
+    excerpt:
+      "Bước chân vào thế giới của JavaScript – ngôn ngữ không thể thiếu để tạo ra các trang web động, tương tác và sống động.",
+    content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Chào mừng bạn đến với <strong class="text-blue-600 dark:text-blue-400">JavaScript</strong>
@@ -518,28 +518,28 @@ console.log("JavaScript đã tải thành công!");
       </p>
     </div>
   `,
-  link: "https://www.netacad.com/vi/courses/javascript-essentials-1",
-  relatedLinks: [
-    {
-      title: "Khóa học JavaScript Essentials 1 – NetAcad",
-      url: "https://www.netacad.com/vi/courses/javascript-essentials-1",
-    },
-    {
-      title: "Learn JavaScript – MDN Web Docs",
-      url: "https://developer.mozilla.org/vi/docs/Learn/JavaScript",
-    },
-  ],
-},
+    link: "https://www.netacad.com/vi/courses/javascript-essentials-1",
+    relatedLinks: [
+      {
+        title: "Khóa học JavaScript Essentials 1 – NetAcad",
+        url: "https://www.netacad.com/vi/courses/javascript-essentials-1",
+      },
+      {
+        title: "Learn JavaScript – MDN Web Docs",
+        url: "https://developer.mozilla.org/vi/docs/Learn/JavaScript",
+      },
+    ],
+  },
 
   {
-  title: "5️⃣ Biến, kiểu dữ liệu và toán tử trong JavaScript",
-  slug: "bien-va-kieu-du-lieu-javascript",
-  date: "2025-03-10",
-  image: "/images/posts/5.jpg",
-  tags: ["JavaScript", "Variables", "Basics", "DataTypes", "Operators"],
-  excerpt:
-    "Hiểu rõ cách lưu trữ, quản lý dữ liệu với biến (var, let, const), các kiểu dữ liệu cơ bản và cách thực hiện tính toán trong JavaScript.",
-  content: `
+    title: "5️⃣ Biến, kiểu dữ liệu và toán tử trong JavaScript",
+    slug: "bien-va-kieu-du-lieu-javascript",
+    date: "2025-10-15",
+    image: "/images/posts/5.jpg",
+    tags: ["JavaScript", "Variables", "Basics", "DataTypes", "Operators"],
+    excerpt:
+      "Hiểu rõ cách lưu trữ, quản lý dữ liệu với biến (var, let, const), các kiểu dữ liệu cơ bản và cách thực hiện tính toán trong JavaScript.",
+    content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Trong lập trình, dữ liệu là cốt lõi. Để xử lý dữ liệu, chúng ta cần các
@@ -655,31 +655,31 @@ let colors = ["red", "green", "blue"];
       <p>Việc hiểu rõ về biến, kiểu dữ liệu và toán tử là nền tảng vững chắc để bạn xây dựng bất kỳ logic phức tạp nào trong JavaScript. Hãy dành thời gian thực hành với các ví dụ để củng cố kiến thức của mình.</p>
     </div>
   `,
-  link: "https://www.w3schools.com/js/js_variables.asp",
-  relatedLinks: [
-    {
-      title: "JS Variables – W3Schools",
-      url: "https://www.w3schools.com/js/js_variables.asp",
-    },
-    {
-      title: "JavaScript Data Types – MDN Web Docs",
-      url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures",
-    },
-    {
-      title: "JavaScript Operators – W3Schools",
-      url: "https://www.w3schools.com/js/js_operators.asp",
-    },
-  ],
-},
- {
-  title: "6️⃣ Hàm và Callback trong JavaScript",
-  slug: "ham-va-callback-javascript",
-  date: "2025-03-18",
-  image: "/images/posts/6.jpg",
-  tags: ["JavaScript", "Functions", "Callback", "Asynchronous"],
-  excerpt:
-    "Làm chủ sức mạnh của các hàm tái sử dụng và hiểu cách Callback giúp quản lý luồng bất đồng bộ trong JavaScript.",
-  content: `
+    link: "https://www.w3schools.com/js/js_variables.asp",
+    relatedLinks: [
+      {
+        title: "JS Variables – W3Schools",
+        url: "https://www.w3schools.com/js/js_variables.asp",
+      },
+      {
+        title: "JavaScript Data Types – MDN Web Docs",
+        url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures",
+      },
+      {
+        title: "JavaScript Operators – W3Schools",
+        url: "https://www.w3schools.com/js/js_operators.asp",
+      },
+    ],
+  },
+  {
+    title: "6️⃣ Hàm và Callback trong JavaScript",
+    slug: "ham-va-callback-javascript",
+    date: "2025-10-15",
+    image: "/images/posts/6.jpg",
+    tags: ["JavaScript", "Functions", "Callback", "Asynchronous"],
+    excerpt:
+      "Làm chủ sức mạnh của các hàm tái sử dụng và hiểu cách Callback giúp quản lý luồng bất đồng bộ trong JavaScript.",
+    content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Trong JavaScript, <strong class="text-blue-600 dark:text-blue-400">hàm (functions)</strong>
@@ -769,38 +769,38 @@ processData("xin chào", displayResult);
       <p>Hàm và Callback là hai khái niệm không thể thiếu khi làm việc với JavaScript. Nắm vững chúng sẽ giúp bạn viết code hiệu quả hơn và đặt nền móng vững chắc để tiếp cận các kỹ thuật bất đồng bộ hiện đại hơn.</p>
     </div>
   `,
-  link: "https://developer.mozilla.org/vi/docs/Glossary/Callback_function",
-  relatedLinks: [
-    {
-      title: "Callback Functions – MDN Web Docs",
-      url: "https://developer.mozilla.org/en-US/docs/Glossary/Callback_function",
-    },
-    {
-      title: "JavaScript Functions – W3Schools",
-      url: "https://www.w3schools.com/js/js_functions.asp",
-    },
-    {
-      title: "Arrow Functions – MDN Web Docs",
-      url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions",
-    },
-  ],
-},
-{
-  title: "7️⃣ Promise và Async/Await – Làm chủ bất đồng bộ",
-  slug: "promise-async-await",
-  date: "2025-04-02",
-  image: "/images/posts/7.jpg",
-  tags: [
-    "JavaScript",
-    "Async",
-    "Promise",
-    "Await",
-    "Frontend",
-    "Concurrency",
-  ],
-  excerpt:
-    "Nâng tầm kỹ năng JavaScript với Promise và Async/Await, giúp xử lý các tác vụ bất đồng bộ một cách gọn gàng, dễ đọc và dễ bảo trì.",
-  content: `
+    link: "https://developer.mozilla.org/vi/docs/Glossary/Callback_function",
+    relatedLinks: [
+      {
+        title: "Callback Functions – MDN Web Docs",
+        url: "https://developer.mozilla.org/en-US/docs/Glossary/Callback_function",
+      },
+      {
+        title: "JavaScript Functions – W3Schools",
+        url: "https://www.w3schools.com/js/js_functions.asp",
+      },
+      {
+        title: "Arrow Functions – MDN Web Docs",
+        url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions",
+      },
+    ],
+  },
+  {
+    title: "7️⃣ Promise và Async/Await – Làm chủ bất đồng bộ",
+    slug: "promise-async-await",
+    date: "2025-10-15",
+    image: "/images/posts/7.jpg",
+    tags: [
+      "JavaScript",
+      "Async",
+      "Promise",
+      "Await",
+      "Frontend",
+      "Concurrency",
+    ],
+    excerpt:
+      "Nâng tầm kỹ năng JavaScript với Promise và Async/Await, giúp xử lý các tác vụ bất đồng bộ một cách gọn gàng, dễ đọc và dễ bảo trì.",
+    content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Trong thế giới phát triển web hiện đại, các tác vụ bất đồng bộ là không thể tránh khỏi. JavaScript cung cấp các công cụ mạnh mẽ là
@@ -932,32 +932,32 @@ runGreeting();
       <p>Promise và Async/Await là những công cụ không thể thiếu cho bất kỳ lập trình viên JavaScript nào. Chúng giúp bạn quản lý sự phức tạp của các tác vụ bất đồng bộ, từ đó tạo ra code sạch hơn và hiệu quả hơn.</p>
     </div>
   `,
-  link: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous",
-  relatedLinks: [
-    {
-      title: "Async JavaScript – MDN Web Docs",
-      url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous",
-    },
-    {
-      title: "Promises – JavaScript.info",
-      url: "https://javascript.info/promise-basics",
-    },
-    {
-      title: "Async/await – JavaScript.info",
-      url: "https://javascript.info/async-await",
-    },
-  ],
-},
+    link: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous",
+    relatedLinks: [
+      {
+        title: "Async JavaScript – MDN Web Docs",
+        url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous",
+      },
+      {
+        title: "Promises – JavaScript.info",
+        url: "https://javascript.info/promise-basics",
+      },
+      {
+        title: "Async/await – JavaScript.info",
+        url: "https://javascript.info/async-await",
+      },
+    ],
+  },
 
-{
-  title: "8️⃣ So sánh Java và JavaScript – Cùng tên, khác thế giới",
-  slug: "java-vs-javascript",
-  date: "2025-04-15",
-  image: "/images/posts/8.webp",
-  tags: ["Java", "JavaScript", "Comparison", "Programming", "Concepts"],
-  excerpt:
-    "Hai ngôn ngữ quyền lực mang tên gọi tương tự nhưng có lịch sử, mục đích và triết lý hoạt động hoàn toàn khác biệt. Khám phá những điểm giống và khác nhau cốt lõi.",
-  content: `
+  {
+    title: "8️⃣ So sánh Java và JavaScript – Cùng tên, khác thế giới",
+    slug: "java-vs-javascript",
+    date: "2025-10-15",
+    image: "/images/posts/8.webp",
+    tags: ["Java", "JavaScript", "Comparison", "Programming", "Concepts"],
+    excerpt:
+      "Hai ngôn ngữ quyền lực mang tên gọi tương tự nhưng có lịch sử, mục đích và triết lý hoạt động hoàn toàn khác biệt. Khám phá những điểm giống và khác nhau cốt lõi.",
+    content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         <strong class="text-blue-600 dark:text-blue-400">Java</strong> và
@@ -1039,36 +1039,36 @@ runGreeting();
       <p>Việc hiểu rõ cả hai ngôn ngữ này sẽ mở ra rất nhiều cơ hội trong sự nghiệp lập trình của bạn.</p>
     </div>
   `,
-  link: "https://www.geeksforgeeks.org/difference-between-java-and-javascript/",
-  relatedLinks: [
-    {
-      title: "Java vs JavaScript – GeeksforGeeks",
-      url: "https://www.geeksforgeeks.org/difference-between-java-and-javascript/",
-    },
-    {
-      title: "Java vs JavaScript – FreeCodeCamp",
-      url: "https://www.freecodecamp.org/news/java-vs-javascript/",
-    },
-  ],
-},
+    link: "https://www.geeksforgeeks.org/difference-between-java-and-javascript/",
+    relatedLinks: [
+      {
+        title: "Java vs JavaScript – GeeksforGeeks",
+        url: "https://www.geeksforgeeks.org/difference-between-java-and-javascript/",
+      },
+      {
+        title: "Java vs JavaScript – FreeCodeCamp",
+        url: "https://www.freecodecamp.org/news/java-vs-javascript/",
+      },
+    ],
+  },
 
-{
-  title: "9️⃣ Mini Project: Kết hợp Java và JavaScript",
-  slug: "project-java-javascript",
-  date: "2025-05-01",
-  image: "/images/posts/9.jpg",
-  tags: [
-    "Fullstack",
-    "Java",
-    "React",
-    "Project",
-    "API",
-    "Frontend",
-    "Backend",
-  ],
-  excerpt:
-    "Thực hành xây dựng một ứng dụng full-stack đơn giản: backend với Java (Spring Boot REST API) và frontend với JavaScript (ReactJS) để hiểu cách chúng giao tiếp.",
-  content: `
+  {
+    title: "9️⃣ Mini Project: Kết hợp Java và JavaScript",
+    slug: "project-java-javascript",
+    date: "2025-10-16",
+    image: "/images/posts/9.jpg",
+    tags: [
+      "Fullstack",
+      "Java",
+      "React",
+      "Project",
+      "API",
+      "Frontend",
+      "Backend",
+    ],
+    excerpt:
+      "Thực hành xây dựng một ứng dụng full-stack đơn giản: backend với Java (Spring Boot REST API) và frontend với JavaScript (ReactJS) để hiểu cách chúng giao tiếp.",
+    content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Bạn đã học về sức mạnh của <strong class="text-blue-600 dark:text-blue-400">Java</strong> ở backend và sự linh hoạt của <strong class="text-blue-600 dark:text-blue-400">JavaScript</strong> ở frontend. Giờ là lúc kết hợp chúng lại! Project này sẽ hướng dẫn bạn xây dựng một ứng dụng full-stack hoàn chỉnh, nơi một client ReactJS giao tiếp với một API RESTful được viết bằng Spring Boot.
@@ -1251,32 +1251,32 @@ export default App;
       <p>Project này là một ví dụ tuyệt vời về cách Java và JavaScript phối hợp với nhau. Để nâng cao hơn, bạn có thể thêm chức năng <strong>Cập nhật</strong> (PUT), <strong>Xóa</strong> (DELETE), kết nối cơ sở dữ liệu và cải thiện giao diện người dùng.</p>
     </div>
   `,
-  link: "https://spring.io/guides/gs/rest-service/",
-  relatedLinks: [
-    {
-      title: "Spring Boot REST Service – Spring.io",
-      url: "https://spring.io/guides/gs/rest-service/",
-    },
-    {
-      title: "React Hooks – Official Docs",
-      url: "https://react.dev/reference/react",
-    },
-    {
-      title: "Fetch API – MDN Web Docs",
-      url: "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
-    },
-  ],
-},
+    link: "https://spring.io/guides/gs/rest-service/",
+    relatedLinks: [
+      {
+        title: "Spring Boot REST Service – Spring.io",
+        url: "https://spring.io/guides/gs/rest-service/",
+      },
+      {
+        title: "React Hooks – Official Docs",
+        url: "https://react.dev/reference/react",
+      },
+      {
+        title: "Fetch API – MDN Web Docs",
+        url: "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+      },
+    ],
+  },
 
   {
-  title: "🔟 JavaScript OOP: Prototype và Class",
-  slug: "javascript-essentials-2-oop",
-  date: "2025-05-15",
-  image: "/images/posts/10.jpg",
-  tags: ["JavaScript", "OOP", "Prototype", "JSE2", "ES6"],
-  excerpt:
-    "Đi sâu vào bản chất OOP của JavaScript: từ cơ chế prototype độc đáo đến cú pháp `class` hiện đại của ES6, giúp bạn xây dựng code có cấu trúc và tái sử dụng.",
-  content: `
+    title: "🔟 JavaScript OOP: Prototype và Class",
+    slug: "javascript-essentials-2-oop",
+    date: "2025-10-16",
+    image: "/images/posts/10.jpg",
+    tags: ["JavaScript", "OOP", "Prototype", "JSE2", "ES6"],
+    excerpt:
+      "Đi sâu vào bản chất OOP của JavaScript: từ cơ chế prototype độc đáo đến cú pháp `class` hiện đại của ES6, giúp bạn xây dựng code có cấu trúc và tái sử dụng.",
+    content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Khác với các ngôn ngữ hướng đối tượng truyền thống như Java, <strong class="text-blue-600 dark:text-blue-400">JavaScript</strong> có một cách tiếp cận OOP độc đáo thông qua cơ chế <strong class="text-blue-600 dark:text-blue-400">prototype</strong>. Bài viết này sẽ giúp bạn hiểu sâu về nền tảng này và cách cú pháp <code>class</code> hiện đại của ES6 chỉ là một lớp "bọc đường" tiện lợi hơn.
@@ -1359,33 +1359,33 @@ myDog.speak(); // "Buddy sủa: Gâu gâu!"
       <p>Nắm vững OOP trong JavaScript, dù theo cách nào, cũng sẽ giúp bạn xây dựng các ứng dụng phức tạp với cấu trúc rõ ràng, dễ dàng tái sử dụng và mở rộng.</p>
     </div>
   `,
-  link: "https://www.netacad.com/courses/programming/javascript-essentials-2",
-  relatedLinks: [
-    {
-      title: "Inheritance and the prototype chain - MDN",
-      url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain",
-    },
-    {
-      title: "JavaScript Classes - W3Schools",
-      url: "https://www.w3schools.com/js/js_classes.asp",
-    },
-    {
-      title: "Classes - JavaScript.info",
-      url: "https://javascript.info/class",
-    },
-  ],
-},
-  
+    link: "https://www.netacad.com/courses/programming/javascript-essentials-2",
+    relatedLinks: [
+      {
+        title: "Inheritance and the prototype chain - MDN",
+        url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain",
+      },
+      {
+        title: "JavaScript Classes - W3Schools",
+        url: "https://www.w3schools.com/js/js_classes.asp",
+      },
+      {
+        title: "Classes - JavaScript.info",
+        url: "https://javascript.info/class",
+      },
+    ],
+  },
+
   // Chỉ cần cập nhật content cho bài viết số 11
   {
-  title: "🌐 Networking Basics – Quy trình gửi dữ liệu qua mạng",
-  slug: "networking-basics-osi-tcp-ip",
-  date: "2025-06-01",
-  image: "/images/posts/11.png",
-  tags: ["Networking", "OSI", "TCP/IP", "Basics", "Infrastructure"],
-  excerpt:
-    "Khám phá hai mô hình mạng máy tính nền tảng nhất: OSI 7 lớp và TCP/IP. Đây là kiến thức cốt lõi cho mọi lập trình viên để hiểu cách dữ liệu di chuyển trên Internet.",
-  content: `
+    title: "🌐 Networking Basics – Quy trình gửi dữ liệu qua mạng",
+    slug: "networking-basics-osi-tcp-ip",
+    date: "2025-10-16",
+    image: "/images/posts/11.png",
+    tags: ["Networking", "OSI", "TCP/IP", "Basics", "Infrastructure"],
+    excerpt:
+      "Khám phá hai mô hình mạng máy tính nền tảng nhất: OSI 7 lớp và TCP/IP. Đây là kiến thức cốt lõi cho mọi lập trình viên để hiểu cách dữ liệu di chuyển trên Internet.",
+    content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Bạn đã bao giờ tự hỏi điều gì thực sự xảy ra khi bạn gõ một địa chỉ web và nhấn Enter chưa? Dữ liệu không chỉ "bay" một cách thần kỳ qua Internet. Nó tuân theo một quy trình đóng gói và vận chuyển nghiêm ngặt, giống như cách bạn gửi một bưu kiện vậy.
@@ -1447,27 +1447,27 @@ myDog.speak(); // "Buddy sủa: Gâu gâu!"
         </ul>
     </div>
   `,
-  link: "https://www.netacad.com/courses/networking/networking-basics",
-  relatedLinks: [
-    {
-      title: "What is OSI Model? - Layers of OSI Model",
-      url: "https://www.geeksforgeeks.org/computer-networks/open-systems-interconnection-model-osi/",
-    },
-    {
-      title: "TCP/IP Model - GeeksforGeeks",
-      url: "https://www.geeksforgeeks.org/tcp-ip-model/",
-    },
-  ],
-},
- {
-  title: "1️⃣2️⃣ JavaScript: Xử lý lỗi chuyên nghiệp với try...catch",
-  slug: "javascript-error-handling",
-  date: "2025-06-12",
-  image: "/images/posts/12.jpg",
-  tags: ["JavaScript", "Error Handling", "JSE2", "Exception", "try-catch"],
-  excerpt:
-    "Làm thế nào để chương trình không bị 'sập' khi gặp lỗi? Học cách sử dụng `try...catch...finally` để bắt và xử lý ngoại lệ một cách chuyên nghiệp, giúp ứng dụng của bạn mạnh mẽ và thân thiện hơn.",
-  content: `
+    link: "https://www.netacad.com/courses/networking/networking-basics",
+    relatedLinks: [
+      {
+        title: "What is OSI Model? - Layers of OSI Model",
+        url: "https://www.geeksforgeeks.org/computer-networks/open-systems-interconnection-model-osi/",
+      },
+      {
+        title: "TCP/IP Model - GeeksforGeeks",
+        url: "https://www.geeksforgeeks.org/tcp-ip-model/",
+      },
+    ],
+  },
+  {
+    title: "1️⃣2️⃣ JavaScript: Xử lý lỗi chuyên nghiệp với try...catch",
+    slug: "javascript-error-handling",
+    date: "2025-10-16",
+    image: "/images/posts/12.jpg",
+    tags: ["JavaScript", "Error Handling", "JSE2", "Exception", "try-catch"],
+    excerpt:
+      "Làm thế nào để chương trình không bị 'sập' khi gặp lỗi? Học cách sử dụng `try...catch...finally` để bắt và xử lý ngoại lệ một cách chuyên nghiệp, giúp ứng dụng của bạn mạnh mẽ và thân thiện hơn.",
+    content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Lỗi (error) là một phần không thể tránh khỏi trong lập trình. Thay vì để một lỗi không mong muốn làm "sập" toàn bộ ứng dụng, JavaScript cung cấp một cơ chế mạnh mẽ để quản lý chúng: khối lệnh <strong class="text-blue-600 dark:text-blue-400">try...catch...finally</strong>. Bài viết này sẽ giúp bạn viết code an toàn và đáng tin cậy hơn.
@@ -1551,20 +1551,20 @@ parseUser('{"name": "Alice"}'); // Output: Lỗi xử lý dữ liệu: Dữ li�
       <p>Xử lý lỗi là một kỹ năng thiết yếu của một lập trình viên chuyên nghiệp. Việc sử dụng thành thạo <code>try...catch</code> và <code>throw</code> không chỉ giúp ứng dụng của bạn ổn định hơn mà còn cải thiện đáng kể trải nghiệm của người dùng.</p>
     </div>
   `,
-  link: "https://www.netacad.com/courses/programming/javascript-essentials-2",
-  relatedLinks: [
-    {
-      title: "try...catch - MDN Web Docs",
-      url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch",
-    },
-    {
-      title: "JavaScript Errors - W3Schools",
-      url: "https://www.w3schools.com/js/js_errors.asp",
-    },
-    {
-      title: "Error handling, 'try...catch' - JavaScript.info",
-      url: "https://javascript.info/try-catch",
-    },
-  ],
-},
+    link: "https://www.netacad.com/courses/programming/javascript-essentials-2",
+    relatedLinks: [
+      {
+        title: "try...catch - MDN Web Docs",
+        url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch",
+      },
+      {
+        title: "JavaScript Errors - W3Schools",
+        url: "https://www.w3schools.com/js/js_errors.asp",
+      },
+      {
+        title: "Error handling, 'try...catch' - JavaScript.info",
+        url: "https://javascript.info/try-catch",
+      },
+    ],
+  },
 ];

@@ -40,6 +40,11 @@ const Certificates: React.FC = () => {
             image: "/certificates/NetworkingBasics.png",
             pdf: "/certificates/NetworkingBasics.pdf",
         },
+        {
+            name: "JavaScript Essentials 2",
+            image: "/certificates/JavaScriptEssentials2.png",
+            pdf: "/certificates/JavaScriptEssentials2.pdf",
+        },
     ];
 
     const [displayedCertificates, setDisplayedCertificates] = useState<Certificate[]>([

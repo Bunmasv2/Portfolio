@@ -10,7 +10,7 @@ import ScrollToTop from "../../components/ScrollToTop"; // Giả sử bạn có 
 const BlogPage = () => {
     return (
         <div className="bg-background text-foreground min-h-screen transition-colors duration-300">
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
             <Navbar />
             <main className="max-w-7xl mx-auto px-6 py-24">
                 {/* Header Section */}

@@ -63,7 +63,7 @@ const SoftSkills: React.FC = () => {
                     variants={cardVariants}
                     className="mb-16 text-center"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-4 transition-colors duration-300 group-hover:text-indigo-400">
+                    <h2 className="text-4xl md:text-5xl font-bold text-foreground dark:text-indigo-500  mb-4 transition-colors duration-300 group-hover:text-indigo-400">
                         {t.title}
                     </h2>
                     <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed transition-colors duration-300">

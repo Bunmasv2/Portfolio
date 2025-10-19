@@ -57,7 +57,7 @@ const Skills: React.FC = () => {
                     viewport={{ amount: 0.2 }}
                     variants={cardVariants} // Dùng cardVariants cho hiệu ứng trượt lên
                 >
-                    <h2 className=" text-4xl md:text-5xl font-bold mb-4 text-black dark:text-white transition-colors duration-300 group-hover:text-indigo-400 ">
+                    <h2 className=" text-4xl md:text-5xl font-bold mb-4 text-black dark:text-indigo-500  transition-colors duration-300 group-hover:text-indigo-400 ">
                         {t.title}
                     </h2>
                     <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl leading-relaxed mx-auto transition-colors duration-300">

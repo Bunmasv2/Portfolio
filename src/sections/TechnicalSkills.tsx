@@ -8,7 +8,7 @@ import { useLanguage } from "../context/LanguageContext";
 // ========================
 const translations = {
     en: {
-        title: "Skills & Technologies",
+        title: "Technologies & Tools",
         subtitle: "A comprehensive toolkit for building modern, scalable web applications",
         categories: {
             Frontend: "Frontend",
@@ -17,7 +17,7 @@ const translations = {
         },
     },
     vi: {
-        title: "Kỹ năng & Công nghệ",
+        title: "Công nghệ  & Công cụ",
         subtitle: "Bộ công cụ toàn diện để xây dựng các ứng dụng web hiện đại và có khả năng mở rộng",
         categories: {
             Frontend: "Giao diện người dùng (Frontend)",
@@ -100,12 +100,12 @@ const skillVariants: Variants = {
 
 const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
-const Skills: React.FC = () => {
+const TechnicalSkills: React.FC = () => {
     const { lang } = useLanguage();
     const t = translations[lang];
 
     return (
-        <section id="skills" className="py-24 px-6 bg-background transition-colors duration-300">
+        <section id="technicalSkills" className="py-24 px-6 bg-background transition-colors duration-300">
             <div className="max-w-6xl mx-auto">
                 {/* ===== Header ===== */}
                 <motion.div
@@ -205,4 +205,4 @@ const Skills: React.FC = () => {
     )
 }
 
-export default Skills
+export default TechnicalSkills

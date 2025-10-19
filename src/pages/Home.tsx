@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../sections/Hero";
 import About from "../sections/About";
-import Skills from "../sections/Skills";
+import TechnicalSkills from "../sections/TechnicalSkills";
 import Contact from "../sections/Contact";
 import ThemeToggle from "../components/ThemeToggle";
 import ScrollToTop from "../components/ScrollToTop";
@@ -11,6 +11,8 @@ import Footer from "../components/Footer";
 import LanguageToggle from "../components/LanguageToggle";
 import SoftSkills from "../sections/SoftSkill";
 import { LanguageProvider } from "../context/LanguageContext"
+import Skill from "../sections/Skill";
+
 
 const Home = () => {
     return (
@@ -22,7 +24,8 @@ const Home = () => {
             <main className="max-w-6xl mx-auto px-6 sm:px-8">
                 <Hero />
                 <About />
-                <Skills />
+                <Skill />
+                <TechnicalSkills />
                 <SoftSkills />
                 <Contact />
             </main>

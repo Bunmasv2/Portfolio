@@ -223,11 +223,9 @@ const Contact: React.FC = () => {
                                     href={s.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    variants={itemVariants}
-                                    whileHover={{ scale: 1.15 }}
+                                    whileHover={{ scale: 1.15, boxShadow: "0 0 10px rgba(0,200,255,0.4)" }}
                                     whileTap={{ scale: 0.9 }}
-                                    className={`p-3 rounded-full bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200 ${s.link.startsWith("tel:") ? "hover:bg-green-500 hover:text-white" : ""
-                                        }`}
+                                    className={`p-3 rounded-full bg-muted text-foreground transition-all duration-200 ${s.link.startsWith("tel:") ? "hover:bg-green-500 hover:text-white" : "hover:bg-primary hover:text-primary-foreground"}`}
                                 >
                                     {s.icon}
                                 </motion.a>

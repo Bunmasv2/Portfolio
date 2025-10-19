@@ -12,6 +12,8 @@ const translations = {
         homePageLinks: [
             { name: "About", path: "#about" },
             { name: "Skills", path: "#skills" },
+            { name: "TechnicalSkills", path: "#technicalSkills" },
+            { name: "SoftSkills", path: "#softSkills" },
             { name: "Projects & Certificates", path: "/project" },
             { name: "Blog", path: "/blog" },
             { name: "Contact", path: "#contact" },
@@ -19,6 +21,7 @@ const translations = {
         projectPageLinks: [
             { name: "Home", path: "/" },
             { name: "Skills", path: "#skills" },
+            { name: "TechnicalSkills", path: "#technicalSkills" },
             { name: "Projects", path: "#projects" },
             { name: "Certificates", path: "#certificates" },
             { name: "Blog", path: "/blog" },
@@ -34,6 +37,8 @@ const translations = {
         homePageLinks: [
             { name: "Giới Thiệu", path: "#about" },
             { name: "Kỹ Năng", path: "#skills" },
+            { name: "Kỹ năng kỹ thuật", path: "#technicalSkills" },
+            { name: "Kỹ Năng Mềm", path: "#softSkills" },
             { name: "Dự Án & Chứng Chỉ", path: "/project" },
             { name: "Bài Viết", path: "/blog" },
             { name: "Liên Hệ", path: "#contact" },
@@ -41,6 +46,7 @@ const translations = {
         projectPageLinks: [
             { name: "Trang Chủ", path: "/" },
             { name: "Kỹ Năng", path: "#skills" },
+            { name: "Kỹ năng kỹ thuật", path: "#technicalSkills" },
             { name: "Dự Án", path: "#projects" },
             { name: "Chứng Chỉ", path: "#certificates" },
             { name: "Bài Viết", path: "/blog" },
@@ -67,6 +73,8 @@ const Navbar: React.FC = () => {
     const homePageLinks = [
         { name: "About", path: "#about" },
         { name: "Skills", path: "#skills" },
+        { name: "Soft-Skills", path: "#soft-skills" },
+        { name: "TechnicalSkills", path: "#technicalSkills" },
         { name: "Projects & Certificates", path: "/project" }, // Link chuyển trang
         { name: "Blog", path: "/blog" },       // Link chuyển trang
         { name: "Contact", path: "#contact" },
@@ -76,6 +84,7 @@ const Navbar: React.FC = () => {
     const projectPageLinks = [
         { name: "Home", path: "/" },             // Link chuyển trang
         { name: "Skills", path: "#skills" },
+        { name: "TechnicalSkills", path: "#technicalSkills" },
         { name: "Projects", path: "#projects" },
         { name: "Certificates", path: "#certificates" },
         { name: "Blog", path: "/blog" },         // Link chuyển trang

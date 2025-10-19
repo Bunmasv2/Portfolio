@@ -3,12 +3,61 @@
 import React, { useEffect, useState } from "react";
 import { Download } from "lucide-react";
 import { motion, Variants } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 
 interface Certificate {
     name: string;
     image: string;
     pdf: string;
 }
+
+// ======= TRANSLATIONS & DATA =======
+const translations = {
+    en: {
+        title: "Certificates",
+        subtitle: "Hover to preview, click to download your verified certificate.",
+        downloadButton: "PDF",
+        certificateList: [
+            {
+                name: "JavaScript Essentials 1",
+                image: "/certificates/JavaScriptEssentials1.png",
+                pdf: "/certificates/JavaScriptEssentials1.pdf",
+            },
+            {
+                name: "Networking Basics",
+                image: "/certificates/NetworkingBasics.png",
+                pdf: "/certificates/NetworkingBasics.pdf",
+            },
+            {
+                name: "JavaScript Essentials 2",
+                image: "/certificates/JavaScriptEssentials2.png",
+                pdf: "/certificates/JavaScriptEssentials2.pdf",
+            },
+        ],
+    },
+    vi: {
+        title: "Chứng Chỉ",
+        subtitle: "Di chuột để xem trước, nhấp để tải xuống chứng chỉ đã xác thực của bạn.",
+        downloadButton: "Tải PDF",
+        certificateList: [
+            {
+                name: "JavaScript Cơ Bản 1",
+                image: "/certificates/JavaScriptEssentials1.png",
+                pdf: "/certificates/JavaScriptEssentials1.pdf",
+            },
+            {
+                name: "Kiến Thức Mạng Căn Bản",
+                image: "/certificates/NetworkingBasics.png",
+                pdf: "/certificates/NetworkingBasics.pdf",
+            },
+            {
+                name: "JavaScript Cơ Bản 2",
+                image: "/certificates/JavaScriptEssentials2.png",
+                pdf: "/certificates/JavaScriptEssentials2.pdf",
+            },
+        ],
+    },
+};
 
 // ======= ANIMATION VARIANTS =======
 const containerVariants: Variants = {
@@ -29,23 +78,9 @@ const itemVariants: Variants = {
 };
 
 const Certificates: React.FC = () => {
-    const certificates: Certificate[] = [
-        {
-            name: "JavaScript Essentials 1",
-            image: "/certificates/JavaScriptEssentials1.png",
-            pdf: "/certificates/JavaScriptEssentials1.pdf",
-        },
-        {
-            name: "Networking Basics",
-            image: "/certificates/NetworkingBasics.png",
-            pdf: "/certificates/NetworkingBasics.pdf",
-        },
-        {
-            name: "JavaScript Essentials 2",
-            image: "/certificates/JavaScriptEssentials2.png",
-            pdf: "/certificates/JavaScriptEssentials2.pdf",
-        },
-    ];
+    const { lang } = useLanguage(); // 👈 2. Lấy ngôn ngữ hiện tại
+    const t = translations[lang];
+    const certificates = t.certificateList;
 
     const [displayedCertificates, setDisplayedCertificates] = useState<Certificate[]>([
         ...certificates,
@@ -55,11 +90,15 @@ const Certificates: React.FC = () => {
 
     // 🔁 Mỗi 10 giây tự động nhân thêm mảng một lần (để luôn “vô hạn”)
     useEffect(() => {
+        // Nếu chưa có certificate nào thì không chạy interval
+        if (certificates.length === 0) return;
+
         const interval = setInterval(() => {
             setDisplayedCertificates((prev) => [...prev, ...certificates]);
         }, 10000);
+
         return () => clearInterval(interval);
-    }, []);
+    }, [certificates]);
 
     const handleDownload = (pdf: string, name: string) => {
         const link = document.createElement("a");
@@ -82,10 +121,10 @@ const Certificates: React.FC = () => {
                 className="max-w-7xl mx-auto text-center mb-16"
             >
                 <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-4 dark:text-indigo-500">
-                    Certificates
+                    {t.title}
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Hover to preview, click to download your verified certificate.
+                    {t.subtitle}
                 </p>
             </motion.div>
 
@@ -140,7 +179,7 @@ const Certificates: React.FC = () => {
                       "
                                         >
                                             <Download className="w-4 h-4" />
-                                            PDF
+                                            {t.downloadButton}
                                         </motion.button>
                                     </div>
                                 </div>

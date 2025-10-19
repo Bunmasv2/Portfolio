@@ -4,8 +4,36 @@ import React, { useEffect, useState } from "react";
 import { motion, useAnimation, Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ArrowDown, Github } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+
+// 🌍 TRANSLATIONS
+const translations = {
+    en: {
+        greeting: "👋 Hi, I'm",
+        name: "Nguyen Nguyen Thai Bao",
+        role: "Fullstack Developer",
+        description:
+            "A passionate Fullstack Developer crafting scalable web apps using React & .NET Core.",
+        viewProjects: "View Projects",
+        github: "GitHub",
+        downloadCV: "Download CV",
+    },
+    vi: {
+        greeting: "👋 Xin chào, tôi là",
+        name: "Nguyễn Nguyễn Thái Bảo",
+        role: "Lập trình viên Fullstack",
+        description:
+            "Một lập trình viên Fullstack đam mê phát triển các ứng dụng web hiệu quả bằng React và .NET Core.",
+        viewProjects: "Xem Dự Án",
+        github: "GitHub",
+        downloadCV: "Tải CV",
+    },
+};
 
 const Hero: React.FC = () => {
+    const { lang } = useLanguage();
+    const t = translations[lang];
+
     const [isMobile, setIsMobile] = useState(false);
 
     // 🧠 Kiểm tra kích thước màn hình
@@ -21,18 +49,15 @@ const Hero: React.FC = () => {
     // 🎬 Điều khiển animation khi scroll vào/ra vùng nhìn
     const controls = useAnimation();
     const [ref, inView] = useInView({
-        threshold: 0.3, // xuất hiện 30% là kích hoạt
+        threshold: 0.3,
     });
 
     useEffect(() => {
-        if (inView) {
-            controls.start("visible");
-        } else {
-            controls.start("hidden"); // fade out khi scroll ra khỏi vùng nhìn
-        }
+        if (inView) controls.start("visible");
+        else controls.start("hidden");
     }, [controls, inView]);
 
-    // ✨ Khai báo các variants
+    // ✨ Khai báo animation variants
     const heroVariants: Variants = {
         hidden: { opacity: 0, y: 60 },
         visible: {
@@ -80,23 +105,15 @@ const Hero: React.FC = () => {
                     variants={itemVariants}
                     className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight"
                 >
-                    👋 Hi, I'm{" "}
-                    <span className="text-indigo-600 dark:text-indigo-400">
-                        Nguyễn Nguyễn Thái Bảo
-                    </span>
+                    {t.greeting}{" "}
+                    <span className="text-indigo-600 dark:text-indigo-400">{t.name}</span>
                 </motion.h1>
 
                 <motion.p
                     variants={itemVariants}
                     className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed"
                 >
-                    A passionate{" "}
-                    <span className="text-indigo-500 font-medium">
-                        Fullstack Developer
-                    </span>{" "}
-                    crafting scalable web apps using{" "}
-                    <span className="text-indigo-500 font-medium">React</span> &{" "}
-                    <span className="text-indigo-500 font-medium">.NET Core</span>.
+                    {t.description}
                 </motion.p>
 
                 <motion.div
@@ -109,7 +126,7 @@ const Hero: React.FC = () => {
                         whileTap={{ scale: 0.95 }}
                         className="bg-indigo-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-indigo-700 transition-colors font-semibold"
                     >
-                        View Projects
+                        {t.viewProjects}
                     </motion.a>
 
                     <motion.a
@@ -119,7 +136,7 @@ const Hero: React.FC = () => {
                         whileTap={{ scale: 0.95 }}
                         className="border border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400 px-6 py-3 rounded-xl font-semibold hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 transition-colors flex items-center gap-2"
                     >
-                        <Github className="w-5 h-5" /> GitHub
+                        <Github className="w-5 h-5" /> {t.github}
                     </motion.a>
 
                     <motion.a
@@ -129,7 +146,7 @@ const Hero: React.FC = () => {
                         whileTap={{ scale: 0.95 }}
                         className="bg-green-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-green-700 transition-colors font-semibold"
                     >
-                        Download CV
+                        {t.downloadCV}
                     </motion.a>
                 </motion.div>
             </motion.div>

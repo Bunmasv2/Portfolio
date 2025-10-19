@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
+import LanguageToggle from "./LanguageToggle";
 
 const Navbar: React.FC = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -119,6 +120,7 @@ const Navbar: React.FC = () => {
             {/* Theme Toggle & Mobile Menu Icon */}
             <div className="flex items-center gap-3">
                 <ThemeToggle />
+                <LanguageToggle />
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
                     className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition"

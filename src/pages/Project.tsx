@@ -8,21 +8,25 @@ import Contact from "../sections/Contact";
 import ThemeToggle from "../components/ThemeToggle";
 import ScrollToTop from "../components/ScrollToTop";
 import Footer from "../components/Footer";
+import { LanguageProvider } from "../context/LanguageContext"
+
 
 const ProjectPage = () => {
     return (
-        <div className="bg-background text-foreground min-h-screen transition-colors duration-500">
-            <ThemeToggle />
-            <Navbar />
-            <main className="max-w-6xl mx-auto px-6 sm:px-8">
-                <Skills />
-                <Projects />
-                <Certificates />
-                <Contact />
-            </main>
-            <ScrollToTop />
-            <Footer />
-        </div>
+        <LanguageProvider>
+            <div className="bg-background text-foreground min-h-screen transition-colors duration-500">
+                <ThemeToggle />
+                <Navbar />
+                <main className="max-w-6xl mx-auto px-6 sm:px-8">
+                    <Skills />
+                    <Projects />
+                    <Certificates />
+                    <Contact />
+                </main>
+                <ScrollToTop />
+                <Footer />
+            </div>
+        </LanguageProvider>
     );
 };
 

@@ -2,6 +2,32 @@
 
 import React from "react"
 import { motion, Variants } from "framer-motion"
+import { useLanguage } from "../context/LanguageContext";
+
+// TRANSLATIONS
+// ========================
+const translations = {
+    en: {
+        title: "Skills & Technologies",
+        subtitle: "A comprehensive toolkit for building modern, scalable web applications",
+        categories: {
+            Frontend: "Frontend",
+            "Backend & Database": "Backend & Database",
+            "Tools & Cloud": "Tools & Cloud",
+        },
+    },
+    vi: {
+        title: "Kỹ năng & Công nghệ",
+        subtitle: "Bộ công cụ toàn diện để xây dựng các ứng dụng web hiện đại và có khả năng mở rộng",
+        categories: {
+            Frontend: "Giao diện người dùng (Frontend)",
+            "Backend & Database": "Xử lý & Cơ sở dữ liệu (Backend & Database)",
+            "Tools & Cloud": "Công cụ & Dịch vụ đám mây (Tools & Cloud)",
+        },
+    },
+};
+
+// ===== Skill Categories =====
 
 const skillCategories = {
     Frontend: ["ReactJS", "Next.js", "TailwindCSS", "Bootstrap", "JavaScript", "HTML", "CSS"],
@@ -75,6 +101,9 @@ const skillVariants: Variants = {
 const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
 const Skills: React.FC = () => {
+    const { lang } = useLanguage();
+    const t = translations[lang];
+
     return (
         <section id="skills" className="py-24 px-6 bg-background transition-colors duration-300">
             <div className="max-w-6xl mx-auto">
@@ -87,10 +116,10 @@ const Skills: React.FC = () => {
                     className="mb-16 text-center"
                 >
                     <h2 className="text-4xl md:text-5xl font-bold text-foreground dark:text-indigo-400 mb-4">
-                        Skills & Technologies
+                        {t.title}
                     </h2>
                     <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed mx-auto">
-                        A comprehensive toolkit for building modern, scalable web applications
+                        {t.subtitle}
                     </p>
                 </motion.div>
 
@@ -135,7 +164,7 @@ const Skills: React.FC = () => {
                             <div className="relative z-10">
                                 <h3 className="text-xl font-semibold text-foreground dark:text-indigo-300 mb-6 flex items-center gap-2">
                                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                    {category}
+                                    {t.categories[category as keyof typeof t.categories] || category}
                                 </h3>
 
                                 <motion.div

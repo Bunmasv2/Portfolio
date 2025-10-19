@@ -2,8 +2,13 @@
 
 import React from "react";
 import { motion, Variants } from "framer-motion";
-import { projects, techDocs } from "../data/projectData";
 import { ExternalLink, Github, CheckCircle2 } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+
+// Import dữ liệu theo ngôn ngữ
+import { projects as enProjects } from "../data/projects.en";
+import { projects as viProjects } from "../data/projects.vi";
+import { techDocs } from "../data/projectData";
 
 const containerVariants: Variants = {
     hidden: {},
@@ -24,6 +29,9 @@ const itemVariants: Variants = {
 };
 
 const Projects: React.FC = () => {
+    const { lang } = useLanguage();
+    const projects = lang === "en" ? enProjects : viProjects;
+
     const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
     return (
@@ -38,10 +46,12 @@ const Projects: React.FC = () => {
                     className="mb-16 text-center"
                 >
                     <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-4 dark:text-indigo-500 text-balance">
-                        Featured Projects
+                        {lang === "en" ? "Featured Projects" : "Dự án nổi bật"}
                     </h2>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        A collection of technical projects showcasing full-stack development, system architecture, and modern web technologies.
+                        {lang === "en"
+                            ? "A collection of technical projects showcasing full-stack development, system architecture, and modern web technologies."
+                            : "Tổng hợp các dự án kỹ thuật thể hiện kỹ năng full-stack, kiến trúc hệ thống và công nghệ web hiện đại."}
                     </p>
                 </motion.div>
 
@@ -58,11 +68,6 @@ const Projects: React.FC = () => {
                             key={project.id}
                             variants={itemVariants}
                             whileHover={!isMobile ? { scale: 1.03, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" } : {}}
-                            // onClick={() => {
-                            //     if (project.github) {
-                            //         window.open(project.github, "_blank");
-                            //     }
-                            // }}
                             className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-300 flex flex-col"
                         >
                             {/* Image */}
@@ -89,22 +94,26 @@ const Projects: React.FC = () => {
                                         <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     </a>
                                 </h3>
-                                <p className="text-sm text-muted-foreground mb-4">👥 Team size: {project.teamSize}</p>
+                                <p className="text-sm text-muted-foreground mb-4">
+                                    👥 {lang === "en" ? "Team size" : "Số thành viên"}: {project.teamSize}
+                                </p>
+
                                 <p className="text-muted-foreground leading-relaxed mb-4">
-                                    Description: {project.description}
+                                    {lang === "en" ? "Description:" : "Mô tả:"} {project.description}
                                 </p>
 
                                 {/* Role */}
                                 <p className="text-sm text-foreground font-medium mb-4">
-                                    <span className="font-semibold">Role: </span>
+                                    <span className="font-semibold">{lang === "en" ? "Role:" : "Vai trò:"} </span>
                                     {project.role}
                                 </p>
 
-
-                                {/* --- Features --- */}
+                                {/* Features */}
                                 {project.features && project.features.length > 0 && (
                                     <div className="my-4">
-                                        <h4 className="text-sm font-semibold text-foreground mb-3">Key Features:</h4>
+                                        <h4 className="text-sm font-semibold text-foreground mb-3">
+                                            {lang === "en" ? "Key Features:" : "Tính năng nổi bật:"}
+                                        </h4>
                                         <ul className="space-y-2">
                                             {project.features.map((feature, index) => (
                                                 <li key={index} className="flex items-start gap-2.5">
@@ -115,7 +124,6 @@ const Projects: React.FC = () => {
                                         </ul>
                                     </div>
                                 )}
-
 
                                 {/* Tech Stack */}
                                 <div className="flex flex-wrap gap-2 mb-6">
@@ -136,22 +144,21 @@ const Projects: React.FC = () => {
                                                 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700
                                                 hover:bg-indigo-600 hover:text-white
                                                 dark:hover:bg-indigo-500
-                                                ${isMobile ? "visited:text-inherit focus:outline-none focus:text-inherit active:text-inherit dark:visited:text-inherit dark:focus:text-inherit dark:active:text-inherit" : ""}
-                                                `}
+                                                ${isMobile ? "visited:text-inherit focus:outline-none focus:text-inherit active:text-inherit dark:visited:text-inherit dark:focus:text-inherit dark:active:text-inherit" : ""}`}
                                         >
                                             {tech}
                                         </motion.span>
                                     ))}
                                 </div>
 
-                                {/* Links — cố định cuối card */}
+                                {/* Links */}
                                 <div className="flex gap-4 mt-auto pt-4 border-t border-border">
                                     <a
                                         href={project.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center gap-1 text-sm text-primary hover:underline"
-                                        onClick={(e) => e.stopPropagation()} // tránh click toàn card
+                                        onClick={(e) => e.stopPropagation()}
                                     >
                                         <Github className="w-4 h-4" /> Github
                                     </a>

@@ -3,6 +3,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { Facebook, Github, Phone, ArrowUp } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 // ======= ANIMATIONS =======
 const footerVariants: Variants = {
@@ -33,8 +34,21 @@ const socials = [
     },
 ];
 
+// 👈 2. Tạo đối tượng translations
+const translations = {
+    en: {
+        copyright: `© ${new Date().getFullYear()} Bao Nguyen. Built with React & Tailwind CSS.`,
+    },
+    vi: {
+        copyright: `© ${new Date().getFullYear()} Bao Nguyen. Xây dựng với React & Tailwind CSS.`,
+    },
+};
+
 // ======= COMPONENT =======
 const Footer: React.FC = () => {
+    const { lang } = useLanguage();
+    const t = translations[lang];
+
     const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
     const scrollToTop = () => {
@@ -52,7 +66,7 @@ const Footer: React.FC = () => {
             <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 px-6 py-6">
                 {/* Copyright */}
                 <p className="text-sm text-muted-foreground text-center sm:text-left">
-                    © {new Date().getFullYear()} Bao Nguyen. Built with React & Tailwind CSS.
+                    {t.copyright}
                 </p>
 
                 {/* Social Icons & Scroll-to-Top Button */}

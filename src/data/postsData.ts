@@ -13,16 +13,20 @@ export interface BlogPost {
   }[];
 }
 
-export const postsData: BlogPost[] = [
-  {
-    title: "1️⃣ Giới thiệu ngôn ngữ lập trình Java – Bước đầu cho người mới",
-    slug: "gioi-thieu-java-co-ban",
-    date: "2025-10-15",
-    image: "/images/posts/1.jpg",
-    tags: ["Java", "OOP", "Beginner", "Programming"],
-    excerpt:
-      "Hành trình khám phá Java – từ ngôn ngữ 'Write Once, Run Anywhere' đến nền tảng của Android và hệ thống doanh nghiệp lớn.",
-    content: `
+export const postsData: Record<'en' | 'vi', BlogPost[]> = {
+  // =================================================================
+  // =============== 🇺🇸 ENGLISH BLOG POSTS ===========================
+  // =================================================================
+  vi: [
+    {
+      title: "1️⃣ Giới thiệu ngôn ngữ lập trình Java – Bước đầu cho người mới",
+      slug: "gioi-thieu-java-co-ban",
+      date: "2025-10-15",
+      image: "/images/posts/1.jpg",
+      tags: ["Java", "OOP", "Beginner", "Programming"],
+      excerpt:
+        "Hành trình khám phá Java – từ ngôn ngữ 'Write Once, Run Anywhere' đến nền tảng của Android và hệ thống doanh nghiệp lớn.",
+      content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Chào mừng bạn đến với thế giới của 
@@ -97,32 +101,32 @@ export const postsData: BlogPost[] = [
       </p>
     </div>
   `,
-    link: "https://www.netacad.com/vi/courses/java-programming",
-    relatedLinks: [
-      {
-        title: "Khóa học Java cơ bản – NetAcad",
-        url: "https://www.netacad.com/vi/courses/java-programming",
-      },
-      {
-        title: "Lập trình hướng đối tượng với Java – W3Schools",
-        url: "https://www.w3schools.com/java/java_oop.asp",
-      },
-      {
-        title: "Spring Boot Tutorial – Baeldung",
-        url: "https://www.baeldung.com/spring-boot",
-      },
-    ],
-  },
+      link: "https://www.netacad.com/vi/courses/java-programming",
+      relatedLinks: [
+        {
+          title: "Khóa học Java cơ bản – NetAcad",
+          url: "https://www.netacad.com/vi/courses/java-programming",
+        },
+        {
+          title: "Lập trình hướng đối tượng với Java – W3Schools",
+          url: "https://www.w3schools.com/java/java_oop.asp",
+        },
+        {
+          title: "Spring Boot Tutorial – Baeldung",
+          url: "https://www.baeldung.com/spring-boot",
+        },
+      ],
+    },
 
-  {
-    title: "2️⃣ Cấu trúc chương trình Java & cú pháp cơ bản",
-    slug: "cau-truc-chuong-trinh-java",
-    date: "2025-10-15",
-    image: "/images/posts/2.jpg",
-    tags: ["Java", "Syntax", "Beginner", "Structure"],
-    excerpt:
-      "Nắm vững những viên gạch đầu tiên của Java: từ cách một chương trình được tổ chức đến cú pháp viết code cơ bản nhất.",
-    content: `
+    {
+      title: "2️⃣ Cấu trúc chương trình Java & cú pháp cơ bản",
+      slug: "cau-truc-chuong-trinh-java",
+      date: "2025-10-15",
+      image: "/images/posts/2.jpg",
+      tags: ["Java", "Syntax", "Beginner", "Structure"],
+      excerpt:
+        "Nắm vững những viên gạch đầu tiên của Java: từ cách một chương trình được tổ chức đến cú pháp viết code cơ bản nhất.",
+      content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Để bắt đầu viết mã <strong class="text-blue-600 dark:text-blue-400">Java</strong>, điều quan trọng là bạn phải hiểu cấu trúc cơ bản của một chương trình Java và những quy tắc cú pháp cần tuân thủ.  
@@ -214,27 +218,27 @@ public class HelloWorld { // Khai báo một class có tên HelloWorld
       <p>Hãy tiếp tục khám phá để xây dựng những ứng dụng Java mạnh mẽ đầu tiên!</p>
     </div>
   `,
-    link: "https://www.w3schools.com/java/java_syntax.asp",
-    relatedLinks: [
-      {
-        title: "Java Syntax – W3Schools",
-        url: "https://www.w3schools.com/java/java_syntax.asp",
-      },
-      {
-        title: "Java Basics – GeeksforGeeks",
-        url: "https://www.geeksforgeeks.org/java-programming-basics/",
-      },
-    ],
-  },
-  {
-    title: "3️⃣ Lập trình hướng đối tượng trong Java (OOP)",
-    slug: "lap-trinh-huong-doi-tuong-java",
-    date: "2025-10-15",
-    image: "/images/posts/3.jpg",
-    tags: ["Java", "OOP", "Class", "Object"],
-    excerpt:
-      "Khám phá 4 trụ cột cơ bản của OOP (Encapsulation, Inheritance, Polymorphism, Abstraction) và cách Java hiện thực hóa chúng qua ví dụ cụ thể.",
-    content: `
+      link: "https://www.w3schools.com/java/java_syntax.asp",
+      relatedLinks: [
+        {
+          title: "Java Syntax – W3Schools",
+          url: "https://www.w3schools.com/java/java_syntax.asp",
+        },
+        {
+          title: "Java Basics – GeeksforGeeks",
+          url: "https://www.geeksforgeeks.org/java-programming-basics/",
+        },
+      ],
+    },
+    {
+      title: "3️⃣ Lập trình hướng đối tượng trong Java (OOP)",
+      slug: "lap-trinh-huong-doi-tuong-java",
+      date: "2025-10-15",
+      image: "/images/posts/3.jpg",
+      tags: ["Java", "OOP", "Class", "Object"],
+      excerpt:
+        "Khám phá 4 trụ cột cơ bản của OOP (Encapsulation, Inheritance, Polymorphism, Abstraction) và cách Java hiện thực hóa chúng qua ví dụ cụ thể.",
+      content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Lập trình hướng đối tượng
@@ -402,28 +406,28 @@ public class Main {
       <p>Hiểu vững OOP giúp bạn viết code dễ đọc, dễ mở rộng và bảo trì. Đây là nền tảng để xây dựng ứng dụng Java quy mô lớn, bền vững và hiệu quả. Hãy thực hành thật nhiều để biến OOP thành bản năng của bạn!</p>
     </div>
   `,
-    link: "https://www.netacad.com/vi/courses/java-programming",
-    relatedLinks: [
-      {
-        title: "Java OOP Concepts – W3Schools",
-        url: "https://www.w3schools.com/java/java_oop.asp",
-      },
-      {
-        title: "Inheritance in Java – GeeksforGeeks",
-        url: "https://www.geeksforgeeks.org/inheritance-in-java/",
-      },
-    ],
-  },
+      link: "https://www.netacad.com/vi/courses/java-programming",
+      relatedLinks: [
+        {
+          title: "Java OOP Concepts – W3Schools",
+          url: "https://www.w3schools.com/java/java_oop.asp",
+        },
+        {
+          title: "Inheritance in Java – GeeksforGeeks",
+          url: "https://www.geeksforgeeks.org/inheritance-in-java/",
+        },
+      ],
+    },
 
-  {
-    title: "4️⃣ JavaScript Essentials 1 – Làm quen với ngôn ngữ của Web",
-    slug: "javascript-essentials-1",
-    date: "2025-10-15",
-    image: "/images/posts/4.png",
-    tags: ["JavaScript", "Frontend", "DOM", "WebDev", "Beginner"],
-    excerpt:
-      "Bước chân vào thế giới của JavaScript – ngôn ngữ không thể thiếu để tạo ra các trang web động, tương tác và sống động.",
-    content: `
+    {
+      title: "4️⃣ JavaScript Essentials 1 – Làm quen với ngôn ngữ của Web",
+      slug: "javascript-essentials-1",
+      date: "2025-10-15",
+      image: "/images/posts/4.png",
+      tags: ["JavaScript", "Frontend", "DOM", "WebDev", "Beginner"],
+      excerpt:
+        "Bước chân vào thế giới của JavaScript – ngôn ngữ không thể thiếu để tạo ra các trang web động, tương tác và sống động.",
+      content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Chào mừng bạn đến với <strong class="text-blue-600 dark:text-blue-400">JavaScript</strong>
@@ -518,28 +522,28 @@ console.log("JavaScript đã tải thành công!");
       </p>
     </div>
   `,
-    link: "https://www.netacad.com/vi/courses/javascript-essentials-1",
-    relatedLinks: [
-      {
-        title: "Khóa học JavaScript Essentials 1 – NetAcad",
-        url: "https://www.netacad.com/vi/courses/javascript-essentials-1",
-      },
-      {
-        title: "Learn JavaScript – MDN Web Docs",
-        url: "https://developer.mozilla.org/vi/docs/Learn/JavaScript",
-      },
-    ],
-  },
+      link: "https://www.netacad.com/vi/courses/javascript-essentials-1",
+      relatedLinks: [
+        {
+          title: "Khóa học JavaScript Essentials 1 – NetAcad",
+          url: "https://www.netacad.com/vi/courses/javascript-essentials-1",
+        },
+        {
+          title: "Learn JavaScript – MDN Web Docs",
+          url: "https://developer.mozilla.org/vi/docs/Learn/JavaScript",
+        },
+      ],
+    },
 
-  {
-    title: "5️⃣ Biến, kiểu dữ liệu và toán tử trong JavaScript",
-    slug: "bien-va-kieu-du-lieu-javascript",
-    date: "2025-10-15",
-    image: "/images/posts/5.jpg",
-    tags: ["JavaScript", "Variables", "Basics", "DataTypes", "Operators"],
-    excerpt:
-      "Hiểu rõ cách lưu trữ, quản lý dữ liệu với biến (var, let, const), các kiểu dữ liệu cơ bản và cách thực hiện tính toán trong JavaScript.",
-    content: `
+    {
+      title: "5️⃣ Biến, kiểu dữ liệu và toán tử trong JavaScript",
+      slug: "bien-va-kieu-du-lieu-javascript",
+      date: "2025-10-15",
+      image: "/images/posts/5.jpg",
+      tags: ["JavaScript", "Variables", "Basics", "DataTypes", "Operators"],
+      excerpt:
+        "Hiểu rõ cách lưu trữ, quản lý dữ liệu với biến (var, let, const), các kiểu dữ liệu cơ bản và cách thực hiện tính toán trong JavaScript.",
+      content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Trong lập trình, dữ liệu là cốt lõi. Để xử lý dữ liệu, chúng ta cần các
@@ -655,31 +659,31 @@ let colors = ["red", "green", "blue"];
       <p>Việc hiểu rõ về biến, kiểu dữ liệu và toán tử là nền tảng vững chắc để bạn xây dựng bất kỳ logic phức tạp nào trong JavaScript. Hãy dành thời gian thực hành với các ví dụ để củng cố kiến thức của mình.</p>
     </div>
   `,
-    link: "https://www.w3schools.com/js/js_variables.asp",
-    relatedLinks: [
-      {
-        title: "JS Variables – W3Schools",
-        url: "https://www.w3schools.com/js/js_variables.asp",
-      },
-      {
-        title: "JavaScript Data Types – MDN Web Docs",
-        url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures",
-      },
-      {
-        title: "JavaScript Operators – W3Schools",
-        url: "https://www.w3schools.com/js/js_operators.asp",
-      },
-    ],
-  },
-  {
-    title: "6️⃣ Hàm và Callback trong JavaScript",
-    slug: "ham-va-callback-javascript",
-    date: "2025-10-15",
-    image: "/images/posts/6.jpg",
-    tags: ["JavaScript", "Functions", "Callback", "Asynchronous"],
-    excerpt:
-      "Làm chủ sức mạnh của các hàm tái sử dụng và hiểu cách Callback giúp quản lý luồng bất đồng bộ trong JavaScript.",
-    content: `
+      link: "https://www.w3schools.com/js/js_variables.asp",
+      relatedLinks: [
+        {
+          title: "JS Variables – W3Schools",
+          url: "https://www.w3schools.com/js/js_variables.asp",
+        },
+        {
+          title: "JavaScript Data Types – MDN Web Docs",
+          url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures",
+        },
+        {
+          title: "JavaScript Operators – W3Schools",
+          url: "https://www.w3schools.com/js/js_operators.asp",
+        },
+      ],
+    },
+    {
+      title: "6️⃣ Hàm và Callback trong JavaScript",
+      slug: "ham-va-callback-javascript",
+      date: "2025-10-15",
+      image: "/images/posts/6.jpg",
+      tags: ["JavaScript", "Functions", "Callback", "Asynchronous"],
+      excerpt:
+        "Làm chủ sức mạnh của các hàm tái sử dụng và hiểu cách Callback giúp quản lý luồng bất đồng bộ trong JavaScript.",
+      content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Trong JavaScript, <strong class="text-blue-600 dark:text-blue-400">hàm (functions)</strong>
@@ -769,38 +773,38 @@ processData("xin chào", displayResult);
       <p>Hàm và Callback là hai khái niệm không thể thiếu khi làm việc với JavaScript. Nắm vững chúng sẽ giúp bạn viết code hiệu quả hơn và đặt nền móng vững chắc để tiếp cận các kỹ thuật bất đồng bộ hiện đại hơn.</p>
     </div>
   `,
-    link: "https://developer.mozilla.org/vi/docs/Glossary/Callback_function",
-    relatedLinks: [
-      {
-        title: "Callback Functions – MDN Web Docs",
-        url: "https://developer.mozilla.org/en-US/docs/Glossary/Callback_function",
-      },
-      {
-        title: "JavaScript Functions – W3Schools",
-        url: "https://www.w3schools.com/js/js_functions.asp",
-      },
-      {
-        title: "Arrow Functions – MDN Web Docs",
-        url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions",
-      },
-    ],
-  },
-  {
-    title: "7️⃣ Promise và Async/Await – Làm chủ bất đồng bộ",
-    slug: "promise-async-await",
-    date: "2025-10-15",
-    image: "/images/posts/7.jpg",
-    tags: [
-      "JavaScript",
-      "Async",
-      "Promise",
-      "Await",
-      "Frontend",
-      "Concurrency",
-    ],
-    excerpt:
-      "Nâng tầm kỹ năng JavaScript với Promise và Async/Await, giúp xử lý các tác vụ bất đồng bộ một cách gọn gàng, dễ đọc và dễ bảo trì.",
-    content: `
+      link: "https://developer.mozilla.org/vi/docs/Glossary/Callback_function",
+      relatedLinks: [
+        {
+          title: "Callback Functions – MDN Web Docs",
+          url: "https://developer.mozilla.org/en-US/docs/Glossary/Callback_function",
+        },
+        {
+          title: "JavaScript Functions – W3Schools",
+          url: "https://www.w3schools.com/js/js_functions.asp",
+        },
+        {
+          title: "Arrow Functions – MDN Web Docs",
+          url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions",
+        },
+      ],
+    },
+    {
+      title: "7️⃣ Promise và Async/Await – Làm chủ bất đồng bộ",
+      slug: "promise-async-await",
+      date: "2025-10-15",
+      image: "/images/posts/7.jpg",
+      tags: [
+        "JavaScript",
+        "Async",
+        "Promise",
+        "Await",
+        "Frontend",
+        "Concurrency",
+      ],
+      excerpt:
+        "Nâng tầm kỹ năng JavaScript với Promise và Async/Await, giúp xử lý các tác vụ bất đồng bộ một cách gọn gàng, dễ đọc và dễ bảo trì.",
+      content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Trong thế giới phát triển web hiện đại, các tác vụ bất đồng bộ là không thể tránh khỏi. JavaScript cung cấp các công cụ mạnh mẽ là
@@ -932,32 +936,32 @@ runGreeting();
       <p>Promise và Async/Await là những công cụ không thể thiếu cho bất kỳ lập trình viên JavaScript nào. Chúng giúp bạn quản lý sự phức tạp của các tác vụ bất đồng bộ, từ đó tạo ra code sạch hơn và hiệu quả hơn.</p>
     </div>
   `,
-    link: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous",
-    relatedLinks: [
-      {
-        title: "Async JavaScript – MDN Web Docs",
-        url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous",
-      },
-      {
-        title: "Promises – JavaScript.info",
-        url: "https://javascript.info/promise-basics",
-      },
-      {
-        title: "Async/await – JavaScript.info",
-        url: "https://javascript.info/async-await",
-      },
-    ],
-  },
+      link: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous",
+      relatedLinks: [
+        {
+          title: "Async JavaScript – MDN Web Docs",
+          url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous",
+        },
+        {
+          title: "Promises – JavaScript.info",
+          url: "https://javascript.info/promise-basics",
+        },
+        {
+          title: "Async/await – JavaScript.info",
+          url: "https://javascript.info/async-await",
+        },
+      ],
+    },
 
-  {
-    title: "8️⃣ So sánh Java và JavaScript – Cùng tên, khác thế giới",
-    slug: "java-vs-javascript",
-    date: "2025-10-15",
-    image: "/images/posts/8.webp",
-    tags: ["Java", "JavaScript", "Comparison", "Programming", "Concepts"],
-    excerpt:
-      "Hai ngôn ngữ quyền lực mang tên gọi tương tự nhưng có lịch sử, mục đích và triết lý hoạt động hoàn toàn khác biệt. Khám phá những điểm giống và khác nhau cốt lõi.",
-    content: `
+    {
+      title: "8️⃣ So sánh Java và JavaScript – Cùng tên, khác thế giới",
+      slug: "java-vs-javascript",
+      date: "2025-10-15",
+      image: "/images/posts/8.webp",
+      tags: ["Java", "JavaScript", "Comparison", "Programming", "Concepts"],
+      excerpt:
+        "Hai ngôn ngữ quyền lực mang tên gọi tương tự nhưng có lịch sử, mục đích và triết lý hoạt động hoàn toàn khác biệt. Khám phá những điểm giống và khác nhau cốt lõi.",
+      content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         <strong class="text-blue-600 dark:text-blue-400">Java</strong> và
@@ -1039,36 +1043,36 @@ runGreeting();
       <p>Việc hiểu rõ cả hai ngôn ngữ này sẽ mở ra rất nhiều cơ hội trong sự nghiệp lập trình của bạn.</p>
     </div>
   `,
-    link: "https://www.geeksforgeeks.org/difference-between-java-and-javascript/",
-    relatedLinks: [
-      {
-        title: "Java vs JavaScript – GeeksforGeeks",
-        url: "https://www.geeksforgeeks.org/difference-between-java-and-javascript/",
-      },
-      {
-        title: "Java vs JavaScript – FreeCodeCamp",
-        url: "https://www.freecodecamp.org/news/java-vs-javascript/",
-      },
-    ],
-  },
+      link: "https://www.geeksforgeeks.org/difference-between-java-and-javascript/",
+      relatedLinks: [
+        {
+          title: "Java vs JavaScript – GeeksforGeeks",
+          url: "https://www.geeksforgeeks.org/difference-between-java-and-javascript/",
+        },
+        {
+          title: "Java vs JavaScript – FreeCodeCamp",
+          url: "https://www.freecodecamp.org/news/java-vs-javascript/",
+        },
+      ],
+    },
 
-  {
-    title: "9️⃣ Mini Project: Kết hợp Java và JavaScript",
-    slug: "project-java-javascript",
-    date: "2025-10-16",
-    image: "/images/posts/9.jpg",
-    tags: [
-      "Fullstack",
-      "Java",
-      "React",
-      "Project",
-      "API",
-      "Frontend",
-      "Backend",
-    ],
-    excerpt:
-      "Thực hành xây dựng một ứng dụng full-stack đơn giản: backend với Java (Spring Boot REST API) và frontend với JavaScript (ReactJS) để hiểu cách chúng giao tiếp.",
-    content: `
+    {
+      title: "9️⃣ Mini Project: Kết hợp Java và JavaScript",
+      slug: "project-java-javascript",
+      date: "2025-10-16",
+      image: "/images/posts/9.jpg",
+      tags: [
+        "Fullstack",
+        "Java",
+        "React",
+        "Project",
+        "API",
+        "Frontend",
+        "Backend",
+      ],
+      excerpt:
+        "Thực hành xây dựng một ứng dụng full-stack đơn giản: backend với Java (Spring Boot REST API) và frontend với JavaScript (ReactJS) để hiểu cách chúng giao tiếp.",
+      content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Bạn đã học về sức mạnh của <strong class="text-blue-600 dark:text-blue-400">Java</strong> ở backend và sự linh hoạt của <strong class="text-blue-600 dark:text-blue-400">JavaScript</strong> ở frontend. Giờ là lúc kết hợp chúng lại! Project này sẽ hướng dẫn bạn xây dựng một ứng dụng full-stack hoàn chỉnh, nơi một client ReactJS giao tiếp với một API RESTful được viết bằng Spring Boot.
@@ -1251,32 +1255,32 @@ export default App;
       <p>Project này là một ví dụ tuyệt vời về cách Java và JavaScript phối hợp với nhau. Để nâng cao hơn, bạn có thể thêm chức năng <strong>Cập nhật</strong> (PUT), <strong>Xóa</strong> (DELETE), kết nối cơ sở dữ liệu và cải thiện giao diện người dùng.</p>
     </div>
   `,
-    link: "https://spring.io/guides/gs/rest-service/",
-    relatedLinks: [
-      {
-        title: "Spring Boot REST Service – Spring.io",
-        url: "https://spring.io/guides/gs/rest-service/",
-      },
-      {
-        title: "React Hooks – Official Docs",
-        url: "https://react.dev/reference/react",
-      },
-      {
-        title: "Fetch API – MDN Web Docs",
-        url: "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
-      },
-    ],
-  },
+      link: "https://spring.io/guides/gs/rest-service/",
+      relatedLinks: [
+        {
+          title: "Spring Boot REST Service – Spring.io",
+          url: "https://spring.io/guides/gs/rest-service/",
+        },
+        {
+          title: "React Hooks – Official Docs",
+          url: "https://react.dev/reference/react",
+        },
+        {
+          title: "Fetch API – MDN Web Docs",
+          url: "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+        },
+      ],
+    },
 
-  {
-    title: "🔟 JavaScript OOP: Prototype và Class",
-    slug: "javascript-essentials-2-oop",
-    date: "2025-10-16",
-    image: "/images/posts/10.jpg",
-    tags: ["JavaScript", "OOP", "Prototype", "JSE2", "ES6"],
-    excerpt:
-      "Đi sâu vào bản chất OOP của JavaScript: từ cơ chế prototype độc đáo đến cú pháp `class` hiện đại của ES6, giúp bạn xây dựng code có cấu trúc và tái sử dụng.",
-    content: `
+    {
+      title: "🔟 JavaScript OOP: Prototype và Class",
+      slug: "javascript-essentials-2-oop",
+      date: "2025-10-16",
+      image: "/images/posts/10.jpg",
+      tags: ["JavaScript", "OOP", "Prototype", "JSE2", "ES6"],
+      excerpt:
+        "Đi sâu vào bản chất OOP của JavaScript: từ cơ chế prototype độc đáo đến cú pháp `class` hiện đại của ES6, giúp bạn xây dựng code có cấu trúc và tái sử dụng.",
+      content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Khác với các ngôn ngữ hướng đối tượng truyền thống như Java, <strong class="text-blue-600 dark:text-blue-400">JavaScript</strong> có một cách tiếp cận OOP độc đáo thông qua cơ chế <strong class="text-blue-600 dark:text-blue-400">prototype</strong>. Bài viết này sẽ giúp bạn hiểu sâu về nền tảng này và cách cú pháp <code>class</code> hiện đại của ES6 chỉ là một lớp "bọc đường" tiện lợi hơn.
@@ -1359,33 +1363,33 @@ myDog.speak(); // "Buddy sủa: Gâu gâu!"
       <p>Nắm vững OOP trong JavaScript, dù theo cách nào, cũng sẽ giúp bạn xây dựng các ứng dụng phức tạp với cấu trúc rõ ràng, dễ dàng tái sử dụng và mở rộng.</p>
     </div>
   `,
-    link: "https://www.netacad.com/courses/programming/javascript-essentials-2",
-    relatedLinks: [
-      {
-        title: "Inheritance and the prototype chain - MDN",
-        url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain",
-      },
-      {
-        title: "JavaScript Classes - W3Schools",
-        url: "https://www.w3schools.com/js/js_classes.asp",
-      },
-      {
-        title: "Classes - JavaScript.info",
-        url: "https://javascript.info/class",
-      },
-    ],
-  },
+      link: "https://www.netacad.com/courses/programming/javascript-essentials-2",
+      relatedLinks: [
+        {
+          title: "Inheritance and the prototype chain - MDN",
+          url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain",
+        },
+        {
+          title: "JavaScript Classes - W3Schools",
+          url: "https://www.w3schools.com/js/js_classes.asp",
+        },
+        {
+          title: "Classes - JavaScript.info",
+          url: "https://javascript.info/class",
+        },
+      ],
+    },
 
-  // Chỉ cần cập nhật content cho bài viết số 11
-  {
-    title: "🌐 Networking Basics – Quy trình gửi dữ liệu qua mạng",
-    slug: "networking-basics-osi-tcp-ip",
-    date: "2025-10-16",
-    image: "/images/posts/11.png",
-    tags: ["Networking", "OSI", "TCP/IP", "Basics", "Infrastructure"],
-    excerpt:
-      "Khám phá hai mô hình mạng máy tính nền tảng nhất: OSI 7 lớp và TCP/IP. Đây là kiến thức cốt lõi cho mọi lập trình viên để hiểu cách dữ liệu di chuyển trên Internet.",
-    content: `
+    // Chỉ cần cập nhật content cho bài viết số 11
+    {
+      title: "🌐 Networking Basics – Quy trình gửi dữ liệu qua mạng",
+      slug: "networking-basics-osi-tcp-ip",
+      date: "2025-10-16",
+      image: "/images/posts/11.png",
+      tags: ["Networking", "OSI", "TCP/IP", "Basics", "Infrastructure"],
+      excerpt:
+        "Khám phá hai mô hình mạng máy tính nền tảng nhất: OSI 7 lớp và TCP/IP. Đây là kiến thức cốt lõi cho mọi lập trình viên để hiểu cách dữ liệu di chuyển trên Internet.",
+      content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Bạn đã bao giờ tự hỏi điều gì thực sự xảy ra khi bạn gõ một địa chỉ web và nhấn Enter chưa? Dữ liệu không chỉ "bay" một cách thần kỳ qua Internet. Nó tuân theo một quy trình đóng gói và vận chuyển nghiêm ngặt, giống như cách bạn gửi một bưu kiện vậy.
@@ -1447,27 +1451,27 @@ myDog.speak(); // "Buddy sủa: Gâu gâu!"
         </ul>
     </div>
   `,
-    link: "https://www.netacad.com/courses/networking/networking-basics",
-    relatedLinks: [
-      {
-        title: "What is OSI Model? - Layers of OSI Model",
-        url: "https://www.geeksforgeeks.org/computer-networks/open-systems-interconnection-model-osi/",
-      },
-      {
-        title: "TCP/IP Model - GeeksforGeeks",
-        url: "https://www.geeksforgeeks.org/tcp-ip-model/",
-      },
-    ],
-  },
-  {
-    title: "1️⃣2️⃣ JavaScript: Xử lý lỗi chuyên nghiệp với try...catch",
-    slug: "javascript-error-handling",
-    date: "2025-10-16",
-    image: "/images/posts/12.jpg",
-    tags: ["JavaScript", "Error Handling", "JSE2", "Exception", "try-catch"],
-    excerpt:
-      "Làm thế nào để chương trình không bị 'sập' khi gặp lỗi? Học cách sử dụng `try...catch...finally` để bắt và xử lý ngoại lệ một cách chuyên nghiệp, giúp ứng dụng của bạn mạnh mẽ và thân thiện hơn.",
-    content: `
+      link: "https://www.netacad.com/courses/networking/networking-basics",
+      relatedLinks: [
+        {
+          title: "What is OSI Model? - Layers of OSI Model",
+          url: "https://www.geeksforgeeks.org/computer-networks/open-systems-interconnection-model-osi/",
+        },
+        {
+          title: "TCP/IP Model - GeeksforGeeks",
+          url: "https://www.geeksforgeeks.org/tcp-ip-model/",
+        },
+      ],
+    },
+    {
+      title: "1️⃣2️⃣ JavaScript: Xử lý lỗi chuyên nghiệp với try...catch",
+      slug: "javascript-error-handling",
+      date: "2025-10-16",
+      image: "/images/posts/12.jpg",
+      tags: ["JavaScript", "Error Handling", "JSE2", "Exception", "try-catch"],
+      excerpt:
+        "Làm thế nào để chương trình không bị 'sập' khi gặp lỗi? Học cách sử dụng `try...catch...finally` để bắt và xử lý ngoại lệ một cách chuyên nghiệp, giúp ứng dụng của bạn mạnh mẽ và thân thiện hơn.",
+      content: `
     <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
       <p class="text-lg font-medium">
         Lỗi (error) là một phần không thể tránh khỏi trong lập trình. Thay vì để một lỗi không mong muốn làm "sập" toàn bộ ứng dụng, JavaScript cung cấp một cơ chế mạnh mẽ để quản lý chúng: khối lệnh <strong class="text-blue-600 dark:text-blue-400">try...catch...finally</strong>. Bài viết này sẽ giúp bạn viết code an toàn và đáng tin cậy hơn.
@@ -1551,20 +1555,1552 @@ parseUser('{"name": "Alice"}'); // Output: Lỗi xử lý dữ liệu: Dữ li�
       <p>Xử lý lỗi là một kỹ năng thiết yếu của một lập trình viên chuyên nghiệp. Việc sử dụng thành thạo <code>try...catch</code> và <code>throw</code> không chỉ giúp ứng dụng của bạn ổn định hơn mà còn cải thiện đáng kể trải nghiệm của người dùng.</p>
     </div>
   `,
-    link: "https://www.netacad.com/courses/programming/javascript-essentials-2",
-    relatedLinks: [
-      {
-        title: "try...catch - MDN Web Docs",
-        url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch",
-      },
-      {
-        title: "JavaScript Errors - W3Schools",
-        url: "https://www.w3schools.com/js/js_errors.asp",
-      },
-      {
-        title: "Error handling, 'try...catch' - JavaScript.info",
-        url: "https://javascript.info/try-catch",
-      },
-    ],
-  },
-];
+      link: "https://www.netacad.com/courses/programming/javascript-essentials-2",
+      relatedLinks: [
+        {
+          title: "try...catch - MDN Web Docs",
+          url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch",
+        },
+        {
+          title: "JavaScript Errors - W3Schools",
+          url: "https://www.w3schools.com/js/js_errors.asp",
+        },
+        {
+          title: "Error handling, 'try...catch' - JavaScript.info",
+          url: "https://javascript.info/try-catch",
+        },
+      ],
+    },
+  ],
+  en: [
+    {
+      title: "1️⃣ Introduction to the Java Programming Language – A First Step for Beginners",
+      slug: "gioi-thieu-java-co-ban", // Slug giữ nguyên để trỏ đến cùng một trang
+      date: "2025-10-15",
+      image: "/images/posts/1.jpg",
+      tags: ["Java", "OOP", "Beginner", "Programming"],
+      excerpt: "A journey to discover Java – from a 'Write Once, Run Anywhere' language to the foundation of Android and large enterprise systems.",
+      content: `
+      <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
+        <p class="text-lg font-medium">
+          Welcome to the world of 
+          <strong class="text-blue-600 dark:text-blue-400">Java</strong> – 
+          one of the most powerful and popular programming languages on the planet! 
+          Developed by <strong>Sun Microsystems</strong> in 1995, Java quickly became the backbone of many technology systems,
+          from mobile applications to large-scale enterprise solutions.
+        </p>
+
+        <p>
+          This article will be your first guide, helping you understand Java, the benefits of learning it, and why 
+          Java still holds a crucial position in the modern software industry.
+        </p>
+
+        <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 mt-8 border-l-4 border-blue-500 dark:border-blue-400 pl-3">
+          📘 What will you learn from this article?
+        </h2>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Understand the origin and the "Write Once, Run Anywhere" philosophy of Java.</li>
+          <li>Grasp the key features that make Java a top choice for many types of projects.</li>
+          <li>Discover the practical application areas of Java in daily life and industry.</li>
+          <li>Learn compelling reasons to start your Java learning journey today.</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-purple-600 dark:text-purple-400 mt-10 border-l-4 border-purple-500 dark:border-purple-400 pl-3">
+          💡 Why is Java still a sustainable choice?
+        </h2>
+        <p>
+          Java is not just a language; it's a powerful ecosystem. Here are the main reasons you should consider learning Java:
+        </p>
+
+        <ul class="list-disc ml-6 space-y-3">
+          <li>
+            <strong>Platform Independent:</strong> 
+            Thanks to the <span class="font-semibold text-blue-500 dark:text-blue-300">Java Virtual Machine (JVM)</span>, 
+            the Java code you write can run on almost any device with a JVM — from desktops and servers to embedded devices. 
+            This is the realization of the slogan <em>"Write Once, Run Anywhere"</em>.
+          </li>
+          <li>
+            <strong>Wide Range of Applications:</strong>
+            <ul class="list-disc ml-6 mt-2 space-y-1">
+              <li><strong>Android Development:</strong> Java is the official language for building Android apps.</li>
+              <li><strong>Enterprise Systems:</strong> Large corporations like banks, financial institutions, and insurance companies use Java (Spring Boot) to build robust systems.</li>
+              <li><strong>Big Data & AI:</strong> Many tools in Big Data (like Hadoop, Spark) are written in Java.</li>
+              <li><strong>IoT:</strong> Java is also present in smart devices, from TVs to automation systems.</li>
+            </ul>
+          </li>
+          <li><strong>Strong OOP Support:</strong> Helps make code clear, easy to maintain, and scalable.</li>
+          <li><strong>Large Community:</strong> Millions of Java developers worldwide, abundant documentation, courses, and quick support.</li>
+          <li><strong>Rich Tools:</strong> IDEs (IntelliJ, Eclipse), libraries, and frameworks (Spring, Hibernate, Maven).</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-green-600 dark:text-green-400 mt-10 border-l-4 border-green-500 dark:border-green-400 pl-3">
+          ⚙️ Key Technical Features of Java
+        </h2>
+        <ul class="list-disc ml-6 space-y-2">
+          <li><strong>Automatic Memory Management (Garbage Collection):</strong> Helps prevent memory leaks and reduces errors.</li>
+          <li><strong>Exception Handling:</strong> Write safe code and manage errors professionally.</li>
+          <li><strong>High Security:</strong> Built-in security features, safe for enterprise environments.</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-orange-600 dark:text-orange-400 mt-10 border-l-4 border-orange-500 dark:border-orange-400 pl-3">
+          🚀 Start Your Java Journey
+        </h2>
+        <p>
+          If you are looking for a language with high applicability, stability, and one that opens up many career opportunities in 
+          backend development, Android, or enterprise systems — 
+          <strong class="text-blue-600 dark:text-blue-400">Java</strong> is the perfect choice.
+        </p>
+        <p>
+          Let's explore Java more deeply in the upcoming articles!
+        </p>
+      </div>
+    `,
+      link: "https://www.netacad.com/vi/courses/java-programming",
+      relatedLinks: [
+        {
+          title: "Java Basics Course – NetAcad",
+          url: "https://www.netacad.com/vi/courses/java-programming",
+        },
+        {
+          title: "Object-Oriented Programming with Java – W3Schools",
+          url: "https://www.w3schools.com/java/java_oop.asp",
+        },
+        {
+          title: "Spring Boot Tutorial – Baeldung",
+          url: "https://www.baeldung.com/spring-boot",
+        },
+      ],
+    },
+    {
+      title: "2️⃣ Java Program Structure & Basic Syntax",
+      slug: "cau-truc-chuong-trinh-java", // Slug giữ nguyên
+      date: "2025-10-15",
+      image: "/images/posts/2.jpg",
+      tags: ["Java", "Syntax", "Beginner", "Structure"],
+      excerpt: "Master the first building blocks of Java: from how a program is organized to the most fundamental coding syntax.",
+      content: `
+      <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
+        <p class="text-lg font-medium">
+          To start writing <strong class="text-blue-600 dark:text-blue-400">Java</strong> code, it's crucial to understand the basic structure of a Java program and the syntax rules you need to follow. 
+          This article will help you build your first <em>"Hello World"</em> program and explain every single component.
+        </p>
+
+        <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-l-4 border-blue-500 dark:border-blue-400 pl-3 mt-8">
+          📘 What will you learn from this article?
+        </h2>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Understand the core structure of a Java program, including classes and methods.</li>
+          <li>Grasp the role of the <code>main()</code> method – the starting point of every Java application.</li>
+          <li>Know how to use <code>System.out.println()</code> to display information on the screen.</li>
+          <li>Learn basic syntax rules like semicolons, file names, and naming conventions.</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-purple-600 dark:text-purple-400 border-l-4 border-purple-500 dark:border-purple-400 pl-3 mt-10">
+          🧠 Structure of a Simple Java Program
+        </h2>
+        <p>
+          Every Java program is built upon <em>classes</em>. 
+          A minimal Java application will include a class and a special method called <code>main()</code> — where the program begins execution.
+        </p>
+
+        <h3 class="text-lg font-semibold mt-6 mb-2 text-gray-900 dark:text-gray-100">📄 Example: The classic "Hello World" Program</h3>
+        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-java">
+public class HelloWorld { // Declare a class named HelloWorld
+    public static void main(String[] args) { // The program's starting point
+        System.out.println("Hello, Java!"); // Print a message to the console
+    } // End of the main method
+} // End of the HelloWorld class
+        </code></pre>
+
+        <h2 class="text-2xl font-semibold text-green-600 dark:text-green-400 border-l-4 border-green-500 dark:border-green-400 pl-3 mt-10">
+          📌 Detailed Explanation of Components
+        </h2>
+        <ul class="list-disc ml-6 space-y-4">
+          <li>
+            <code class="font-semibold text-blue-500 dark:text-blue-300">public class HelloWorld</code>:
+            <ul class="list-disc ml-6 mt-2 space-y-1">
+              <li><code>public</code>: Allows the class to be accessed from anywhere.</li>
+              <li><code>class</code>: The keyword used to define a class.</li>
+              <li><code>HelloWorld</code>: The name of the class. In Java, the file name must match the name of the class containing the <code>main</code> method (e.g., <code>HelloWorld.java</code>).</li>
+            </ul>
+          </li>
+          <li>
+            <code class="font-semibold text-blue-500 dark:text-blue-300">public static void main(String[] args)</code>: 
+            This is the main method, where the <strong>Java Virtual Machine (JVM)</strong> starts executing the code.
+            <ul class="list-disc ml-6 mt-2 space-y-1">
+              <li><code>public</code>: Allows the JVM to call this method.</li>
+              <li><code>static</code>: Allows the method to be called without creating an object.</li>
+              <li><code>void</code>: The method does not return any value.</li>
+              <li><code>main</code>: The required name for the starting method.</li>
+              <li><code>(String[] args)</code>: An array of strings used to receive command-line arguments.</li>
+            </ul>
+          </li>
+          <li>
+            <code class="font-semibold text-blue-500 dark:text-blue-300">System.out.println("Hello, Java!");</code>:
+            <ul class="list-disc ml-6 mt-2 space-y-1">
+              <li><code>System</code>: A built-in class in Java that provides system utilities.</li>
+              <li><code>out</code>: A static field representing the standard output stream (the console).</li>
+              <li><code>println()</code>: A method that prints a string or value to the console, followed by a new line.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-orange-600 dark:text-orange-400 border-l-4 border-orange-500 dark:border-orange-400 pl-3 mt-10">
+          📝 Syntax Rules & Important Notes
+        </h2>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Every Java statement ends with a semicolon (<code>;</code>).</li>
+          <li>Code blocks are enclosed in curly braces (<code>{ }</code>).</li>
+          <li>Java is case-sensitive.</li>
+          <li>Use comments (<code>//</code> or <code>/* ... */</code>) to explain your code.</li>
+        </ul>
+        
+        <h2 class="text-2xl font-semibold text-pink-600 dark:text-pink-400 border-l-4 border-pink-500 dark:border-pink-400 pl-3 mt-10">
+          🚀 What's Next?
+        </h2>
+        <p>
+          With a solid foundation in basic structure and syntax, you are ready to dive deeper into important concepts like 
+          <strong class="text-blue-600 dark:text-blue-400">variables</strong>, 
+          <strong class="text-blue-600 dark:text-blue-400">data types</strong>, 
+          <strong class="text-blue-600 dark:text-blue-400">operators</strong>, and especially 
+          <strong class="text-blue-600 dark:text-blue-400">Object-Oriented Programming (OOP)</strong> – the heart of Java.
+        </p>
+        <p>Keep exploring to build your first powerful Java applications!</p>
+      </div>
+    `,
+      link: "https://www.w3schools.com/java/java_syntax.asp",
+      relatedLinks: [
+        {
+          title: "Java Syntax – W3Schools",
+          url: "https://www.w3schools.com/java/java_syntax.asp",
+        },
+        {
+          title: "Java Basics – GeeksforGeeks",
+          url: "https://www.geeksforgeeks.org/java-programming-basics/",
+        },
+      ],
+    },
+    {
+      title: "3️⃣ Object-Oriented Programming in Java (OOP)",
+      slug: "lap-trinh-huong-doi-tuong-java", // Slug remains the same
+      date: "2025-10-15",
+      image: "/images/posts/3.jpg",
+      tags: ["Java", "OOP", "Class", "Object"],
+      excerpt: "Explore the 4 fundamental pillars of OOP (Encapsulation, Inheritance, Polymorphism, Abstraction) and how Java implements them through concrete examples.",
+      content: `
+      <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
+        <p class="text-lg font-medium">
+          Object-Oriented Programming 
+          <strong class="text-blue-600 dark:text-blue-400">(OOP)</strong>
+          is one of the most important concepts and is the core of Java. 
+          It helps us organize code in a logical, understandable, scalable, and maintainable way. 
+          This article will walk you through the 4 main pillars of OOP and how Java applies them.
+        </p>
+
+        <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-l-4 border-blue-500 dark:border-blue-400 pl-3 mt-8">
+          📘 What will you learn from this article?
+        </h2>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Gain a deep understanding of the 4 basic principles of OOP: Encapsulation, Inheritance, Polymorphism, and Abstraction.</li>
+          <li>Understand how Java implements each principle through illustrative code examples.</li>
+          <li>Learn the benefits of applying OOP in building complex applications.</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-purple-600 dark:text-purple-400 border-l-4 border-purple-500 dark:border-purple-400 pl-3 mt-10">
+          🏛️ The 4 Pillars of OOP in Java
+        </h2>
+
+        <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">
+          1. Encapsulation
+        </h3>
+        <p>Encapsulation is the mechanism of hiding data (attributes) and the methods that process that data within a single class, exposing only the necessary methods for external interaction. It helps protect data from unwanted access and makes the code more modular and manageable.</p>
+
+        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-java">
+class Student {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String newName) {
+        if (newName != null && !newName.trim().isEmpty()) {
+            this.name = newName;
+        } else {
+            System.out.println("Invalid name!");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student();
+        s1.setName("Alice");
+        System.out.println(s1.getName()); // Outputs: Alice
+        s1.setName(""); // Outputs: Invalid name!
+    }
+}
+        </code></pre>
+        <p><strong>Benefits:</strong> Data protection, access control, increased flexibility, and easier maintenance.</p>
+
+        <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">
+          2. Inheritance
+        </h3>
+        <p>Inheritance allows a class (subclass) to inherit attributes and methods from another class (superclass). This promotes code reusability and creates an "is-a" relationship.</p>
+
+        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-java">
+// Superclass
+class Animal {
+    void eat() {
+        System.out.println("The animal is eating.");
+    }
+    void sleep() {
+        System.out.println("The animal is sleeping.");
+    }
+}
+
+// Subclass inherits from Animal
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Woof woof!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog myDog = new Dog();
+        myDog.eat();    // Inherited method
+        myDog.bark();   // Own method
+    }
+}
+        </code></pre>
+        <p><strong>Benefits:</strong> Code reusability, reduced duplication, and creation of a clear hierarchical structure.</p>
+
+        <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">
+          3. Polymorphism
+        </h3>
+        <p>Polymorphism allows objects of different classes to respond differently to the same method. In Java, it's implemented through method overriding and interfaces.</p>
+
+        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-java">
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Meow meow!");
+    }
+}
+
+class Duck extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Quack quack!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myCat = new Cat();
+        Animal myDuck = new Duck();
+
+        myCat.makeSound(); // Outputs: Meow meow!
+        myDuck.makeSound(); // Outputs: Quack quack!
+    }
+}
+        </code></pre>
+        <p><strong>Benefits:</strong> Flexibility, extensibility, and the ability to process different objects in the same way.</p>
+
+        <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">
+          4. Abstraction
+        </h3>
+        <p>Abstraction is the process of hiding complex implementation details and showing only the necessary information. In Java, this is achieved using abstract classes and interfaces.</p>
+
+        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-java">
+abstract class Shape {
+    String color;
+    Shape(String color) { this.color = color; }
+    abstract double area(); // Abstract method
+    public String getColor() { return color; }
+}
+
+class Circle extends Shape {
+    double radius;
+    Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+    @Override
+    double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Shape myCircle = new Circle("Red", 5.0);
+        System.out.println("Color: " + myCircle.getColor());
+        System.out.println("Area: " + myCircle.area());
+    }
+}
+        </code></pre>
+        <p><strong>Benefits:</strong> Simplifies the system, focuses on "what" rather than "how".</p>
+
+        <h2 class="text-2xl font-semibold text-green-600 dark:text-green-400 border-l-4 border-green-500 dark:border-green-400 pl-3 mt-10">
+          🚀 The Importance of OOP
+        </h2>
+        <p>A solid understanding of OOP helps you write code that is easy to read, extend, and maintain. It is the foundation for building large-scale, sustainable, and efficient Java applications. Practice extensively to make OOP your second nature!</p>
+      </div>
+    `,
+      link: "https://www.netacad.com/vi/courses/java-programming",
+      relatedLinks: [
+        {
+          title: "Java OOP Concepts – W3Schools",
+          url: "https://www.w3schools.com/java/java_oop.asp",
+        },
+        {
+          title: "Inheritance in Java – GeeksforGeeks",
+          url: "https://www.geeksforgeeks.org/inheritance-in-java/",
+        },
+      ],
+    },
+
+    {
+      title: "4️⃣ JavaScript Essentials 1 – Getting to Know the Language of the Web",
+      slug: "javascript-essentials-1", // Slug remains the same
+      date: "2025-10-15",
+      image: "/images/posts/4.png",
+      tags: ["JavaScript", "Frontend", "DOM", "WebDev", "Beginner"],
+      excerpt: "Step into the world of JavaScript – the essential language for creating dynamic, interactive, and lively websites.",
+      content: `
+      <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
+        <p class="text-lg font-medium">
+          Welcome to <strong class="text-blue-600 dark:text-blue-400">JavaScript</strong>
+          – the heart of every modern website! If HTML provides the structure and CSS adds the style,
+          then JavaScript brings life, allowing your website to interact with users and perform complex tasks.
+          This article will introduce you to the most basic concepts of JavaScript and why it is so important.
+        </p>
+
+        <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-l-4 border-blue-500 dark:border-blue-400 pl-3 mt-8">
+          📘 What will you learn from this article?
+        </h2>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Understand the role of JavaScript in modern web development.</li>
+          <li>Know how to embed JavaScript into your HTML page.</li>
+          <li>Get acquainted with the basic syntax of JavaScript.</li>
+          <li>Learn how to interact with HTML elements (DOM Manipulation) and handle events (Event Handling).</li>
+          <li>Build your first "Hello World" example with JavaScript.</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-purple-600 dark:text-purple-400 border-l-4 border-purple-500 dark:border-purple-400 pl-3 mt-10">
+          🪄 What is JavaScript and Why is it Important?
+        </h2>
+        <p>
+          JavaScript is a scripting language that runs directly in the user's browser.
+          It doesn't need to be compiled like Java; the browser interprets and executes it immediately.
+        </p>
+        <p><strong>Importance:</strong></p>
+        <ul class="list-disc ml-6 space-y-2">
+          <li><strong>Creating Interaction:</strong> JavaScript allows you to create buttons, menus, data validation forms, image carousels, etc.</li>
+          <li><strong>Controlling the DOM:</strong> You can access and change the content, structure, and style of HTML through the <strong>Document Object Model (DOM)</strong>.</li>
+          <li><strong>Full-stack:</strong> With Node.js, JavaScript is used not only on the frontend but also on the backend.</li>
+          <li><strong>Libraries & Frameworks:</strong> React, Vue, Angular... help you build powerful UIs.</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-green-600 dark:text-green-400 border-l-4 border-green-500 dark:border-green-400 pl-3 mt-10">
+          📚 First Example: Interacting with HTML via DOM and Events
+        </h2>
+        <p>
+          This example illustrates how JavaScript makes a webpage "alive".
+          When the button is clicked, an alert will appear.
+        </p>
+
+        <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">HTML Code (index.html)</h3>
+        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;JavaScript First Step&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to JavaScript!&lt;/h1&gt;
+    &lt;button id="myButton"&gt;Click me!&lt;/button&gt;
+
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">JavaScript Code (script.js)</h3>
+        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-javascript">
+// Select the button element by its ID
+const myButton = document.querySelector("#myButton");
+
+// Attach a 'click' event listener to the button
+myButton.addEventListener("click", () => {
+  alert("Hello, JavaScript! You just clicked the button.");
+  // alert() displays a dialog box
+});
+
+console.log("JavaScript has loaded successfully!");
+        </code></pre>
+
+        <p><strong>Explanation:</strong></p>
+        <ul class="list-disc ml-6 space-y-2">
+          <li><code>document.querySelector("#myButton")</code>: Accesses the HTML element with <code>id="myButton"</code>.</li>
+          <li><code>addEventListener("click", ...)</code>: Attaches an "event listener" to the button.</li>
+          <li><code>alert()</code>: Displays a notification dialog in the browser.</li>
+        </ul>
+        <p>
+          With just a few lines of code, you have made a static HTML page interactive.
+          That is the power of <strong>DOM Manipulation</strong> and <strong>Event Handling</strong>.
+        </p>
+
+        <h2 class="text-2xl font-semibold text-orange-600 dark:text-orange-400 border-l-4 border-orange-500 dark:border-orange-400 pl-3 mt-10">
+          🚀 Start your JavaScript Journey
+        </h2>
+        <p>
+          This is just the beginning! JavaScript has countless other concepts like variables, loops, conditions, and object-oriented programming.
+          Practice regularly to turn your ideas into reality on the web!
+        </p>
+      </div>
+    `,
+      link: "https://www.netacad.com/vi/courses/javascript-essentials-1",
+      relatedLinks: [
+        {
+          title: "JavaScript Essentials 1 Course – NetAcad",
+          url: "https://www.netacad.com/vi/courses/javascript-essentials-1",
+        },
+        {
+          title: "Learn JavaScript – MDN Web Docs",
+          url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript",
+        },
+      ],
+    },
+    {
+      title: "5️⃣ Variables, Data Types, and Operators in JavaScript",
+      slug: "bien-va-kieu-du-lieu-javascript", // Slug remains the same
+      date: "2025-10-15",
+      image: "/images/posts/5.jpg",
+      tags: ["JavaScript", "Variables", "Basics", "DataTypes", "Operators"],
+      excerpt: "Understand how to store and manage data with variables (var, let, const), basic data types, and how to perform calculations in JavaScript.",
+      content: `
+    <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
+      <p class="text-lg font-medium">
+        In programming, data is at the core. To process data, we need
+        <strong class="text-blue-600 dark:text-blue-400">variables</strong> to store it,
+        <strong class="text-blue-600 dark:text-blue-400">data types</strong> to classify it, and
+        <strong class="text-blue-600 dark:text-blue-400">operators</strong> to perform calculations.
+        This article will delve into these fundamental concepts in JavaScript.
+      </p>
+
+      <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-l-4 border-blue-500 dark:border-blue-400 pl-3 mt-8">
+        📘 What will you learn from this article?
+      </h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Distinguish and correctly use <code>var</code>, <code>let</code>, and <code>const</code> when declaring variables.</li>
+        <li>Master primitive and object data types in JavaScript.</li>
+        <li>Understand how arithmetic, comparison, logical, and assignment operators work.</li>
+        <li>Apply this knowledge to write basic JavaScript code snippets.</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-purple-600 dark:text-purple-400 border-l-4 border-purple-500 dark:border-purple-400 pl-3 mt-10">
+        🔄 Variables: Storing Data in JavaScript
+      </h2>
+      <p>Variables are "containers" used to store data. In JavaScript, we have three main keywords to declare variables.</p>
+
+      <div class="space-y-6 mt-4">
+        <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <h3 class="font-bold text-lg text-gray-900 dark:text-gray-100"><code>var</code> - The old variable, function-scoped</h3>
+          <p class="mt-2"><code>var</code> is the traditional way to declare variables, with a function-level scope. Nowadays, its use in new code should be limited.</p>
+          <pre class="bg-gray-200 dark:bg-gray-900/50 mt-4 p-4 rounded-lg overflow-x-auto"><code class="language-javascript">
+var greeting = "Hello";
+function sayHi() {
+    var greeting = "Hi"; // This variable only exists within the sayHi function
+    console.log(greeting); // Output: "Hi"
+}
+sayHi();
+console.log(greeting); // Output: "Hello"
+          </code></pre>
+        </div>
+        
+        <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <h3 class="font-bold text-lg text-gray-900 dark:text-gray-100"><code>let</code> - The new variable, block-scoped</h3>
+          <p class="mt-2"><code>let</code> allows you to declare variables whose values can be changed, with a scope limited to the <code>{}</code> block. It is the modern alternative to <code>var</code>.</p>
+          <pre class="bg-gray-200 dark:bg-gray-900/50 mt-4 p-4 rounded-lg overflow-x-auto"><code class="language-javascript">
+let count = 0;
+if (true) {
+    let count = 1; // This 'count' variable only exists within the if block
+    console.log(count); // Output: 1
+}
+console.log(count); // Output: 0
+          </code></pre>
+        </div>
+
+        <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <h3 class="font-bold text-lg text-gray-900 dark:text-gray-100"><code>const</code> - The constant, block-scoped</h3>
+          <p class="mt-2"><code>const</code> is used to declare constants, whose values cannot be reassigned. It also has block scope like <code>let</code>.</p>
+          <pre class="bg-gray-200 dark:bg-gray-900/50 mt-4 p-4 rounded-lg overflow-x-auto"><code class="language-javascript">
+const PI = 3.14159;
+// PI = 3.14; // Error: Assignment to constant variable.
+
+const user = { name: "Alice" };
+user.name = "Bob"; // Valid! We are changing a property, not the object itself.
+console.log(user.name); // Output: "Bob"
+          </code></pre>
+        </div>
+      </div>
+      
+      <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded-r-lg">
+        <p class="font-semibold text-blue-800 dark:text-blue-300">💡 Pro Tip:</p>
+        <p class="text-blue-700 dark:text-blue-400">Prefer <code>const</code> by default. If you know the variable's value needs to change, use <code>let</code>. Avoid using <code>var</code> to make your code more predictable and less error-prone.</p>
+      </div>
+
+      <h2 class="text-2xl font-semibold text-green-600 dark:text-green-400 border-l-4 border-green-500 dark:border-green-400 pl-3 mt-10">
+        🧠 Data Types in JavaScript
+      </h2>
+      <p>JavaScript has flexible data types, divided into two main categories:</p>
+      
+      <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">1. Primitive Data Types</h3>
+      <p>These are the basic, immutable data types.</p>
+      <ul class="list-disc ml-6 space-y-2 mt-4">
+          <li><strong>Number:</strong> For integers and floating-point numbers. <code>let age = 30;</code></li>
+          <li><strong>String:</strong> For text. <code>let name = "John";</code></li>
+          <li><strong>Boolean:</strong> For true/false values. <code>let isActive = true;</code></li>
+          <li><strong>Undefined:</strong> A variable that has been declared but not yet assigned a value.</li>
+          <li><strong>Null:</strong> Represents the intentional absence of any object value.</li>
+          <li><strong>Symbol:</strong> Creates unique identifiers.</li>
+          <li><strong>BigInt:</strong> For extremely large integers.</li>
+      </ul>
+
+      <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">2. Object Data Type</h3>
+      <p>These are more complex data structures.</p>
+      <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-javascript">
+// Object: A collection of key-value pairs
+let person = { name: "Jane", age: 25 };
+
+// Array: A list of values
+let colors = ["red", "green", "blue"];
+      </code></pre>
+      
+      <h2 class="text-2xl font-semibold text-orange-600 dark:text-orange-400 border-l-4 border-orange-500 dark:border-orange-400 pl-3 mt-10">
+        ➕➖✖️➗ Operators in JavaScript
+      </h2>
+      <p>Operators are symbols used to perform operations. Here are the main groups:</p>
+      <ul class="list-disc ml-6 space-y-2 mt-4">
+        <li><strong>Arithmetic Operators:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulus), <code>**</code> (exponentiation).</li>
+        <li><strong>Assignment Operators:</strong> <code>=</code>, <code>+=</code>, <code>-=</code>.</li>
+        <li><strong>Comparison Operators:</strong> <code>==</code>, <code>===</code> (recommended), <code>!=</code>, <code>!==</code> (recommended), <code>></code>, <code><</code>.</li>
+        <li><strong>Logical Operators:</strong> <code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (NOT).</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-rose-600 dark:text-rose-400 border-l-4 border-rose-500 dark:border-rose-400 pl-3 mt-10">
+        🔗 Conclusion
+      </h2>
+      <p>A solid understanding of variables, data types, and operators is a strong foundation for building any complex logic in JavaScript. Take the time to practice with examples to reinforce your knowledge.</p>
+    </div>
+  `,
+      link: "https://www.w3schools.com/js/js_variables.asp",
+      relatedLinks: [
+        {
+          title: "JS Variables – W3Schools",
+          url: "https://www.w3schools.com/js/js_variables.asp",
+        },
+        {
+          title: "JavaScript Data Types – MDN Web Docs",
+          url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures",
+        },
+        {
+          title: "JavaScript Operators – W3Schools",
+          url: "https://www.w3schools.com/js/js_operators.asp",
+        },
+      ],
+    },
+    {
+      title: "6️⃣ Functions and Callbacks in JavaScript",
+      slug: "ham-va-callback-javascript", // Slug remains the same
+      date: "2025-10-15",
+      image: "/images/posts/6.jpg",
+      tags: ["JavaScript", "Functions", "Callback", "Asynchronous"],
+      excerpt: "Master the power of reusable functions and understand how Callbacks help manage the asynchronous flow in JavaScript.",
+      content: `
+    <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
+      <p class="text-lg font-medium">
+        In JavaScript, <strong class="text-blue-600 dark:text-blue-400">functions</strong>
+        are reusable blocks of code that perform a specific task. When combined with
+        <strong class="text-blue-600 dark:text-blue-400">callbacks</strong>,
+        they become an extremely powerful tool for managing asynchronous tasks and creating flexible code.
+      </p>
+
+      <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-l-4 border-blue-500 dark:border-blue-400 pl-3 mt-8">
+        📘 What will you learn from this article?
+      </h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Understand the definition and purpose of functions in JavaScript.</li>
+        <li>Know the different ways to declare and call functions.</li>
+        <li>Understand the concept and usage of callback functions in real-world scenarios.</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-purple-600 dark:text-purple-400 border-l-4 border-purple-500 dark:border-purple-400 pl-3 mt-10">
+        ⚙️ Types of Functions in JavaScript
+      </h2>
+      <p>Here are the common ways to define a function in JavaScript.</p>
+
+      <div class="grid md:grid-cols-2 gap-6 mt-4">
+        <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg">
+          <h3 class="font-bold text-lg text-gray-900 dark:text-gray-100">1. Function Declaration</h3>
+          <pre class="bg-gray-200 dark:bg-gray-900/50 mt-4 p-4 rounded-lg overflow-x-auto"><code class="language-javascript">
+function greet(name) {
+  return "Hello, " + name;
+}
+greet("Alice");
+          </code></pre>
+        </div>
+        <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg">
+          <h3 class="font-bold text-lg text-gray-900 dark:text-gray-100">2. Function Expression</h3>
+          <pre class="bg-gray-200 dark:bg-gray-900/50 mt-4 p-4 rounded-lg overflow-x-auto"><code class="language-javascript">
+const sayHello = function(name) {
+  return "Hello, " + name;
+};
+sayHello("Bob");
+          </code></pre>
+        </div>
+      </div>
+
+      <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg mt-6">
+        <h3 class="font-bold text-lg text-gray-900 dark:text-gray-100">3. Arrow Function</h3>
+        <p class="mt-2">Provides a shorter syntax and has a different way of handling <code>this</code>.</p>
+        <pre class="bg-gray-200 dark:bg-gray-900/50 mt-4 p-4 rounded-lg overflow-x-auto"><code class="language-javascript">
+const add = (a, b) => a + b;
+add(5, 3); // Output: 8
+        </code></pre>
+      </div>
+
+      <h2 class="text-2xl font-semibold text-green-600 dark:text-green-400 border-l-4 border-green-500 dark:border-green-400 pl-3 mt-10">
+        🧩 Callback: A Function Passed as an Argument
+      </h2>
+      <p>
+        A <strong>Callback</strong> is a function that is passed into another function as an argument,
+        which is then executed after some operation has been completed.
+        This is the foundation of asynchronous programming in JavaScript.
+      </p>
+      
+      <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">Callback Example</h3>
+      <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-javascript">
+function processData(data, callback) {
+  console.log("Processing: " + data);
+  setTimeout(() => {
+    const result = data.toUpperCase();
+    callback(result);
+  }, 1000);
+}
+
+function displayResult(result) {
+  console.log("The result is: " + result);
+}
+
+processData("hello", displayResult);
+      </code></pre>
+      
+      <div class="mt-6 p-4 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 rounded-r-lg">
+        <h4 class="font-semibold text-red-800 dark:text-red-300">🚨 Warning: "Callback Hell"</h4>
+        <p class="text-red-700 dark:text-red-400">When too many callbacks are nested, the code becomes hard to read and maintain. To solve this, modern JavaScript provides better solutions like <strong>Promises</strong> and <strong>Async/Await</strong>, which we will cover in the next article.</p>
+      </div>
+
+      <h2 class="text-2xl font-semibold text-orange-600 dark:text-orange-400 border-l-4 border-orange-500 dark:border-orange-400 pl-3 mt-10">
+        🔗 Conclusion
+      </h2>
+      <p>Functions and Callbacks are two indispensable concepts when working with JavaScript. Mastering them will help you write more effective code and lay a solid foundation for approaching more modern asynchronous techniques.</p>
+    </div>
+  `,
+      link: "https://developer.mozilla.org/en-US/docs/Glossary/Callback_function",
+      relatedLinks: [
+        {
+          title: "Callback Functions – MDN Web Docs",
+          url: "https://developer.mozilla.org/en-US/docs/Glossary/Callback_function",
+        },
+        {
+          title: "JavaScript Functions – W3Schools",
+          url: "https://www.w3schools.com/js/js_functions.asp",
+        },
+        {
+          title: "Arrow Functions – MDN Web Docs",
+          url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions",
+        },
+      ],
+    },
+    {
+      title: "7️⃣ Promises and Async/Await – Mastering Asynchronicity",
+      slug: "promise-async-await", // Slug remains the same
+      date: "2025-10-15",
+      image: "/images/posts/7.jpg",
+      tags: ["JavaScript", "Async", "Promise", "Await", "Frontend", "Concurrency"],
+      excerpt: "Level up your JavaScript skills with Promises and Async/Await, helping you handle asynchronous tasks in a clean, readable, and maintainable way.",
+      content: `
+    <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
+      <p class="text-lg font-medium">
+        In the world of modern web development, asynchronous tasks are unavoidable. JavaScript provides powerful tools like
+        <strong class="text-blue-600 dark:text-blue-400">Promises</strong> and
+        <strong class="text-blue-600 dark:text-blue-400">Async/Await</strong>
+        to manage these tasks effectively, making your code more readable and maintainable than the dreaded "Callback Hell".
+      </p>
+
+      <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-l-4 border-blue-500 dark:border-blue-400 pl-3 mt-8">
+        📘 What will you learn from this article?
+      </h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Understand the problem of traditional asynchronous programming (callback hell).</li>
+        <li>Master the concept of a Promise, its states, and how to use it with <code>.then()</code> and <code>.catch()</code>.</li>
+        <li>Learn how to write asynchronous code in a more sequential style using <code>async</code> and <code>await</code>.</li>
+        <li>Apply Promises and Async/Await to real-world tasks like API calls.</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-purple-600 dark:text-purple-400 border-l-4 border-purple-500 dark:border-purple-400 pl-3 mt-10">
+        ⏰ The Problem of "Callback Hell"
+      </h2>
+      <p>
+        Initially, callback functions were the primary way to handle asynchronicity. But when callbacks are nested too deeply, they create "Callback Hell," making the code hard to read, debug, and manage.
+      </p>
+      <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-javascript">
+// Example of Callback Hell (avoid this!)
+loadScript('script1.js', (error, script) => {
+    if (error) {
+        handleError(error);
+    } else {
+        loadScript('script2.js', (error, script) => {
+            if (error) {
+                handleError(error);
+            } else {
+                loadScript('script3.js', (error, script) => {
+                    // ...and so on!
+                });
+            }
+        });
+    }
+});
+      </code></pre>
+
+      <h2 class="text-2xl font-semibold text-green-600 dark:text-green-400 border-l-4 border-green-500 dark:border-green-400 pl-3 mt-10">
+        🤝 Promise: A Promise for the Future
+      </h2>
+      <p>
+        A <strong>Promise</strong> is an object representing the eventual completion (or failure) of an asynchronous operation.
+      </p>
+      <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">States of a Promise</h3>
+      <ul class="list-disc ml-6 space-y-2">
+        <li><strong>Pending:</strong> The initial state; the operation has not completed yet.</li>
+        <li><strong>Fulfilled (Resolved):</strong> The operation completed successfully.</li>
+        <li><strong>Rejected:</strong> The operation failed.</li>
+      </ul>
+
+      <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">How to Use a Promise</h3>
+      <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-javascript">
+const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        const success = true;
+        if (success) {
+            resolve("Data loaded successfully!");
+        } else {
+            reject("Error: Failed to load data.");
+        }
+    }, 1000);
+});
+
+myPromise
+    .then(result => console.log("Success:", result))
+    .catch(error => console.error("Failure:", error));
+      </code></pre>
+      
+      <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">Chaining Promises</h3>
+      <p>Promises allow you to chain asynchronous operations neatly.</p>
+      <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-javascript">
+fetchUserData()
+    .then(user => {
+        console.log("User:", user);
+        return fetchUserPosts(user.id); // Return another Promise
+    })
+    .then(posts => {
+        console.log("Posts:", posts);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+      </code></pre>
+
+      <h2 class="text-2xl font-semibold text-orange-600 dark:text-orange-400 border-l-4 border-orange-500 dark:border-orange-400 pl-3 mt-10">
+        🚀 Async/Await: Modern Syntax
+      </h2>
+      <p>
+        <strong>Async/Await</strong> is syntactic sugar built on top of Promises, allowing you to write asynchronous code that looks and behaves a lot more like synchronous code, making it much easier to read and understand.
+      </p>
+      <ul class="list-disc ml-6 space-y-2">
+        <li><code><strong>async</strong></code>: Placed before a function to declare it as an asynchronous function, which will always return a Promise.</li>
+        <li><code><strong>await</strong></code>: Used only inside an <code>async</code> function to pause execution until a Promise is settled.</li>
+      </ul>
+
+      <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">Example with Async/Await</h3>
+      <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-javascript">
+// Assuming delayedGreet returns a Promise that resolves after a delay
+async function runGreeting() {
+    try {
+        console.log("Starting greeting...");
+        const message = await delayedGreet("Bob"); // Wait for the Promise to resolve
+        console.log(message);
+        console.log("Program finished.");
+    } catch (error) {
+        console.error("An error occurred:", error);
+    }
+}
+
+runGreeting();
+      </code></pre>
+      
+      <h2 class="text-2xl font-semibold text-rose-600 dark:text-rose-400 border-l-4 border-rose-500 dark:border-rose-400 pl-3 mt-10">
+        💡 When to Use Which?
+      </h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li><strong>Promises:</strong> Useful when you need to handle multiple parallel operations (<code>Promise.all</code>) or require more fine-grained control over the operation chain.</li>
+        <li><strong>Async/Await:</strong> Ideal for most cases, especially when asynchronous steps need to be performed sequentially, providing the most readable code.</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 border-l-4 border-indigo-500 dark:border-indigo-400 pl-3 mt-10">
+        🔗 Conclusion
+      </h2>
+      <p>Promises and Async/Await are indispensable tools for any JavaScript developer. They help you manage the complexity of asynchronous tasks, resulting in cleaner and more efficient code.</p>
+    </div>
+  `,
+      link: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous",
+      relatedLinks: [
+        {
+          title: "Async JavaScript – MDN Web Docs",
+          url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous",
+        },
+        {
+          title: "Promises – JavaScript.info",
+          url: "https://javascript.info/promise-basics",
+        },
+        {
+          title: "Async/await – JavaScript.info",
+          url: "https://javascript.info/async-await",
+        },
+      ],
+    },
+    {
+      title: "8️⃣ Java vs. JavaScript – Same Name, Different Worlds",
+      slug: "java-vs-javascript", // Slug remains the same
+      date: "2025-10-15",
+      image: "/images/posts/8.webp",
+      tags: ["Java", "JavaScript", "Comparison", "Programming", "Concepts"],
+      excerpt: "Two powerful languages with similar names but completely different histories, purposes, and operating philosophies. Discover their core similarities and differences.",
+      content: `
+    <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
+      <p class="text-lg font-medium">
+        <strong class="text-blue-600 dark:text-blue-400">Java</strong> and
+        <strong class="text-blue-600 dark:text-blue-400">JavaScript</strong>
+        are two extremely popular programming languages. However, despite their similar names,
+        they have entirely different histories, purposes, and ways of operating.
+        This article will help you clearly distinguish between these two "giants."
+      </p>
+
+      <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-l-4 border-blue-500 dark:border-blue-400 pl-3 mt-8">
+        📘 What will you learn from this article?
+      </h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Grasp the core differences in the nature and runtime environments of Java and JavaScript.</li>
+        <li>Understand the main roles and applications of each language.</li>
+        <li>Distinguish the syntax and data typing features between the two languages.</li>
+        <li>Get an overview to choose the right language for each project.</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-purple-600 dark:text-purple-400 border-l-4 border-purple-500 dark:border-purple-400 pl-3 mt-10">
+        ❓ Why the confusing name?
+      </h2>
+      <p>
+        When JavaScript was created in the mid-90s, Java was already very famous. To leverage this popularity,
+        Netscape decided to change the name from LiveScript to JavaScript. This name was primarily a marketing strategy,
+        not because they have a deep technical connection.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-green-600 dark:text-green-400 border-l-4 border-green-500 dark:border-green-400 pl-3 mt-10">
+        📊 Detailed Comparison: Java vs. JavaScript
+      </h2>
+      <div class="overflow-x-auto my-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
+        <table class="w-full text-left table-auto">
+          <thead class="bg-gray-100 dark:bg-gray-800">
+            <tr>
+              <th class="px-4 py-3 font-semibold text-gray-800 dark:text-gray-100">Feature</th>
+              <th class="px-4 py-3 font-semibold text-gray-800 dark:text-gray-100">Java</th>
+              <th class="px-4 py-3 font-semibold text-gray-800 dark:text-gray-100">JavaScript</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white dark:bg-gray-900/50">
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2 font-semibold text-gray-700 dark:text-gray-300">Nature</td>
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2">Compiled, purely Object-Oriented (OOP) language.</td>
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2">Interpreted, multi-paradigm (OOP, functional...) language.</td>
+            </tr>
+            <tr class="bg-gray-50 dark:bg-gray-800">
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2 font-semibold text-gray-700 dark:text-gray-300">Runtime Environment</td>
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2">Runs on the <strong>Java Virtual Machine (JVM)</strong>.</td>
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2">Runs in the <strong>web browser</strong> or on <strong>Node.js</strong>.</td>
+            </tr>
+            <tr class="bg-white dark:bg-gray-900/50">
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2 font-semibold text-gray-700 dark:text-gray-300">Data Typing</td>
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2">Statically-typed: types must be explicitly declared.</td>
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2">Dynamically-typed: types do not need to be declared.</td>
+            </tr>
+            <tr class="bg-gray-50 dark:bg-gray-800">
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2 font-semibold text-gray-700 dark:text-gray-300">Main Applications</td>
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2">Backend, Android apps, enterprise systems, Big Data.</td>
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2">Web frontend, Backend (Node.js), mobile apps (React Native).</td>
+            </tr>
+            <tr class="bg-white dark:bg-gray-900/50">
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2 font-semibold text-gray-700 dark:text-gray-300">Concurrency</td>
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2">Built-in support for multi-threading.</td>
+              <td class="border-t border-gray-200 dark:border-gray-700 px-4 py-2">Single-threaded with an asynchronous Event Loop.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-2xl font-semibold text-orange-600 dark:text-orange-400 border-l-4 border-orange-500 dark:border-orange-400 pl-3 mt-10">
+        🚀 Conclusion: Two Worlds, Two Strengths
+      </h2>
+      <p>Although they share a similar name, Java and JavaScript are two distinct languages, each with its own strengths and application domains.</p>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>If you want to build robust backend systems, Android applications, or large-scale enterprise solutions, <strong>Java</strong> is an excellent choice.</li>
+        <li>If you want to develop interactive web applications, beautiful user interfaces, or even a backend with Node.js, <strong>JavaScript</strong> is the key.</li>
+      </ul>
+      <p>Understanding both languages will open up many opportunities in your programming career.</p>
+    </div>
+  `,
+      link: "https://www.geeksforgeeks.org/difference-between-java-and-javascript/",
+      relatedLinks: [
+        {
+          title: "Java vs JavaScript – GeeksforGeeks",
+          url: "https://www.geeksforgeeks.org/difference-between-java-and-javascript/",
+        },
+        {
+          title: "Java vs JavaScript – FreeCodeCamp",
+          url: "https://www.freecodecamp.org/news/java-vs-javascript/",
+        },
+      ],
+    },
+    {
+      title: "9️⃣ Mini Project: Combining Java and JavaScript",
+      slug: "project-java-javascript", // Slug remains the same
+      date: "2025-10-16",
+      image: "/images/posts/9.jpg",
+      tags: ["Fullstack", "Java", "React", "Project", "API", "Frontend", "Backend"],
+      excerpt: "Practice building a simple full-stack application: a backend with Java (Spring Boot REST API) and a frontend with JavaScript (ReactJS) to understand how they communicate.",
+      content: `
+    <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
+      <p class="text-lg font-medium">
+        You've learned about the power of <strong class="text-blue-600 dark:text-blue-400">Java</strong> on the backend and the flexibility of <strong class="text-blue-600 dark:text-blue-400">JavaScript</strong> on the frontend. Now it's time to combine them! This project will guide you through building a complete full-stack application where a ReactJS client communicates with a RESTful API written in Spring Boot.
+      </p>
+
+      <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-l-4 border-blue-500 dark:border-blue-400 pl-3 mt-8">
+        📘 Project Goals
+      </h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Understand the Client-Server communication flow via REST API.</li>
+        <li>Practice creating a simple API with Spring Boot.</li>
+        <li>Build a basic user interface with ReactJS to interact with the API.</li>
+        <li>Grasp the overall picture of a full-stack project.</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-purple-600 dark:text-purple-400 border-l-4 border-purple-500 dark:border-purple-400 pl-3 mt-10">
+        🏗️ Application Architecture
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6 mt-4">
+        <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg border-l-4 border-orange-500">
+          <h3 class="font-semibold text-orange-600 dark:text-orange-400">☁️ Backend (Server)</h3>
+          <p class="mt-2 text-sm">Java & Spring Boot provide a RESTful API to manage data.</p>
+        </div>
+        <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg border-l-4 border-sky-500">
+          <h3 class="font-semibold text-sky-600 dark:text-sky-400">🖥️ Frontend (Client)</h3>
+          <p class="mt-2 text-sm">JavaScript & ReactJS create the interface, send requests, and display data.</p>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-semibold text-green-600 dark:text-green-400 border-l-4 border-green-500 dark:border-green-400 pl-3 mt-10">
+        ⚙️ Step 1: Building the Backend API with Spring Boot
+      </h2>
+      
+      <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">1. Create the Model (Task.java)</h3>
+      <p>First, we define what a <code>Task</code> object will look like.</p>
+      <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-java">
+        // TaskController.java
+        import org.springframework.web.bind.annotation.*;
+        import java.util.ArrayList;
+        import java.util.List;
+        import java.util.concurrent.atomic.AtomicLong;
+
+        @RestController
+        @RequestMapping("/api/tasks")
+        @CrossOrigin(origins = "http://localhost:3000")
+        public class TaskController {
+            private final List<Task> tasks = new ArrayList<>();
+            private final AtomicLong counter = new AtomicLong();
+
+            public TaskController() {
+                tasks.add(new Task(counter.incrementAndGet(), "Learn Java", false));
+                tasks.add(new Task(counter.incrementAndGet(), "Learn JavaScript", false));
+            }
+
+            @GetMapping
+            public List<Task> getAllTasks() {
+                return tasks;
+            }
+
+            @PostMapping
+            public Task createTask(@RequestBody Task task) {
+                task.setId(counter.incrementAndGet());
+                tasks.add(task);
+                return task;
+            }
+        }
+      </code></pre>
+
+      <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-8 mb-2">2. Create the Controller (TaskController.java)</h3>
+      <p>Next, create the endpoints for the Frontend to call.</p>
+      <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-java">
+// TaskController.java
+import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
+
+@RestController
+@RequestMapping("/api/tasks")
+@CrossOrigin(origins = "http://localhost:3000")
+public class TaskController {
+    private final List<Task> tasks = new ArrayList<>();
+    private final AtomicLong counter = new AtomicLong();
+
+    public TaskController() {
+        tasks.add(new Task(counter.incrementAndGet(), "Learn Java", false));
+        tasks.add(new Task(counter.incrementAndGet(), "Learn JavaScript", false));
+    }
+
+    @GetMapping
+    public List<Task> getAllTasks() {
+        return tasks;
+    }
+
+    @PostMapping
+    public Task createTask(@RequestBody Task task) {
+        task.setId(counter.incrementAndGet());
+        tasks.add(task);
+        return task;
+    }
+}
+      </code></pre>
+
+      <div class="mt-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 rounded-r-lg">
+        <h4 class="font-semibold text-yellow-800 dark:text-yellow-300">💡 Important Note: CORS</h4>
+        <p class="text-yellow-700 dark:text-yellow-400">The <code>@CrossOrigin(origins = "http://localhost:3000")</code> annotation is crucial. It acts as a "pass" allowing the React app (running on port 3000) to call your API (running on port 8080). Without it, the browser will block the request for security reasons.</p>
+      </div>
+
+      <h2 class="text-2xl font-semibold text-orange-600 dark:text-orange-400 border-l-4 border-orange-500 dark:border-orange-400 pl-3 mt-10">
+        ⚛️ Step 2: Displaying Frontend Code (ReactJS)
+      </h2>
+      <p>Here is example code for a React component to be displayed on the blog page.</p>
+      <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-jsx">
+// App.js (or a TaskList.js component)
+import React, &#123; useEffect, useState &#125; from 'react';
+
+function App() &#123;
+  const [tasks, setTasks] = useState([]);
+  const [newTaskDescription, setNewTaskDescription] = useState('');
+  const API_BASE_URL = 'http://localhost:8080/api/tasks';
+
+  useEffect(() => &#123;
+    fetchTasks();
+  &#125;, []);
+
+  const fetchTasks = async () => &#123;
+    const response = await fetch(API_BASE_URL);
+    const data = await response.json();
+    setTasks(data);
+  &#125;;
+
+  const handleAddTask = async (e) => &#123;
+    e.preventDefault();
+    if (!newTaskDescription.trim()) return;
+
+    const newTask = &#123; description: newTaskDescription, completed: false &#125;;
+    const response = await fetch(API_BASE_URL, &#123;
+      method: 'POST',
+      headers: &#123; 'Content-Type': 'application/json' &#125;,
+      body: JSON.stringify(newTask),
+    &#125;);
+    const addedTask = await response.json();
+    setTasks([...tasks, addedTask]);
+    setNewTaskDescription('');
+  &#125;;
+
+  return (
+    &lt;div style=&#123;&#123; maxWidth: '600px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' &#125;&#125;&gt;
+      &lt;h1 style=&#123;&#123; textAlign: 'center', marginBottom: '20px' &#125;&#125;&gt;Task Manager&lt;/h1&gt;
+      &lt;form onSubmit=&#123;handleAddTask&#125; style=&#123;&#123; display: 'flex', marginBottom: '20px' &#125;&#125;&gt;
+        &lt;input
+          type="text"
+          value=&#123;newTaskDescription&#125;
+          onChange=&#123;(e) => setNewTaskDescription(e.target.value)&#125;
+          placeholder="Add a new task..."
+          style=&#123;&#123; flexGrow: 1, padding: '10px', borderRadius: '4px', border: '1px solid #ddd' &#125;&#125;
+        /&gt;
+        &lt;button type="submit" style=&#123;&#123; padding: '10px 15px', marginLeft: '10px', background: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' &#125;&#125;&gt;
+          Add
+        &lt;/button&gt;
+      &lt;/form&gt;
+      &lt;ul style=&#123;&#123; listStyle: 'none', padding: 0 &#125;&#125;&gt;
+        &#123;tasks.map(task => (
+          &lt;li key=&#123;task.id&#125; style=&#123;&#123; padding: '10px 0', borderBottom: '1px solid #eee' &#125;&#125;&gt;
+            &#123;task.description&#125; - &#123;task.completed ? 'Completed' : 'Pending'&#125;
+          &lt;/li&gt;
+        ))&#125;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+&#125;
+export default App;
+      </code></pre>
+
+
+      <h2 class="text-2xl font-semibold text-rose-600 dark:text-rose-400 border-l-4 border-rose-500 dark:border-rose-400 pl-3 mt-10">
+        🖼️ Final Result (Illustration)
+      </h2>
+      <p>Below is an illustration of the result of the above code when run in a real React project.</p>
+      <div class="mt-4 p-4 border rounded-lg bg-white dark:bg-gray-800">
+        <img 
+          src="/images/posts/9-result.jpg" 
+          alt="Task Manager Application Result" 
+          class="rounded-md shadow-lg w-full"
+        >
+      </div>
+      
+      <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 border-l-4 border-indigo-500 dark:border-indigo-400 pl-3 mt-10">
+        🔗 Summary and Next Steps
+      </h2>
+      <p>This project is an excellent example of how Java and JavaScript can work together. To enhance it, you could add <strong>Update</strong> (PUT) and <strong>Delete</strong> (DELETE) functionality, connect to a database, and improve the user interface.</p>
+    </div>
+  `,
+      link: "https://spring.io/guides/gs/rest-service/",
+      relatedLinks: [
+        {
+          title: "Spring Boot REST Service – Spring.io",
+          url: "https://spring.io/guides/gs/rest-service/",
+        },
+        {
+          title: "React Hooks – Official Docs",
+          url: "https://react.dev/reference/react",
+        },
+        {
+          title: "Fetch API – MDN Web Docs",
+          url: "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+        },
+      ],
+    },
+    // =================================================================
+    // =============== 🇺🇸 ENGLISH BLOG POSTS (Continued) ===============
+    // =================================================================
+    {
+      title: "🔟 JavaScript OOP: Prototypes and Classes",
+      slug: "javascript-essentials-2-oop", // Slug remains the same
+      date: "2025-10-16",
+      image: "/images/posts/10.jpg",
+      tags: ["JavaScript", "OOP", "Prototype", "JSE2", "ES6"],
+      excerpt: "Dive deep into the nature of JavaScript's OOP: from the unique prototype mechanism to the modern `class` syntax of ES6, helping you build structured and reusable code.",
+      content: `
+    <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
+      <p class="text-lg font-medium">
+        Unlike traditional object-oriented languages like Java, <strong class="text-blue-600 dark:text-blue-400">JavaScript</strong> has a unique approach to OOP through its <strong class="text-blue-600 dark:text-blue-400">prototype</strong> mechanism. This article will help you understand this foundation and how the modern <code>class</code> syntax of ES6 is just a more convenient "syntactic sugar" on top of it.
+      </p>
+
+      <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-l-4 border-blue-500 dark:border-blue-400 pl-3 mt-8">
+        📘 What will you learn?
+      </h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Understand the core difference between class-based and prototype-based OOP.</li>
+        <li>Master the concept of the prototype chain and how it works.</li>
+        <li>Practice creating objects in both ways: using Constructor Functions (traditional) and using <code>class</code> (modern).</li>
+        <li>Recognize why understanding prototypes is important even when you only use <code>class</code>.</li>
+      </ul>
+
+      <div class="mt-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+        <h3 class="font-semibold text-gray-900 dark:text-gray-100">OOP in JavaScript: The Core Difference</h3>
+        <p class="mt-2 text-sm">
+          Instead of using a "blueprint" (class) to create objects, every object in JavaScript has a hidden link to another object, called its <strong>prototype</strong>. When a property is not found on an object, JavaScript automatically looks it up on the prototype chain. This is how JavaScript implements inheritance.
+        </p>
+      </div>
+
+      <h2 class="text-2xl font-semibold text-green-600 dark:text-green-400 border-l-4 border-green-500 dark:border-green-400 pl-3 mt-10">
+        🏛️ Method 1: Using Constructor Functions & Prototypes (Traditional)
+      </h2>
+      <p>Before ES6, this was the primary way to create objects with similar structures.</p>
+      <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-javascript">
+// 1. Define a Constructor Function
+function Car(brand, model, year) {
+    this.brand = brand;
+    this.model = model;
+    this.year = year;
+}
+
+// 2. Add methods to the prototype to be shared
+Car.prototype.getSummary = function() {
+    return \`A \${this.brand} \${this.model}, manufactured in \${this.year}.\`;
+};
+
+// 3. Create instances
+const car1 = new Car('Toyota', 'Camry', 2020);
+console.log(car1.getSummary()); // "A Toyota Camry, manufactured in 2020."
+      </code></pre>
+      <h2 class="text-2xl font-semibold text-orange-600 dark:text-orange-400 border-l-4 border-orange-500 dark:border-orange-400 pl-3 mt-10">
+        ✨ Method 2: Using the <code>class</code> syntax (Modern)
+      </h2>
+      <p>ES6 introduced the <code>class</code> keyword to make OOP syntax more familiar and readable. However, it still operates on the prototype mechanism underneath.</p>
+      <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto"><code class="language-javascript">
+class Animal {
+    // constructor is a special method for creating and initializing an object
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        console.log(\`\${this.name} makes a sound.\`);
+    }
+}
+
+// Use "extends" for inheritance
+class Dog extends Animal {
+    speak() { // Overriding parent class method (Overriding)
+        console.log(\`\${this.name} barks: Woof woof!\`);
+    }
+}
+
+const myDog = new Dog('Buddy');
+myDog.speak(); // "Buddy barks: Woof woof!"
+</code></pre>
+      
+      <div class="mt-8 p-4 bg-indigo-50 dark:bg-indigo-900/20 border-l-4 border-indigo-500 rounded-r-lg">
+        <h4 class="font-semibold text-indigo-800 dark:text-indigo-300">💡 Key Takeaway</h4>
+        <p class="text-indigo-700 dark:text-indigo-400">The <code>class</code> syntax is just "syntactic sugar" - a cleaner way to write code that uses the prototype mechanism. Understanding prototypes helps you debug effectively and master the nature of JavaScript.</p>
+      </div>
+
+      <h2 class="text-2xl font-semibold text-rose-600 dark:text-rose-400 border-l-4 border-rose-500 dark:border-rose-400 pl-3 mt-10">
+        🚀 Conclusion
+      </h2>
+      <p>Mastering OOP in JavaScript, regardless of the approach, will help you build complex applications with a clear, reusable, and scalable structure.</p>
+    </div>
+  `,
+      link: "https://www.netacad.com/courses/programming/javascript-essentials-2",
+      relatedLinks: [
+        {
+          title: "Inheritance and the prototype chain - MDN",
+          url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain",
+        },
+        {
+          title: "JavaScript Classes - W3Schools",
+          url: "https://www.w3schools.com/js/js_classes.asp",
+        },
+        {
+          title: "Classes - JavaScript.info",
+          url: "https://javascript.info/class",
+        },
+      ],
+    },
+    {
+      title: "🌐 Networking Basics – The Process of Sending Data Over a Network",
+      slug: "networking-basics-osi-tcp-ip", // Slug remains the same
+      date: "2025-10-16",
+      image: "/images/posts/11.png",
+      tags: ["Networking", "OSI", "TCP/IP", "Basics", "Infrastructure"],
+      excerpt: "Explore the two most fundamental computer networking models: the 7-layer OSI and TCP/IP. This is core knowledge for any developer to understand how data moves across the Internet.",
+      content: `
+    <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
+      <p class="text-lg font-medium">
+        Have you ever wondered what really happens when you type a web address and hit Enter? Data doesn't just magically "fly" across the Internet. It follows a strict packaging and transportation process, much like sending a parcel.
+      </p>
+      <p>
+        Imagine this: you write a letter (data), put it in an envelope (packaging), write the address (add information), and send it to the post office (transmission). Computer networks work similarly through a process called <strong>encapsulation</strong>. The two most famous models describing this process are OSI and TCP/IP.
+      </p>
+
+      <h2 class="text-2xl font-semibold text-purple-600 dark:text-purple-400 border-l-4 border-purple-500 dark:border-purple-400 pl-3 mt-10">
+        🏛️ The OSI Model: A Detailed 7-Layer "Blueprint"
+      </h2>
+      <p>The OSI model is a theoretical blueprint that divides the network communication process into 7 specific steps (layers). It helps us understand the role of each component.</p>
+      <img src="/images/posts/1111.1.jpg" alt="Data encapsulation process through the OSI model" class="my-4 w-full rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+      
+      <h3 class="text-xl font-semibold text-teal-600 dark:text-teal-400 mt-6 mb-2">Data Sending Process (Encapsulation)</h3>
+      <div class="space-y-3">
+        <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg"><strong>Layer 7 (Application):</strong> Where you create the data. <strong>Example:</strong> Composing an email, typing a URL in the browser.</div>
+        <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg"><strong>Layer 6 (Presentation):</strong> Data is formatted, encrypted (SSL/TLS). <strong>Example:</strong> Converting text to ASCII code.</div>
+        <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg"><strong>Layer 5 (Session):</strong> Opens and maintains a stable connection "session".</div>
+        <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg"><strong>Layer 4 (Transport):</strong> Data is broken down into <strong>Segments</strong>. The TCP protocol adds sequence numbers for reliability.</div>
+        <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg"><strong>Layer 3 (Network):</strong> Segments are appended with IP addresses, becoming <strong>Packets</strong>. Routers use this information to find the path.</div>
+        <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg"><strong>Layer 2 (Data Link):</strong> Packets are appended with MAC addresses, becoming <strong>Frames</strong> for movement within the local network.</div>
+        <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg"><strong>Layer 1 (Physical):</strong> Frames are converted into electrical signals/waves (<strong>Bits</strong>) and transmitted over cables or Wi-Fi.</div>
+      </div>
+      <p class="mt-4">When the server receives the data, it performs the reverse process (unwrapping from layer 1 → 7) to retrieve the original data.</p>
+
+      <h2 class="text-2xl font-semibold text-green-600 dark:text-green-400 border-l-4 border-green-500 dark:border-green-400 pl-3 mt-10">
+        🌐 The TCP/IP Model: A Practical 4-Layer Model
+      </h2>
+      <p>TCP/IP is the model used in practice and is the foundation of the Internet. It consolidates the 7 layers of the OSI model into 4 simpler layers.</p>
+      <img src="/images/posts/11.2.jpg" alt="The 4-layer TCP/IP Model" class="my-4 w-full rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+      <div class="space-y-3">
+        <div class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500"><strong>Application (OSI Layers 7, 6, 5):</strong> Handles user protocols like HTTPS, TLS, DNS.</div>
+        <div class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500"><strong>Transport (OSI Layer 4):</strong> Provides end-to-end data transport using TCP or UDP.</div>
+        <div class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500"><strong>Internet (OSI Layer 3):</strong> Routes packets using IP addresses (IPv4, IPv6).</div>
+        <div class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500"><strong>Network Access (OSI Layers 2, 1):</strong> Transmits data over physical hardware like Ethernet, Wi-Fi.</div>
+      </div>
+      
+      <h2 class="text-2xl font-semibold text-orange-600 dark:text-orange-400 border-l-4 border-orange-500 dark:border-orange-400 pl-3 mt-10">
+        🚀 Real-world Example: Accessing a Website
+      </h2>
+      <ol class="list-decimal ml-6 space-y-2">
+        <li><strong>You (Application):</strong> Type <code>google.com</code>. The browser creates an HTTP "GET /" request.</li>
+        <li><strong>Packaging (Transport):</strong> The request is broken down, put into TCP Segments, and tagged with destination port 443 (HTTPS).</li>
+        <li><strong>Addressing (Internet):</strong> Each Segment is put into an IP Packet, tagged with Google's server IP address.</li>
+        <li><strong>Local Delivery (Network Access):</strong> The Packet is put into a Frame, tagged with your home router's MAC address.</li>
+        <li><strong>Transmission (Physical):</strong> The Frame is converted into electrical signals and sent to the router.</li>
+        <li><strong>The Journey:</strong> Your router reads the IP address and pushes the Packet onto the Internet, where it hops across many other routers to reach Google's server.</li>
+        <li><strong>Response:</strong> Google's server does the reverse process to read the request, then encapsulates the website content and sends it back to you following the same process.</li>
+      </ol>
+
+      <h2 class="text-2xl font-semibold text-rose-600 dark:text-rose-400 border-l-4 border-rose-500 dark:border-rose-400 pl-3 mt-10">
+        💡 Why Do Developers Need to Know This?
+      </h2>
+      <ul class="list-disc ml-6 mt-2 space-y-1">
+        <li><strong>More Effective Debugging:</strong> When an API isn't working, you can deduce where the problem might be (DNS error? TCP connection issue? Or an application layer bug?).</li>
+        <li><strong>Better System Design:</strong> Understanding data transmission helps in optimizing performance and security.</li>
+        <li><strong>Better Communication:</strong> Easily converse with network engineers or DevOps professionals.</li>
+      </ul>
+    </div>
+  `,
+      link: "https://www.netacad.com/courses/networking/networking-basics",
+      relatedLinks: [
+        {
+          title: "What is OSI Model? - Layers of OSI Model",
+          url: "https://www.geeksforgeeks.org/computer-networks/open-systems-interconnection-model-osi/",
+        },
+        {
+          title: "TCP/IP Model - GeeksforGeeks",
+          url: "https://www.geeksforgeeks.org/tcp-ip-model/",
+        },
+      ],
+    },
+    {
+      title: "1️⃣2️⃣ JavaScript: Professional Error Handling with try...catch",
+      slug: "javascript-error-handling", // Slug remains the same
+      date: "2025-10-16",
+      image: "/images/posts/12.jpg",
+      tags: ["JavaScript", "Error Handling", "JSE2", "Exception", "try-catch"],
+      excerpt: "How do you prevent your program from crashing when an error occurs? Learn to use `try...catch...finally` to catch and handle exceptions professionally, making your application more robust and user-friendly.",
+      content: `
+    <div class="space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed">
+      <p class="text-lg font-medium">
+        Errors are an unavoidable part of programming. Instead of letting an unexpected error crash your entire application, JavaScript provides a powerful mechanism to manage them: the <strong class="text-blue-600 dark:text-blue-400">try...catch...finally</strong> block. This article will help you write safer and more reliable code.
+      </p>
+
+      <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 border-l-4 border-blue-500 dark:border-blue-400 pl-3 mt-8">
+        📘 What will you learn?
+      </h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Understand why error handling is important.</li>
+        <li>Master the syntax and operation of the <code>try...catch...finally</code> block.</li>
+        <li>Know how to use the <code>Error</code> object to get detailed error information.</li>
+        <li>Learn how to proactively "throw" errors using the <code>throw</code> keyword to control program flow.</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-purple-600 dark:text-purple-400 border-l-4 border-purple-500 dark:border-purple-400 pl-3 mt-10">
+        🚧 Why Handle Errors?
+      </h2>
+      <p>If an error occurs and is not handled, the program will stop abruptly, creating a poor user experience. Error handling helps you:</p>
+      <ul class="list-disc ml-6 space-y-2">
+        <li><strong>Prevent crashes:</strong> Keep the application running.</li>
+        <li><strong>Provide friendly feedback:</strong> Display clear error messages to the user.</li>
+        <li><strong>Easier debugging:</strong> Log detailed error information for fixes.</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-green-600 dark:text-green-400 border-l-4 border-green-500 dark:border-green-400 pl-3 mt-10">
+        🔧 The 'try...catch...finally' Syntax
+      </h2>
+      <p>This mechanism consists of three blocks:</p>
+      <div class="mt-4 space-y-3">
+          <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg"><code><strong>try</strong></code>: Contains the code block that you anticipate might throw an error.</div>
+          <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg"><code><strong>catch (error)</strong></code>: If an error occurs in the <code>try</code> block, the program jumps here. The <code>error</code> variable contains information about the error.</div>
+          <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg"><code><strong>finally</strong></code> (optional): This block <strong>always</strong> executes, regardless of whether an error occurred. It's often used for resource cleanup.</div>
+      </div>
+      <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto mt-4"><code class="language-javascript">
+try {
+
+  console.log("Starting the try block...");
+// Simulate an error
+  someUndefinedFunction();
+  console.log("This line will not be executed.");
+} catch (error) {
+  // If an error occurs, the execution flow jumps here
+  console.error("An error occurred!");
+  console.error("Error message:", error.message); // Example: "someUndefinedFunction is not defined"
+} finally {
+  // This block always executes
+  console.log("The finally block has been executed.");
+}
+console.log("The program continues to run.");
+</code></pre>
+
+      <h2 class="text-2xl font-semibold text-orange-600 dark:text-orange-400 border-l-4 border-orange-500 dark:border-orange-400 pl-3 mt-10">
+        🚀 Proactively Throwing Errors with 'throw'
+      </h2>
+      <p>Sometimes, you want to create your own errors when an unexpected condition occurs (e.g., invalid input data). You can do this with the <code>throw</code> keyword.</p>
+      <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-inner overflow-x-auto mt-4"><code class="language-javascript">
+function parseUser(jsonString) {
+  try {
+    let user = JSON.parse(jsonString);
+    if (!user.name || !user.age) {
+      // Proactively throw an error if the data is invalid
+      throw new Error("User data is incomplete: missing name or age.");
+    }
+    console.log(\`User: \${user.name}, Age: \${user.age}\`);
+    return user;
+  } catch (error) {
+    console.error("Data processing error: ", error.message);
+    return null; // Return null or take other actions
+  }
+}
+
+parseUser('{"name": "Alice"}'); // Output: Data processing error: User data is incomplete: missing name or age.
+      </code></pre>
+
+      <h2 class="text-2xl font-semibold text-rose-600 dark:text-rose-400 border-l-4 border-rose-500 dark:border-rose-400 pl-3 mt-10">
+        🔗 Conclusion
+      </h2>
+      <p>Error handling is an essential skill for a professional developer. Fluency in using <code>try...catch</code> and <code>throw</code> not only makes your applications more stable but also significantly improves the user experience.</p>
+    </div>
+  `,
+      link: "https://www.netacad.com/courses/programming/javascript-essentials-2",
+      relatedLinks: [
+        {
+          title: "try...catch - MDN Web Docs",
+          url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch",
+        },
+        {
+          title: "JavaScript Errors - W3Schools",
+          url: "https://www.w3schools.com/js/js_errors.asp",
+        },
+        {
+          title: "Error handling, 'try...catch' - JavaScript.info",
+          url: "https://javascript.info/try-catch",
+        },
+      ],
+    },
+  ],
+}

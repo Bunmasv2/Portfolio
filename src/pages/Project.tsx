@@ -13,20 +13,20 @@ import { LanguageProvider } from "../context/LanguageContext"
 
 const ProjectPage = () => {
     return (
-        <LanguageProvider>
-            <div className="bg-background text-foreground min-h-screen transition-colors duration-500">
-                <ThemeToggle />
-                <Navbar />
-                <main className="max-w-6xl mx-auto px-6 sm:px-8">
-                    <Skills />
-                    <Projects />
-                    <Certificates />
-                    <Contact />
-                </main>
-                <ScrollToTop />
-                <Footer />
-            </div>
-        </LanguageProvider>
+        // <LanguageProvider>
+        <div className="bg-background text-foreground min-h-screen transition-colors duration-500">
+            {/* <ThemeToggle /> */}
+            <Navbar />
+            <main className="max-w-6xl mx-auto px-6 sm:px-8">
+                <Skills />
+                <Projects />
+                <Certificates />
+                <Contact />
+            </main>
+            <ScrollToTop />
+            <Footer />
+        </div>
+        // </LanguageProvider>
     );
 };
 

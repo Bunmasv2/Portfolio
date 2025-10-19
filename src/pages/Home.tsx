@@ -14,22 +14,22 @@ import { LanguageProvider } from "../context/LanguageContext"
 
 const Home = () => {
     return (
-        <LanguageProvider>
-            <div className="bg-background text-foreground min-h-screen transition-colors duration-500">
-                {/* <ThemeToggle />
+        // <LanguageProvider>
+        <div className="bg-background text-foreground min-h-screen transition-colors duration-500">
+            {/* <ThemeToggle />
                 <LanguageToggle /> */}
-                <Navbar />
-                <main className="max-w-6xl mx-auto px-6 sm:px-8">
-                    <Hero />
-                    <About />
-                    <Skills />
-                    <SoftSkills />
-                    <Contact />
-                </main>
-                <ScrollToTop />
-                <Footer />
-            </div>
-        </LanguageProvider>
+            <Navbar />
+            <main className="max-w-6xl mx-auto px-6 sm:px-8">
+                <Hero />
+                <About />
+                <Skills />
+                <SoftSkills />
+                <Contact />
+            </main>
+            <ScrollToTop />
+            <Footer />
+        </div>
+        // </LanguageProvider>
     );
 };
 

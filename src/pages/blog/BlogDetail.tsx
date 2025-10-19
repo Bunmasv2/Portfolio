@@ -5,10 +5,31 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { postsData } from "../../data/postsData";
 import ThemeToggle from "../../components/ThemeToggle";
+import { useLanguage } from "../../context/LanguageContext";
+
+const translations = {
+    en: {
+        notFoundTitle: "Oops! You're lost...",
+        notFoundMessage: "The post you are looking for could not be found.",
+        backToBlog: "Back to Blog Page",
+        relatedDocs: "📚 Related Documents & Courses",
+        backToAllPosts: "Back to all posts",
+    },
+    vi: {
+        notFoundTitle: "Ối! Lạc đường rồi...",
+        notFoundMessage: "Không tìm thấy bài viết bạn yêu cầu.",
+        backToBlog: "Quay về Trang Blog",
+        relatedDocs: "📚 Tài liệu & Khóa học liên quan",
+        backToAllPosts: "Quay lại tất cả bài viết",
+    },
+};
 
 const BlogDetail = () => {
     const { slug } = useParams();
-    const post = postsData.find((p) => p.slug === slug);
+    const { lang } = useLanguage();
+    const t = translations[lang];
+
+    const post = postsData[lang].find((p) => p.slug === slug);
 
     if (!post)
         return (
@@ -19,7 +40,7 @@ const BlogDetail = () => {
                     to="/blog" // Thay bằng đường dẫn trang blog của bạn
                     className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-transform transform hover:scale-105"
                 >
-                    Quay về Trang Blog
+                    {t.backToBlog}
                 </Link>
             </div>
         );
@@ -67,7 +88,7 @@ const BlogDetail = () => {
                 {post.relatedLinks && post.relatedLinks.length > 0 && (
                     <div className="mt-16 p-6 bg-gray-100 dark:bg-zinc-800 rounded-xl">
                         <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
-                            📚 Tài liệu & Khóa học liên quan
+                            {t.relatedDocs}
                         </h3>
                         <ul className="space-y-2">
                             {post.relatedLinks.map((link, i) => (
@@ -95,7 +116,7 @@ const BlogDetail = () => {
                         <svg className="-ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
-                        Quay lại tất cả bài viết
+                        {t.backToAllPosts}
                     </Link>
                 </div>
             </main>

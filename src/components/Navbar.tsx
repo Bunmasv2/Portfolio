@@ -5,8 +5,58 @@ import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
+import { useLanguage } from "../context/LanguageContext";
+
+const translations = {
+    en: {
+        homePageLinks: [
+            { name: "About", path: "#about" },
+            { name: "Skills", path: "#skills" },
+            { name: "Projects & Certificates", path: "/project" },
+            { name: "Blog", path: "/blog" },
+            { name: "Contact", path: "#contact" },
+        ],
+        projectPageLinks: [
+            { name: "Home", path: "/" },
+            { name: "Skills", path: "#skills" },
+            { name: "Projects", path: "#projects" },
+            { name: "Certificates", path: "#certificates" },
+            { name: "Blog", path: "/blog" },
+            { name: "Contact", path: "#contact" },
+        ],
+        defaultLinks: [
+            { name: "Home", path: "/" },
+            { name: "Projects & Certificates", path: "/project" },
+            { name: "Blog", path: "/blog" },
+        ],
+    },
+    vi: {
+        homePageLinks: [
+            { name: "Giới Thiệu", path: "#about" },
+            { name: "Kỹ Năng", path: "#skills" },
+            { name: "Dự Án & Chứng Chỉ", path: "/project" },
+            { name: "Bài Viết", path: "/blog" },
+            { name: "Liên Hệ", path: "#contact" },
+        ],
+        projectPageLinks: [
+            { name: "Trang Chủ", path: "/" },
+            { name: "Kỹ Năng", path: "#skills" },
+            { name: "Dự Án", path: "#projects" },
+            { name: "Chứng Chỉ", path: "#certificates" },
+            { name: "Bài Viết", path: "/blog" },
+            { name: "Liên Hệ", path: "#contact" },
+        ],
+        defaultLinks: [
+            { name: "Trang Chủ", path: "/" },
+            { name: "Dự Án & Chứng Chỉ", path: "/project" },
+            { name: "Bài Viết", path: "/blog" },
+        ],
+    },
+};
 
 const Navbar: React.FC = () => {
+    const { lang } = useLanguage();
+    const t = translations[lang];
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
@@ -43,11 +93,11 @@ const Navbar: React.FC = () => {
 
     let linksToDisplay;
     if (location.pathname === "/") {
-        linksToDisplay = homePageLinks;
+        linksToDisplay = t.homePageLinks;
     } else if (location.pathname === "/project") {
-        linksToDisplay = projectPageLinks;
+        linksToDisplay = t.projectPageLinks;
     } else {
-        linksToDisplay = defaultLinks;
+        linksToDisplay = t.defaultLinks;
     }
 
     // --- CÁC HOOK VÀ HÀM XỬ LÝ ---

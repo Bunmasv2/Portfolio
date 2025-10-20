@@ -4,7 +4,7 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 import { ExternalLink, Github, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import VerticalImageCarousel from "../components/VerticalImageCarousell"
+import VerticalImageCarousel from "../components/AutoScrollGallery"
 
 
 // Import dữ liệu theo ngôn ngữ
@@ -75,7 +75,7 @@ const Projects: React.FC = () => {
                             {/* Image Carousel */}
                             <div className="relative aspect-video overflow-hidden bg-muted">
                                 {project.images && project.images.length > 0 ? (
-                                    <VerticalImageCarousel images={project.images} speed={0.55} />
+                                    <VerticalImageCarousel images={project.images} />
                                 ) : (
                                     <img
                                         src="/placeholder.svg"

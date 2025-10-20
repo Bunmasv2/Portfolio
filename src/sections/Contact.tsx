@@ -59,9 +59,9 @@ const translations = {
 
 // ======= CONTACT DATA =======
 const contactInfo = [
-    { icon: <Mail className="w-5 h-5 text-primary" />, label: "Email", value: "thaibao5335@gmail.com" },
-    { icon: <Phone className="w-5 h-5 text-primary" />, label: "Phone", value: "+84 912 345 678" },
-    { icon: <MapPin className="w-5 h-5 text-primary" />, label: "Location", value: "Ho Chi Minh City, Vietnam" },
+    { type: "email", icon: <Mail className="w-5 h-5 text-primary" />, label: "Email", value: "thaibao5335@gmail.com" },
+    { type: "phone", icon: <Phone className="w-5 h-5 text-primary" />, label: "Phone", value: "+84 912 345 678" },
+    { type: "location", icon: <MapPin className="w-5 h-5 text-primary" />, label: "Location", value: "Ho Chi Minh City, Vietnam" },
 ];
 
 // ======= SOCIAL LINKS =======
@@ -69,6 +69,8 @@ const socials = [
     { icon: <Facebook className="w-5 h-5" />, link: "https://web.facebook.com/bao.nguyen.408431" },
     { icon: <Github className="w-5 h-5" />, link: "https://github.com/Bunmasv2" },
     { icon: <Phone className="w-5 h-5" />, link: "tel:+84866410473" },
+    { icon: <Mail className="w-5 h-5" />, link: "email" }, // ✅ thêm nút Email
+
 ];
 
 // ======= VALIDATION =======
@@ -148,6 +150,29 @@ const Contact: React.FC = () => {
         }
     };
 
+    const handleEmailClick = () => {
+        const target = "thaibao5335@gmail.com";
+
+        // Nội dung email tùy ngôn ngữ
+        const title = lang === "vi" ? "Liên hệ từ trang cá nhân" : "Message from Portfolio";
+        const message =
+            lang === "vi"
+                ? "Xin chào, tôi muốn liên hệ với bạn qua email này."
+                : "Hi there, I’d like to connect with you via this email.";
+
+        // Tạo URL Gmail (cách khác nhưng kết quả giống)
+        const query = new URLSearchParams({
+            view: "cm",
+            fs: "1",
+            to: target,
+            su: title,
+            body: message,
+        }).toString();
+
+        // Mở tab mới đến Gmail
+        window.open(`https://mail.google.com/mail/?${query}`, "_blank", "noopener,noreferrer");
+    };
+
     return (
         <section id="contact" className="py-20 px-4 sm:px-8 bg-background transition-colors duration-300">
             <AnimatePresence>
@@ -194,18 +219,32 @@ const Contact: React.FC = () => {
                             </h3>
                             <p className="text-base text-muted-foreground leading-relaxed mb-8">{t.description}</p>
 
-                            <div className="space-y-6">
+                            <div className="space-y-2">
                                 {contactInfo.map((info, index) => (
-                                    <motion.div key={index} variants={itemVariants} className="flex items-center gap-4">
-                                        <div className="p-3 rounded-xl bg-muted flex items-center justify-center">
-                                            {info.icon}
+                                    <motion.button
+                                        key={index}
+                                        variants={itemVariants}
+                                        onClick={() => {
+                                            if (info.type === "email") handleEmailClick();
+                                            else if (info.type === "phone") window.open(`tel:${info.value.replace(/\s+/g, "")}`, "_blank");
+                                            else if (info.type === "location") window.open("https://maps.google.com/?q=Ho+Chi+Minh+City+Vietnam", "_blank");
+                                        }}
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.97 }}
+                                        className="group flex items-center gap-4 w-full text-left rounded-lg px-2 py-2 transition-all duration-300 hover:bg-primary/10 cursor-pointer"                                    >
+                                        {/* Icon */}
+                                        <div className="p-3 rounded-xl bg-muted flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20 group-hover:text-primary">
+                                            {React.cloneElement(info.icon, { className: "w-5 h-5 transition-colors duration-300 group-hover:text-indigo-300" })}
                                         </div>
-                                        <div>
-                                            <p className="text-sm text-muted-foreground">{info.label}</p>
-                                            <p className="text-base font-medium text-foreground">{info.value}</p>
+
+                                        {/* Text */}
+                                        <div className="transition-colors duration-300">
+                                            <p className="text-sm text-muted-foreground group-hover:text-indigo-300">{info.label}</p>
+                                            <p className="text-base font-medium text-foreground group-hover:text-indigo-300">{info.value}</p>
                                         </div>
-                                    </motion.div>
+                                    </motion.button>
                                 ))}
+
                             </div>
                         </div>
 
@@ -215,17 +254,19 @@ const Contact: React.FC = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ amount: 0.2 }}
-                            className="mt-10 flex gap-4 justify-start"
+                            className="mt-5 flex gap-4 justify-start"
                         >
                             {socials.map((s, i) => (
                                 <motion.a
                                     key={i}
-                                    href={s.link}
-                                    target="_blank"
+                                    onClick={() => {
+                                        if (s.link === "email") handleEmailClick();
+                                        else window.open(s.link, "_blank");
+                                    }}
                                     rel="noopener noreferrer"
                                     whileHover={{ scale: 1.15, boxShadow: "0 0 10px rgba(0,200,255,0.4)" }}
                                     whileTap={{ scale: 0.9 }}
-                                    className={`p-3 rounded-full bg-muted text-foreground transition-all duration-200 ${s.link.startsWith("tel:") ? "hover:bg-green-500 hover:text-white" : "hover:bg-primary hover:text-primary-foreground"}`}
+                                    className={`p-3 rounded-full bg-muted text-foreground transition-all duration-200 ${s.link.startsWith("tel:") ? "hover:bg-green-500 hover:text-white" : s.link === "email" ? "hover:bg-red-500 hover:text-white" : "hover:bg-primary hover:text-primary-foreground"}`}
                                 >
                                     {s.icon}
                                 </motion.a>

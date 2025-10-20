@@ -15,7 +15,7 @@ interface Certificate {
 const translations = {
     en: {
         title: "Certificates",
-        subtitle: "Hover to preview, click to download your verified certificate.",
+        subtitle: "Hover to preview, click to download my verified certificate.",
         downloadButton: "PDF",
         certificateList: [
             {
@@ -37,7 +37,7 @@ const translations = {
     },
     vi: {
         title: "Chứng Chỉ",
-        subtitle: "Di chuột để xem trước, nhấp để tải xuống chứng chỉ đã xác thực của bạn.",
+        subtitle: "Di chuột để xem trước, nhấp để tải xuống chứng chỉ đã xác thực của tôi.",
         downloadButton: "Tải PDF",
         certificateList: [
             {

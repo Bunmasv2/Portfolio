@@ -39,6 +39,11 @@ const translations = {
         failed: "Failed to send message.",
         empty: "Please fill in all fields.",
         invalid: "Please enter a valid email.",
+        contact: [
+            { type: "email", icon: <Mail className="w-5 h-5 text-primary" />, label: "Email", value: "thaibao5335@gmail.com" },
+            { type: "phone", icon: <Phone className="w-5 h-5 text-primary" />, label: "Phone", value: "+84 866 410 473" },
+            { type: "location", icon: <MapPin className="w-5 h-5 text-primary" />, label: "Location", value: "Tan Phu,Ho Chi Minh City, Vietnam" },
+        ],
     },
     vi: {
         title: "Liên Hệ Với Tôi",
@@ -54,15 +59,13 @@ const translations = {
         failed: "Gửi tin nhắn thất bại.",
         empty: "Vui lòng điền đầy đủ thông tin.",
         invalid: "Vui lòng nhập email hợp lệ.",
+        contact: [
+            { type: "email", icon: <Mail className="w-5 h-5 text-primary" />, label: "Email", value: "thaibao5335@gmail.com" },
+            { type: "phone", icon: <Phone className="w-5 h-5 text-primary" />, label: "Số điện thoại", value: "+84 866 410 473" },
+            { type: "location", icon: <MapPin className="w-5 h-5 text-primary" />, label: "Địa chỉ", value: "Tan Phu, Thành phố Hồ Chí Minh, Việt Nam" },
+        ],
     },
 };
-
-// ======= CONTACT DATA =======
-const contactInfo = [
-    { type: "email", icon: <Mail className="w-5 h-5 text-primary" />, label: "Email", value: "thaibao5335@gmail.com" },
-    { type: "phone", icon: <Phone className="w-5 h-5 text-primary" />, label: "Phone", value: "+84 912 345 678" },
-    { type: "location", icon: <MapPin className="w-5 h-5 text-primary" />, label: "Location", value: "Ho Chi Minh City, Vietnam" },
-];
 
 // ======= SOCIAL LINKS =======
 const socials = [
@@ -220,7 +223,7 @@ const Contact: React.FC = () => {
                             <p className="text-base text-muted-foreground leading-relaxed mb-8">{t.description}</p>
 
                             <div className="space-y-2">
-                                {contactInfo.map((info, index) => (
+                                {t.contact.map((info, index) => (
                                     <motion.button
                                         key={index}
                                         variants={itemVariants}

@@ -9,5 +9,5 @@ export interface Project {
   features: string[];
   role: string;
   description: string;
-  image: string;
+  images: string[];
 }

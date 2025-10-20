@@ -9,7 +9,7 @@ export interface Project {
   features: string[]
   role: string
   description: string
-  image: string
+  images: string[]
 }
 
 export const projects: Project[] = [
@@ -40,7 +40,11 @@ export const projects: Project[] = [
     ],
     role: "Developed RESTful APIs with modular architecture, implemented authentication and authorization using ASP.NET Core Identity, and integrated Cloudinary for file and image management. Built real-time task updates, notifications, and member presence tracking with SignalR. Designed responsive NextJS + Tailwind interface for sprint, task, and user management.",
     description: "A real-time project and task management system that supports team collaboration, sprint planning, drag-and-drop task organization, and file sharing with Cloudinary integration. It provides instant updates, role-based access control, and real-time communication for better workflow management.",
-    image: "/images/project/Project2.png"
+    images: [
+      "/images/project/Project1.1.png",
+      "/images/project/Project1.2.png",
+      "/images/project/Project1.3.png",
+    ],
   },
   {
     id: 2,
@@ -67,7 +71,11 @@ export const projects: Project[] = [
     ],
     role: "Developed RESTful APIs for managing users, appointments, and medical records. Implemented JWT authentication, role-based authorization, and email OTP verification. Integrated payment gateways (VNPay and MoMo) and automated appointment confirmation emails. Designed responsive UI for patients, doctors, and admin roles using React Bootstrap.",
     description: "A comprehensive clinic management platform that handles appointment scheduling, doctor management, patient records, and secure payment processing. The system improves clinic efficiency through automated workflows and cloud-based data storage.",
-    image: "/images/project/Project1.png"
+    images: [
+      "/images/project/Project2.1.png",
+      "/images/project/Project2.2.png",
+      "/images/project/Project2.3.png",
+    ],
   }
 ];
 

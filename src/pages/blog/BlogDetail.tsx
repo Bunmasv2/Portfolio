@@ -13,14 +13,14 @@ const translations = {
         notFoundMessage: "The post you are looking for could not be found.",
         backToBlog: "Back to Blog Page",
         relatedDocs: "📚 Related Documents & Courses",
-        backToAllPosts: "Back to all posts",
+        backToAllPosts: "Back to list of posts",
     },
     vi: {
         notFoundTitle: "Ối! Lạc đường rồi...",
         notFoundMessage: "Không tìm thấy bài viết bạn yêu cầu.",
         backToBlog: "Quay về Trang Blog",
         relatedDocs: "📚 Tài liệu & Khóa học liên quan",
-        backToAllPosts: "Quay lại tất cả bài viết",
+        backToAllPosts: "Quay lại danh sách bài viết",
     },
 };
 

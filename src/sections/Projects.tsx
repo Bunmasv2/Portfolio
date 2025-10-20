@@ -4,6 +4,8 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 import { ExternalLink, Github, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import VerticalImageCarousel from "../components/VerticalImageCarousell"
+
 
 // Import dữ liệu theo ngôn ngữ
 import { projects as enProjects } from "../data/projects.en";
@@ -70,15 +72,19 @@ const Projects: React.FC = () => {
                             whileHover={!isMobile ? { scale: 1.03, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" } : {}}
                             className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-300 flex flex-col"
                         >
-                            {/* Image */}
+                            {/* Image Carousel */}
                             <div className="relative aspect-video overflow-hidden bg-muted">
-                                <img
-                                    src={project.image || "/placeholder.svg"}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                {project.images && project.images.length > 0 ? (
+                                    <VerticalImageCarousel images={project.images} speed={0.55} />
+                                ) : (
+                                    <img
+                                        src="/placeholder.svg"
+                                        alt={project.title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                )}
                             </div>
+
 
                             {/* Content */}
                             <div className="p-8 flex flex-col flex-grow">

@@ -40,9 +40,9 @@ const translations = {
         empty: "Please fill in all fields.",
         invalid: "Please enter a valid email.",
         contact: [
-            { type: "email", icon: <Mail className="w-5 h-5 text-primary" />, label: "Email", value: "thaibao5335@gmail.com" },
-            { type: "phone", icon: <Phone className="w-5 h-5 text-primary" />, label: "Phone", value: "+84 866 410 473" },
-            { type: "location", icon: <MapPin className="w-5 h-5 text-primary" />, label: "Location", value: "Tan Phu,Ho Chi Minh City, Vietnam" },
+            { type: "email", icon: Mail, label: "Email", value: "thaibao5335@gmail.com" },
+            { type: "phone", icon: Phone, label: "Phone", value: "+84 866 410 473" },
+            { type: "location", icon: MapPin, label: "Location", value: "Tan Phu,Ho Chi Minh City, Vietnam" },
         ],
     },
     vi: {
@@ -60,9 +60,9 @@ const translations = {
         empty: "Vui lòng điền đầy đủ thông tin.",
         invalid: "Vui lòng nhập email hợp lệ.",
         contact: [
-            { type: "email", icon: <Mail className="w-5 h-5 text-primary" />, label: "Email", value: "thaibao5335@gmail.com" },
-            { type: "phone", icon: <Phone className="w-5 h-5 text-primary" />, label: "Số điện thoại", value: "+84 866 410 473" },
-            { type: "location", icon: <MapPin className="w-5 h-5 text-primary" />, label: "Địa chỉ", value: "Tan Phu, Thành phố Hồ Chí Minh, Việt Nam" },
+            { type: "email", icon: Mail, label: "Email", value: "thaibao5335@gmail.com" },
+            { type: "phone", icon: Phone, label: "Số điện thoại", value: "+84 866 410 473" },
+            { type: "location", icon: MapPin, label: "Địa chỉ", value: "Tân Phú, Thành phố Hồ Chí Minh, Việt Nam" },
         ],
     },
 };
@@ -220,34 +220,46 @@ const Contact: React.FC = () => {
                             <h3 className="text-2xl font-semibold text-foreground mb-6 flex items-center gap-2 justify-center dark:text-indigo-250">
                                 {t.contactInfo}
                             </h3>
-                            <p className="text-base text-muted-foreground leading-relaxed mb-8">{t.description}</p>
+                            <p className="text-base text-muted-foreground leading-relaxed mb-4">{t.description}</p>
 
                             <div className="space-y-2">
-                                {t.contact.map((info, index) => (
-                                    <motion.button
-                                        key={index}
-                                        variants={itemVariants}
-                                        onClick={() => {
-                                            if (info.type === "email") handleEmailClick();
-                                            else if (info.type === "phone") window.open(`tel:${info.value.replace(/\s+/g, "")}`, "_blank");
-                                            else if (info.type === "location") window.open("https://maps.google.com/?q=Ho+Chi+Minh+City+Vietnam", "_blank");
-                                        }}
-                                        whileHover={{ scale: 1.02 }}
-                                        whileTap={{ scale: 0.97 }}
-                                        className="group flex items-center gap-4 w-full text-left rounded-lg px-2 py-2 transition-all duration-300 hover:bg-primary/10 cursor-pointer"                                    >
-                                        {/* Icon */}
-                                        <div className="p-3 rounded-xl bg-muted flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20 group-hover:text-primary">
-                                            {React.cloneElement(info.icon, { className: "w-5 h-5 transition-colors duration-300 group-hover:text-indigo-300" })}
-                                        </div>
+                                {t.contact.map((info, index) => {
+                                    const Icon = info.icon;
+                                    return (
+                                        <motion.button
+                                            key={index}
+                                            variants={itemVariants}
+                                            onClick={() => {
+                                                if (info.type === "email") handleEmailClick();
+                                                else if (info.type === "phone")
+                                                    window.open(`tel:${info.value.replace(/\s+/g, "")}`, "_blank");
+                                                else if (info.type === "location")
+                                                    window.open(
+                                                        "https://maps.google.com/?q=Ho+Chi+Minh+City+Vietnam",
+                                                        "_blank"
+                                                    );
+                                            }}
+                                            whileHover={{ scale: 1.02 }}
+                                            whileTap={{ scale: 0.97 }}
+                                            className="group flex items-center gap-4 w-full text-left rounded-lg px-2 py-2 transition-all duration-300 hover:bg-primary/10 cursor-pointer"
+                                        >
+                                            {/* Icon */}
+                                            <div className="p-3 rounded-xl bg-muted flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20 group-hover:text-primary">
+                                                <Icon className="w-5 h-5 text-primary transition-colors duration-300 group-hover:text-indigo-300" />
+                                            </div>
 
-                                        {/* Text */}
-                                        <div className="transition-colors duration-300">
-                                            <p className="text-sm text-muted-foreground group-hover:text-indigo-300">{info.label}</p>
-                                            <p className="text-base font-medium text-foreground group-hover:text-indigo-300">{info.value}</p>
-                                        </div>
-                                    </motion.button>
-                                ))}
-
+                                            {/* Text */}
+                                            <div className="transition-colors duration-300">
+                                                <p className="text-sm text-muted-foreground group-hover:text-indigo-300">
+                                                    {info.label}
+                                                </p>
+                                                <p className="text-base font-medium text-foreground group-hover:text-indigo-300">
+                                                    {info.value}
+                                                </p>
+                                            </div>
+                                        </motion.button>
+                                    );
+                                })}
                             </div>
                         </div>
 

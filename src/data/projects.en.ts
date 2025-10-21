@@ -72,6 +72,11 @@ export const projects: Project[] = [
             "/images/project/Project2/Project2.1.png",
             "/images/project/Project2/Project2.2.png",
             "/images/project/Project2/Project2.3.png",
+            "/images/project/Project2/Project2.4.png",
+            "/images/project/Project2/Project2.5.png",
+            "/images/project/Project2/Project2.6.png",
+            "/images/project/Project2/Project2.7.png",
+            "/images/project/Project2/Project2.8.png",
         ],
     },
 ];

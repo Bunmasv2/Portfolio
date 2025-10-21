@@ -4,46 +4,44 @@ import React, { useEffect, useRef, useState } from "react";
 
 interface AutoScrollGalleryProps {
     images: string[];
-    scrollSpeed?: number; // tốc độ di chuyển
+    scrollSpeed?: number;
 }
 
 const AutoScrollGallery: React.FC<AutoScrollGalleryProps> = ({
     images,
-    scrollSpeed = 0.55,
+    scrollSpeed = 0.5,
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
-    const [itemsVisible, setItemsVisible] = useState(2); // số ảnh hiển thị cùng lúc
+    const [itemsVisible, setItemsVisible] = useState(2);
 
-    // 🧩 Xác định số lượng ảnh hiển thị tùy kích thước màn hình
+    // 🧩 Responsive: xác định số ảnh hiển thị
     useEffect(() => {
-        const resizeHandler = () => {
+        const handleResize = () => {
             setItemsVisible(window.innerWidth < 640 ? 1 : 2);
         };
-
-        resizeHandler();
-        window.addEventListener("resize", resizeHandler);
-        return () => window.removeEventListener("resize", resizeHandler);
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // 🎞️ Animation chạy trượt dọc vô hạn
+    // 🎞️ Animation vô hạn
     useEffect(() => {
         const wrapper = wrapperRef.current;
         if (!wrapper) return;
 
         let offset = 0;
-        const scrollLimit = wrapper.scrollHeight / 2;
+        const totalHeight = wrapper.scrollHeight / 2;
 
-        const smoothScroll = () => {
+        const animate = () => {
             offset += scrollSpeed;
-            if (offset >= scrollLimit) offset = 0;
+            if (offset >= totalHeight) offset -= totalHeight;
             wrapper.style.transform = `translateY(-${offset}px)`;
-            requestAnimationFrame(smoothScroll);
+            requestAnimationFrame(animate);
         };
 
-        smoothScroll();
+        animate();
     }, [scrollSpeed]);
 
-    // 📏 Tính toán kích thước khung hiển thị
     const singleItemHeight = itemsVisible === 1 ? 320 : 245;
     const galleryHeight = singleItemHeight * itemsVisible;
 
@@ -52,16 +50,20 @@ const AutoScrollGallery: React.FC<AutoScrollGalleryProps> = ({
             className="relative w-full overflow-hidden rounded-xl border border-border shadow-sm"
             style={{ height: galleryHeight }}
         >
-            <div ref={wrapperRef} className="flex flex-col transition-transform duration-500 ease-linear">
-                {[...images, ...images].map((img, index) => (
+            <div
+                ref={wrapperRef}
+                className="flex flex-col will-change-transform"
+                style={{ transform: "translateY(0)" }}
+            >
+                {[...images, ...images].map((img, i) => (
                     <div
-                        key={index}
+                        key={i}
                         className="flex-shrink-0 w-full"
                         style={{ height: singleItemHeight }}
                     >
                         <img
                             src={img}
-                            alt={`gallery-item-${index}`}
+                            alt={`gallery-${i}`}
                             className="h-full w-full object-cover"
                             draggable={false}
                         />

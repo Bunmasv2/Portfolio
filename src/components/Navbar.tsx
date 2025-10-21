@@ -148,7 +148,10 @@ const Navbar: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 className="font-bold text-lg sm:text-xl text-primary dark:text-indigo-400 cursor-pointer tracking-tight"
             >
-                <Link to="/">Nguyễn Nguyễn Thái Bảo</Link>
+                <Link to="/" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }} className="flex items-center gap-2">
+                    <img src="/logo2.png" alt="Logo" sizes="1024x1024" className="h-10 w-10 sm:h-14 sm:w-14 object-contain" />
+                    Nguyễn Nguyễn Thái Bảo
+                </Link>
             </motion.h1>
 
             {/* Desktop Links */}

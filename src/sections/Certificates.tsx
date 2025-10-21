@@ -151,6 +151,16 @@ const Certificates: React.FC = () => {
                             />
                         ))}
                     </div>
+                    <div className="flex" aria-hidden="true">
+                        {t.certificateList.map((cert, i) => (
+                            <CertificateCard
+                                key={`clone-${i}`}
+                                cert={cert}
+                                onDownload={handleDownload}
+                                label={t.downloadButton}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
 

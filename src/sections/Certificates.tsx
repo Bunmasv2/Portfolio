@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { Download } from "lucide-react";
-import { motion, Variants } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 
 interface Certificate {
@@ -11,7 +11,6 @@ interface Certificate {
     pdf: string;
 }
 
-// ======= TRANSLATIONS & DATA =======
 const translations = {
     en: {
         title: "Certificates",
@@ -37,7 +36,8 @@ const translations = {
     },
     vi: {
         title: "Chứng Chỉ",
-        subtitle: "Di chuột để xem trước, nhấp để tải xuống chứng chỉ đã xác thực của tôi.",
+        subtitle:
+            "Di chuột để xem trước, nhấp để tải xuống chứng chỉ đã xác thực của tôi.",
         downloadButton: "Tải PDF",
         certificateList: [
             {
@@ -59,46 +59,38 @@ const translations = {
     },
 };
 
-// ======= ANIMATION VARIANTS =======
-const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-    },
-};
-
-const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.6, ease: "easeOut" },
-    },
-};
-
 const Certificates: React.FC = () => {
-    const { lang } = useLanguage(); // 👈 2. Lấy ngôn ngữ hiện tại
+    const { lang } = useLanguage();
     const t = translations[lang];
-    const certificates = t.certificateList;
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const trackRef = useRef<HTMLDivElement>(null);
 
-    const [displayedCertificates, setDisplayedCertificates] = useState<Certificate[]>([
-        ...certificates,
-        ...certificates,
-        ...certificates,
-    ]);
-
-    // 🔁 Mỗi 10 giây tự động nhân thêm mảng một lần (để luôn “vô hạn”)
     useEffect(() => {
-        // Nếu chưa có certificate nào thì không chạy interval
-        if (certificates.length === 0) return;
+        const container = scrollRef.current;
+        const track = trackRef.current;
+        if (!container || !track) return;
 
-        const interval = setInterval(() => {
-            setDisplayedCertificates((prev) => [...prev, ...certificates]);
-        }, 10000);
+        const speed = 0.8; // tốc độ mượt hơn
+        let offset = 0;
+        const singleWidth = track.scrollWidth; // 1 vòng gốc
+        const totalWidth = singleWidth * 2; // tổng 2 vòng
 
-        return () => clearInterval(interval);
-    }, [certificates]);
+        let animationId: number;
+
+        const animate = () => {
+            offset += speed;
+            if (offset >= singleWidth) {
+                // reset đúng lúc vòng 2 bắt đầu => không đen, không khựng
+                offset = 0;
+            }
+            container.style.transform = `translate3d(-${offset}px, 0, 0)`;
+            animationId = requestAnimationFrame(animate);
+        };
+
+        animationId = requestAnimationFrame(animate);
+        return () => cancelAnimationFrame(animationId);
+    }, [t]);
+
 
     const handleDownload = (pdf: string, name: string) => {
         const link = document.createElement("a");
@@ -113,104 +105,62 @@ const Certificates: React.FC = () => {
             className="py-20 px-4 sm:px-8 bg-background transition-colors duration-300"
         >
             {/* Header */}
-            <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ amount: 0.2 }}
-                variants={itemVariants}
-                className="max-w-7xl mx-auto text-center mb-16"
-            >
+            <div className="max-w-7xl mx-auto text-center mb-16">
                 <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-4 dark:text-indigo-500">
                     {t.title}
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                     {t.subtitle}
                 </p>
-            </motion.div>
+            </div>
 
             {/* Scroll container */}
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ amount: 0.3 }}
-                className="relative overflow-hidden"
-            >
+            <div className="relative overflow-hidden">
                 <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none bg-gradient-to-r from-background to-transparent" />
                 <div className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none bg-gradient-to-l from-background to-transparent" />
 
-                {/* Infinite scrolling row */}
-                <motion.div
-                    variants={itemVariants}
-                    className="flex animate-infinite-scroll"
+                <div
+                    ref={scrollRef}
+                    className="flex will-change-transform"
+                    style={{
+                        transform: "translate3d(0,0,0)",
+                        backfaceVisibility: "hidden",
+                        transformStyle: "preserve-3d",
+                    }}
                 >
-                    {displayedCertificates.map((cert, i) => (
-                        <motion.div
-                            key={i}
-                            variants={itemVariants}
-                            onClick={() => handleDownload(cert.pdf, cert.name)}
-                            whileHover={{ scale: 1.03 }}
-                            className="flex-shrink-0 w-72 mx-4 group cursor-pointer transition-all duration-500  pt-2 pb-2"
-                        >
-                            <div className="relative rounded-xl p-[3px] bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 animate-gradient-border">
-                                <div className="relative h-52 rounded-xl overflow-hidden bg-background">
-                                    <img
-                                        src={cert.image}
-                                        alt={cert.name}
-                                        className="object-cover w-full h-full rounded-xl"
-                                    />
-                                    <div
-                                        className="
-                      absolute inset-0 flex items-center justify-center opacity-0
-                      group-hover:opacity-100 transition-opacity duration-500
-                      bg-gradient-to-t from-indigo-950/80 via-indigo-900/30 to-transparent
-                    "
-                                    >
-                                        <motion.button
-                                            whileTap={{ scale: 0.95 }}
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                handleDownload(cert.pdf, cert.name);
-                                            }}
-                                            className="
-                        flex items-center gap-2 px-4 py-2 rounded-md
-                        bg-indigo-600/80 text-white font-medium text-sm
-                        hover:bg-indigo-500 transition-colors shadow-lg
-                      "
-                                        >
-                                            <Download className="w-4 h-4" />
-                                            {t.downloadButton}
-                                        </motion.button>
-                                    </div>
-                                </div>
-                            </div>
+                    {/* Vòng 1 */}
+                    <div ref={trackRef} className="flex">
+                        {t.certificateList.map((cert, i) => (
+                            <CertificateCard
+                                key={i}
+                                cert={cert}
+                                onDownload={handleDownload}
+                                label={t.downloadButton}
+                            />
+                        ))}
+                    </div>
 
-                            <p className="mt-3 text-center text-sm text-muted-foreground group-hover:text-indigo-400 transition-colors">
-                                {cert.name}
-                            </p>
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </motion.div>
+                    {/* Vòng 2 (ẩn, để nối liền vô hạn) */}
+                    <div className="flex" aria-hidden="true">
+                        {t.certificateList.map((cert, i) => (
+                            <CertificateCard
+                                key={`clone-${i}`}
+                                cert={cert}
+                                onDownload={handleDownload}
+                                label={t.downloadButton}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
 
+            {/* Border animation */}
             <style>{`
-        @keyframes infiniteScroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(-33.333%); }
-        }
-
-        .animate-infinite-scroll {
-          display: flex;
-          width: calc(300%);
-          animation: infiniteScroll 10s linear infinite;
-        }
-
         @keyframes gradientBorder {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
           100% { background-position: 0% 50%; }
         }
-
         .animate-gradient-border {
           background-size: 200% 200%;
           animation: gradientBorder 5s ease infinite;
@@ -219,5 +169,57 @@ const Certificates: React.FC = () => {
         </section>
     );
 };
+
+// 🪪 Component con cho mỗi chứng chỉ
+const CertificateCard = ({
+    cert,
+    onDownload,
+    label,
+}: {
+    cert: Certificate;
+    onDownload: (pdf: string, name: string) => void;
+    label: string;
+}) => (
+    <div
+        onClick={() => onDownload(cert.pdf, cert.name)}
+        className="flex-shrink-0 w-72 mx-4 group cursor-pointer transition-all duration-500 pt-2 pb-2"
+    >
+        <div className="relative rounded-xl p-[3px] bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 animate-gradient-border">
+            <div className="relative h-52 rounded-xl overflow-hidden bg-background">
+                <img
+                    src={cert.image}
+                    alt={cert.name}
+                    className="object-cover w-full h-full rounded-xl"
+                />
+                <div
+                    className="
+            absolute inset-0 flex items-center justify-center opacity-0
+            group-hover:opacity-100 transition-opacity duration-500
+            bg-gradient-to-t from-indigo-950/80 via-indigo-900/30 to-transparent
+          "
+                >
+                    <motion.button
+                        whileTap={{ scale: 0.95 }}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onDownload(cert.pdf, cert.name);
+                        }}
+                        className="
+              flex items-center gap-2 px-4 py-2 rounded-md
+              bg-indigo-600/80 text-white font-medium text-sm
+              hover:bg-indigo-500 transition-colors shadow-lg
+            "
+                    >
+                        <Download className="w-4 h-4" />
+                        {label}
+                    </motion.button>
+                </div>
+            </div>
+        </div>
+        <p className="mt-3 text-center text-sm text-muted-foreground group-hover:text-indigo-400 transition-colors">
+            {cert.name}
+        </p>
+    </div>
+);
 
 export default Certificates;

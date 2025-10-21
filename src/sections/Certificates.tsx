@@ -70,7 +70,7 @@ const Certificates: React.FC = () => {
         const track = trackRef.current;
         if (!container || !track) return;
 
-        const speed = 0.8; // tốc độ mượt hơn
+        const speed = 1.5;
         let offset = 0;
         const singleWidth = track.scrollWidth; // 1 vòng gốc
         const totalWidth = singleWidth * 2; // tổng 2 vòng

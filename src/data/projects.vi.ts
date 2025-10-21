@@ -23,6 +23,8 @@ export const projects: Project[] = [
             "Phân quyền người dùng (Admin, Bác sĩ, Bệnh nhân)",
             "Xác thực JWT bảo mật với Identity",
             "Tích hợp thanh toán VNPay trực tuyến",
+            "Thống kê doanh thu, số lượng lịch hẹn và phản hồi người dùng",
+            "Quản lý bác sĩ, bệnh nhân và dịch vụ theo chuyên khoa",
         ],
         role: "Phát triển RESTful API quản lý người dùng, lịch hẹn, và hồ sơ bệnh án. Tích hợp thanh toán VNPay, MoMo và gửi email xác nhận tự động.",
         description:
@@ -64,6 +66,8 @@ export const projects: Project[] = [
             "Hệ thống phân quyền linh hoạt",
             "Cập nhật thời gian thực với SignalR",
             "Giao nhiệm vụ và thông báo tức thời",
+            "Tự động sao lưu dữ liệu định kỳ (Auto Backup)",
+            "Khôi phục dữ liệu từ file backup (Restore Data)",
         ],
         role: "Phát triển RESTful API, triển khai xác thực & phân quyền bằng ASP.NET Core Identity, và tích hợp Cloudinary để quản lý file & hình ảnh.",
         description:

@@ -23,6 +23,8 @@ export const projects: Project[] = [
             "Role-based access control (Admin, Doctor, Patient)",
             "Secure JWT authentication with Identity",
             "VNPay integration for online payments",
+            "Comprehensive statistics on revenue, appointments, and feedback",
+            "Doctor, patient, and service management by specialty",
         ],
         role: "Developed RESTful APIs for managing users, appointments, and medical records. Integrated payment gateways (VNPay and MoMo) and email OTP verification.",
         description:
@@ -64,6 +66,8 @@ export const projects: Project[] = [
             "Dynamic role and permission system",
             "Real-time updates with SignalR",
             "Task assignment and instant notifications",
+            "Automatic data backup (Auto Backup)",
+            "Restore data from backup files",
         ],
         role: "Developed RESTful APIs with modular architecture, implemented authentication and authorization using ASP.NET Core Identity, and integrated Cloudinary for file and image management.",
         description:

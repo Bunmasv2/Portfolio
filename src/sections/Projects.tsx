@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { ExternalLink, Github, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
@@ -34,8 +34,15 @@ const Projects: React.FC = () => {
     const { lang } = useLanguage();
     const projects = lang === "en" ? enProjects : viProjects;
 
-    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    // 🔹 Tự động nhận biết mobile theo kích thước màn hình
+    const [isMobile, setIsMobile] = useState(false);
 
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile(); // Kiểm tra ngay khi render lần đầu
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
     return (
         <section id="projects" className="min-h-screen bg-background py-24 px-6 transition-colors duration-300">
             <div className="max-w-7xl mx-auto">
@@ -94,10 +101,10 @@ const Projects: React.FC = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         onClick={(e) => e.stopPropagation()}
-                                        className="flex items-center gap-2 text-foreground group-hover:text-cyan-400 transition-colors"
+                                        className={`flex items-center gap-2  ${isMobile ? "text-cyan-400" : "text-foreground group-hover:text-cyan-400"}`}
                                     >
                                         {project.title}
-                                        <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        <ExternalLink className={`w-5 h-5 transition-opacity duration-300 ${isMobile ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`} />
                                     </a>
                                 </h3>
                                 <p className="text-sm text-muted-foreground mb-4">

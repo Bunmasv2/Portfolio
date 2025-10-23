@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -7,12 +7,15 @@ import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
 import { useLanguage } from "../context/LanguageContext";
 
+// MotionLink wraps react-router-dom's Link with framer-motion's motion
+const MotionLink = motion(Link);
+
 const translations = {
     en: {
         homePageLinks: [
             { name: "About", path: "#about" },
-            { name: "Skills", path: "#skills" },
-            { name: "TechnicalSkills", path: "#technicalSkills" },
+            { name: "Experiences", path: "#skills" },
+            { name: "Tech&Tools", path: "#technicalSkills" },
             { name: "SoftSkills", path: "#softSkills" },
             { name: "Projects & Certificates", path: "/project" },
             { name: "Blog", path: "/blog" },
@@ -20,8 +23,8 @@ const translations = {
         ],
         projectPageLinks: [
             { name: "Home", path: "/" },
-            { name: "Skills", path: "#skills" },
-            { name: "TechnicalSkills", path: "#technicalSkills" },
+            { name: "Experiences", path: "#skills" },
+            { name: "Tech&Tools", path: "#technicalSkills" },
             { name: "Projects", path: "#projects" },
             { name: "Certificates", path: "#certificates" },
             { name: "Blog", path: "/blog" },
@@ -36,8 +39,8 @@ const translations = {
     vi: {
         homePageLinks: [
             { name: "Giới Thiệu", path: "#about" },
-            { name: "Kỹ Năng", path: "#skills" },
-            { name: "Kỹ năng kỹ thuật", path: "#technicalSkills" },
+            { name: "Kinh nghiệm", path: "#skills" },
+            { name: "Công nghệ & Công cụ", path: "#technicalSkills" },
             { name: "Kỹ Năng Mềm", path: "#softSkills" },
             { name: "Dự Án & Chứng Chỉ", path: "/project" },
             { name: "Bài Viết", path: "/blog" },
@@ -45,8 +48,8 @@ const translations = {
         ],
         projectPageLinks: [
             { name: "Trang Chủ", path: "/" },
-            { name: "Kỹ Năng", path: "#skills" },
-            { name: "Kỹ năng kỹ thuật", path: "#technicalSkills" },
+            { name: "Kinh nghiệm", path: "#skills" },
+            { name: "Công nghệ & Công cụ", path: "#technicalSkills" },
             { name: "Dự Án", path: "#projects" },
             { name: "Chứng Chỉ", path: "#certificates" },
             { name: "Bài Viết", path: "/blog" },
@@ -66,8 +69,7 @@ const Navbar: React.FC = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
-
-    // --- ĐỊNH NGHĨA CÁC NHÓM LINK CHO TỪNG TRANG ---
+    const [activeSection, setActiveSection] = useState("");
 
     // 1. Links cho Trang Chủ (/)
     const homePageLinks = [
@@ -98,24 +100,40 @@ const Navbar: React.FC = () => {
         { name: "Blog", path: "/blog" },
     ];
 
-    // --- LOGIC CHỌN NHÓM LINK ĐỂ HIỂN THỊ ---
-
-    let linksToDisplay;
-    if (location.pathname === "/") {
-        linksToDisplay = t.homePageLinks;
-    } else if (location.pathname === "/project") {
-        linksToDisplay = t.projectPageLinks;
-    } else {
-        linksToDisplay = t.defaultLinks;
-    }
-
-    // --- CÁC HOOK VÀ HÀM XỬ LÝ ---
+    const linksToDisplay = useMemo(() => {
+        if (location.pathname === "/") return t.homePageLinks;
+        if (location.pathname === "/project") return t.projectPageLinks;
+        return t.defaultLinks;
+    }, [location.pathname, t]);
 
     useEffect(() => {
-        const handleScroll = () => { setScrolled(window.scrollY > 40); };
-        window.addEventListener("scroll", handleScroll);
+        const sections = linksToDisplay
+            .filter((link) => link.path.startsWith("#"))
+            .map((link) => document.getElementById(link.path.substring(1)))
+            .filter(Boolean);
+
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 40);
+            let bestMatch = "";
+            if (sections.length > 0) {
+                for (let i = sections.length - 1; i >= 0; i--) {
+                    const section = sections[i];
+                    if (section) {
+                        const sectionTop = section.offsetTop - 150;
+                        if (window.scrollY >= sectionTop) {
+                            bestMatch = section.id;
+                            break;
+                        }
+                    }
+                }
+            }
+            setActiveSection(bestMatch);
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [linksToDisplay]);
 
     useEffect(() => {
         setMenuOpen(false);
@@ -128,9 +146,7 @@ const Navbar: React.FC = () => {
         if (targetElement) {
             targetElement.scrollIntoView({ behavior: "smooth" });
         }
-        if (menuOpen) {
-            setMenuOpen(false);
-        }
+        setMenuOpen(false);
     };
 
     return (
@@ -144,39 +160,64 @@ const Navbar: React.FC = () => {
                 } flex justify-between items-center px-6 md:px-12`}
         >
             {/* Logo */}
-            <motion.h1
-                whileHover={{ scale: 1.05 }}
-                className="font-bold text-lg sm:text-xl text-primary dark:text-indigo-400 cursor-pointer tracking-tight"
-            >
-                <Link to="/" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }} className="flex items-center gap-2">
-                    <img src="/logo2.png" alt="Logo" sizes="1024x1024" className="h-10 w-10 sm:h-14 sm:w-14 object-contain" />
-                    Nguyễn Nguyễn Thái Bảo
+            <motion.div whileHover={{ scale: 1.05 }}>
+                <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2 font-bold text-lg sm:text-xl text-primary dark:text-indigo-400 cursor-pointer tracking-tight">
+                    <img src="/logo2.png" alt="Logo" className="h-10 w-10 sm:h-12 sm:w-12 object-contain" />
+                    <span>Nguyễn Nguyễn Thái Bảo</span>
                 </Link>
-            </motion.h1>
+            </motion.div>
 
             {/* Desktop Links */}
-            <ul className="hidden md:flex gap-8 text-sm font-medium text-gray-700 dark:text-gray-300">
-                {linksToDisplay.map((link) => (
-                    <li key={link.name}>
-                        {link.path.startsWith("#") ? (
-                            <a
-                                href={link.path}
-                                onClick={(e) => handleScrollClick(e, link.path)}
-                                className="hover:text-primary dark:hover:text-indigo-400 transition-colors duration-200"
-                            >
-                                {link.name}
-                            </a>
-                        ) : (
-                            <Link
-                                to={link.path}
-                                className={`hover:text-primary dark:hover:text-indigo-400 transition-colors duration-200 ${location.pathname === link.path ? "text-primary dark:text-indigo-400 font-semibold" : ""
-                                    }`}
-                            >
-                                {link.name}
-                            </Link>
-                        )}
-                    </li>
-                ))}
+            <ul className="hidden md:flex items-center gap-1 text-base font-medium text-gray-700 dark:text-gray-300"> {/* ✨ Tăng cỡ chữ ở đây */}
+                {linksToDisplay.map((link) => {
+                    const isScrollActive = link.path.startsWith("#") && activeSection === link.path.substring(1);
+                    const isPathActive = !link.path.startsWith("#") && location.pathname === link.path;
+                    const isFinallyActive = isScrollActive || isPathActive;
+
+                    return (
+                        <li key={link.name}>
+                            {link.path.startsWith("#") ? (
+                                <motion.a
+                                    href={link.path}
+                                    onClick={(e) => handleScrollClick(e, link.path)}
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className={`relative block px-3 py-2 transition-colors duration-200 ${isFinallyActive
+                                        ? "text-sky-500 dark:text-indigo-400 font-semibold"
+                                        : "hover:text-sky-500 dark:hover:text-indigo-400"
+                                        }`}
+                                >
+                                    {link.name}
+                                    {isFinallyActive && (
+                                        <motion.div
+                                            layoutId="active-underline-desktop"
+                                            className="absolute bottom-1 left-2 right-2 h-0.5 bg-sky-500 dark:bg-indigo-400"
+                                        />
+                                    )}
+                                </motion.a>
+                            ) : (
+                                // ✨ SỬ DỤNG MotionLink ĐÃ TẠO
+                                <MotionLink
+                                    to={link.path}
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className={`relative block px-3 py-2 transition-colors duration-200 ${isFinallyActive
+                                        ? "text-sky-500 dark:text-indigo-400 font-semibold"
+                                        : "hover:text-sky-500 dark:hover:text-indigo-400"
+                                        }`}
+                                >
+                                    {link.name}
+                                    {isFinallyActive && (
+                                        <motion.div
+                                            layoutId="active-underline-desktop"
+                                            className="absolute bottom-1 left-2 right-2 h-0.5 bg-sky-500 dark:bg-indigo-400"
+                                        />
+                                    )}
+                                </MotionLink>
+                            )}
+                        </li>
+                    );
+                })}
             </ul>
 
             {/* Theme Toggle & Mobile Menu Icon */}
@@ -188,6 +229,7 @@ const Navbar: React.FC = () => {
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
                     className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                    aria-label="Toggle menu"
                 >
                     {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
@@ -201,32 +243,43 @@ const Navbar: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.25 }}
-                        className="absolute top-full left-0 w-full bg-white/95 dark:bg-gray-900/95 shadow-md backdrop-blur-md md:hidden"
+                        className="absolute top-full left-0 w-full bg-white/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-lg md:hidden"
                     >
-                        <ul className="flex flex-col items-center py-4 gap-4 text-gray-700 dark:text-gray-300">
-                            {linksToDisplay.map((link) => (
-                                <li key={link.name}>
-                                    {link.path.startsWith("#") ? (
-                                        <a
-                                            href={link.path}
-                                            onClick={(e) => handleScrollClick(e, link.path)}
-                                            className="block px-4 py-2 text-base hover:text-primary dark:hover:text-indigo-400"
-                                        >
-                                            {link.name}
-                                        </a>
-                                    ) : (
-                                        <Link
-                                            to={link.path}
-                                            className={`block px-4 py-2 text-base hover:text-primary dark:hover:text-indigo-400 ${location.pathname === link.path ? "text-primary dark:text-indigo-400 font-semibold" : ""
-                                                }`}
-                                        >
-                                            {link.name}
-                                        </Link>
-                                    )}
-                                </li>
-                            ))}
-                            <li className="w-1/2 border-t border-gray-200 dark:border-gray-700 my-2"></li>
-                            <li className="flex items-center gap-4">
+                        <ul className="flex flex-col items-center py-4">
+                            {linksToDisplay.map((link) => {
+                                const isScrollActive = link.path.startsWith("#") && activeSection === link.path.substring(1);
+                                const isPathActive = !link.path.startsWith("#") && location.pathname === link.path;
+                                const isFinallyActive = isScrollActive || isPathActive;
+
+                                return (
+                                    <li key={link.name} className="w-full text-center">
+                                        {link.path.startsWith("#") ? (
+                                            <a
+                                                href={link.path}
+                                                onClick={(e) => handleScrollClick(e, link.path)}
+                                                className={`block w-full py-3 text-base ${isFinallyActive
+                                                    ? "text-sky-500 dark:text-indigo-400 font-semibold bg-sky-50 dark:bg-gray-800"
+                                                    : "hover:text-sky-500 dark:hover:text-indigo-400"
+                                                    }`}
+                                            >
+                                                {link.name}
+                                            </a>
+                                        ) : (
+                                            <Link
+                                                to={link.path}
+                                                className={`block w-full py-3 text-base ${isFinallyActive
+                                                    ? "text-sky-500 dark:text-indigo-400 font-semibold bg-sky-50 dark:bg-gray-800"
+                                                    : "hover:text-sky-500 dark:hover:text-indigo-400"
+                                                    }`}
+                                            >
+                                                {link.name}
+                                            </Link>
+                                        )}
+                                    </li>
+                                );
+                            })}
+                            <li className="w-4/5 border-t border-gray-200 dark:border-gray-700 my-4"></li>
+                            <li className="flex items-center gap-6">
                                 <ThemeToggle />
                                 <LanguageToggle />
                             </li>

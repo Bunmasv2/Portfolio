@@ -4,11 +4,13 @@ import React, { useEffect, useRef, useState } from "react";
 
 interface AutoScrollGalleryProps {
     images: string[];
+    className?: string;
     scrollSpeed?: number;
 }
 
 const AutoScrollGallery: React.FC<AutoScrollGalleryProps> = ({
     images,
+    className = "h-[490px] sm:h-[320px]", // Chiều cao mặc định
     scrollSpeed = 0.5,
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -47,8 +49,7 @@ const AutoScrollGallery: React.FC<AutoScrollGalleryProps> = ({
 
     return (
         <div
-            className="relative w-full overflow-hidden rounded-xl border border-border shadow-sm"
-            style={{ height: galleryHeight }}
+            className={`relative w-full overflow-hidden ${className}`}
         >
             <div
                 ref={wrapperRef}
@@ -56,11 +57,7 @@ const AutoScrollGallery: React.FC<AutoScrollGalleryProps> = ({
                 style={{ transform: "translateY(0)" }}
             >
                 {[...images, ...images].map((img, i) => (
-                    <div
-                        key={i}
-                        className="flex-shrink-0 w-full"
-                        style={{ height: singleItemHeight }}
-                    >
+                    <div key={i} className="h-full w-full flex-shrink-0">
                         <img
                             src={img}
                             alt={`gallery-${i}`}

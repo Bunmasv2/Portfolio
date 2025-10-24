@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, Variants } from "framer-motion";
-import { Users } from "lucide-react";
+import { ExternalLink, Users } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
 // ======= TRANSLATIONS =======
@@ -24,10 +24,12 @@ const translations = {
         location: "Vietnam",
         major: "Software Engineer (IT) – Senior Year",
         languages: "Vietnamese, English",
+        education: "HUTECH - GPA: 3.54/4.0",
         timeline: [
             {
                 period: "03/02/2025 – 10/05/2025",
                 title: "Clinic Management System",
+                github: "https://github.com/BanhTuanKiet/BookingCare",
                 description:
                     "Developed a healthcare management system including patient records, appointment booking, and payment integration with VNPay & MoMo. Implemented both frontend and backend features using React, ASP.NET Core, and SQL Server.",
                 teamSize: 3,
@@ -35,6 +37,7 @@ const translations = {
             {
                 period: "09/02/2025 – Present",
                 title: "Project Management App",
+                github: "https://github.com/BanhTuanKiet/ProjectManagement",
                 description:
                     "Building a collaborative project management application with task tracking, team management, and real-time notifications. Focused on creating a responsive, user-friendly interface and efficient backend services.",
                 teamSize: 3,
@@ -58,10 +61,12 @@ const translations = {
         location: "Việt Nam",
         major: "Kỹ sư Phần mềm – Năm cuối",
         languages: "Tiếng Việt, Tiếng Anh",
+        education: "HUTECH - GPA: 3.54/4.0",
         timeline: [
             {
                 period: "02/03/2025 – 05/10/2025",
                 title: "Hệ thống quản lý phòng khám",
+                github: "https://github.com/BanhTuanKiet/BookingCare",
                 description:
                     "Xây dựng hệ thống quản lý phòng khám bao gồm hồ sơ bệnh nhân, đặt lịch hẹn và tích hợp thanh toán với VNPay & MoMo. Triển khai cả frontend và backend bằng React, ASP.NET Core và SQL Server.",
                 teamSize: 3,
@@ -69,6 +74,7 @@ const translations = {
             {
                 period: "02/09/2025 – Hiện tại",
                 title: "Ứng dụng quản lý dự án",
+                github: "https://github.com/BanhTuanKiet/ProjectManagement",
                 description:
                     "Phát triển ứng dụng quản lý dự án nhóm với tính năng theo dõi công việc, quản lý nhóm và thông báo thời gian thực. Tập trung vào giao diện thân thiện, phản hồi nhanh và backend hiệu quả.",
                 teamSize: 3,
@@ -93,6 +99,7 @@ const timeline = [
     {
         period: "02/03/2025 – 05/10/2025",
         title: "Clinic Management System",
+        github: "https://github.com/BanhTuanKiet/BookingCare",
         description:
             "Developed a healthcare management system including patient records, appointment booking, and payment integration with VNPay & MoMo. Implemented both frontend and backend features using React, ASP.NET Core, and SQL Server.",
         teamSize: 3,
@@ -100,6 +107,7 @@ const timeline = [
     {
         period: "02/09/2025 – Present",
         title: "Project Management App",
+        github: "https://github.com/BanhTuanKiet/ProjectManagement",
         teamSize: 3,
         description:
             "Building a collaborative project management application with task tracking, team management, and real-time notifications. Focused on creating a responsive, user-friendly interface and efficient backend services.",
@@ -154,6 +162,7 @@ const About: React.FC = () => {
         { label: lang === "en" ? "Location" : "Địa điểm", value: t.location },
         { label: lang === "en" ? "Major" : "Chuyên ngành", value: t.major },
         { label: lang === "en" ? "Languages" : "Ngôn ngữ", value: t.languages },
+        { label: lang === "en" ? "Education" : "Học vấn", value: t.education },
     ];
 
     return (
@@ -194,6 +203,9 @@ const About: React.FC = () => {
                         <div className="space-y-6">
                             <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">{t.bio1}</p>
                             <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">{t.bio2}</p>
+                            {/* <p className="text-sm text-muted-foreground leading-relaxed">{t.openTo}</p> */}
+                            {/* <p className="text-sm text-muted-foreground leading-relaxed">{t.additional1}</p> */}
+                            <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">{t.additional2}</p>
                         </div>
 
                         <div className="mt-10">
@@ -218,8 +230,19 @@ const About: React.FC = () => {
                                         <div className="pb-2">
                                             <p className="text-sm text-primary font-medium">{item.period}</p>
                                             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
-                                                <h4 className="text-lg font-semibold text-foreground hover:text-primary dark:text-[#66FFFF] transition-colors duration-300">
-                                                    {item.title}
+                                                <h4 className="text-lg font-semibold text-foreground dark:text-[#66FFFF] transition-colors duration-300 group">
+                                                    <a
+                                                        href={item.github || "#"} // Thêm property github nếu có
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        onClick={(e) => e.stopPropagation()}
+                                                        className={`flex items-center gap-2 text-foreground group-hover:text-cyan-400 `}
+                                                    >
+                                                        {item.title}
+                                                        <ExternalLink
+                                                            className={`w-5 h-5 transition-opacity duration-300 opacity-100" : "opacity-0 group-hover:opacity-100`}
+                                                        />
+                                                    </a>
                                                 </h4>
                                                 <div className="flex items-center gap-3">
                                                     <div

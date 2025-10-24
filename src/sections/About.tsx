@@ -156,6 +156,14 @@ const skillPillVariants: Variants = {
 const About: React.FC = () => {
     const { lang } = useLanguage();
     const t = translations[lang];
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    React.useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const quickInfo = [
         { label: lang === "en" ? "Position" : "Vị trí", value: t.position },
@@ -230,17 +238,19 @@ const About: React.FC = () => {
                                         <div className="pb-2">
                                             <p className="text-sm text-primary font-medium">{item.period}</p>
                                             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
-                                                <h4 className="text-lg font-semibold text-foreground dark:text-[#66FFFF] transition-colors duration-300 group">
+                                                <h4 className="text-lg font-semibold text-foreground dark:text-indigo-300 transition-colors duration-300 group">
                                                     <a
-                                                        href={item.github || "#"} // Thêm property github nếu có
+                                                        href={item.github || "#"}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         onClick={(e) => e.stopPropagation()}
-                                                        className={`flex items-center gap-2 text-foreground group-hover:text-cyan-400 `}
+                                                        className={`flex items-center gap-2 ${isMobile ? "text-cyan-400" : "text-foreground group-hover:text-cyan-400"
+                                                            }`}
                                                     >
                                                         {item.title}
                                                         <ExternalLink
-                                                            className={`w-5 h-5 transition-opacity duration-300 opacity-100" : "opacity-0 group-hover:opacity-100`}
+                                                            className={`w-5 h-5 transition-opacity duration-300 ${isMobile ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                                                                }`}
                                                         />
                                                     </a>
                                                 </h4>

@@ -204,9 +204,9 @@ const About: React.FC = () => {
                         whileHover={{
                             scale: 1.02,
                             boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
-                            transition: { duration: 0.3, ease: "easeInOut" },
+                            transition: { type: "spring", stiffness: 300, damping: 20 },
                         }}
-                        className="lg:col-span-6 bg-card border border-border rounded-2xl p-8 shadow-sm transition-all duration-300 cursor-pointer"
+                        className="lg:col-span-6 bg-card border border-border rounded-2xl p-8 shadow-sm cursor-pointer"
                     >
                         <div className="space-y-6">
                             <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">{t.bio1}</p>
@@ -232,19 +232,21 @@ const About: React.FC = () => {
                                     <motion.div
                                         key={index}
                                         variants={itemVariants}
-                                        className="relative pl-8 border-l-2 border-border hover:border-primary transition-colors duration-300"
+                                        className="relative pl-8 border-l-2 border-border transition-colors duration-300 group hover:border-primary cursor-pointer"
                                     >
                                         <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-background" />
                                         <div className="pb-2">
                                             <p className="text-sm text-primary font-medium">{item.period}</p>
                                             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
-                                                <h4 className="text-lg font-semibold text-foreground dark:text-indigo-300 transition-colors duration-300 group">
+                                                <h4 className={`text-lg font-semibold text-foreground dark:text-indigo-300 transition-colors duration-300`}>
                                                     <a
                                                         href={item.github || "#"}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         onClick={(e) => e.stopPropagation()}
-                                                        className={`flex items-center gap-2 ${isMobile ? "text-cyan-400" : "text-foreground group-hover:text-cyan-400"
+                                                        className={`flex items-center gap-2 ${isMobile
+                                                            ? "text-cyan-400"
+                                                            : "text-foreground group-hover:text-cyan-400"
                                                             }`}
                                                     >
                                                         {item.title}
@@ -267,6 +269,7 @@ const About: React.FC = () => {
                                             <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                                         </div>
                                     </motion.div>
+
                                 ))}
                             </motion.div>
                         </div>
@@ -278,9 +281,9 @@ const About: React.FC = () => {
                         whileHover={{
                             scale: 1.02,
                             boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
-                            transition: { duration: 0.3, ease: "easeOut" },
+                            transition: { type: "spring", stiffness: 300, damping: 20 },
                         }}
-                        className="lg:col-span-6 bg-card border border-border rounded-2xl p-8 shadow-sm transition-all duration-300 cursor-pointer"
+                        className="lg:col-span-6 bg-card border border-border rounded-2xl p-8 shadow-sm cursor-pointer"
                     >
                         <h3 className="text-xl sm:text-2xl font-semibold dark:text-teal-600 text-foreground mb-6 flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-primary" />

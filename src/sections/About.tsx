@@ -285,7 +285,7 @@ const About: React.FC = () => {
                         }}
                         className="lg:col-span-6 bg-card border border-border rounded-2xl p-8 shadow-sm cursor-pointer"
                     >
-                        <h3 className="text-xl sm:text-2xl font-semibold dark:text-teal-600 text-foreground mb-6 flex items-center gap-2">
+                        <h3 className="text-xl sm:text-2xl font-semibold dark:text-indigo-400 text-foreground mb-6 flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                             {t.quickInfo}
                         </h3>

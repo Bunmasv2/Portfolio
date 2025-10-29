@@ -222,7 +222,7 @@ const Navbar: React.FC = () => {
 
             {/* Theme Toggle & Mobile Menu Icon */}
             <div className="flex items-center gap-3">
-                <div className="hidden md:flex md:items-center md:gap-3">
+                <div className="flex items-center gap-3">
                     <ThemeToggle />
                     <LanguageToggle />
                 </div>
@@ -278,11 +278,11 @@ const Navbar: React.FC = () => {
                                     </li>
                                 );
                             })}
-                            <li className="w-4/5 border-t border-gray-200 dark:border-gray-700 my-4"></li>
+                            {/* <li className="w-4/5 border-t border-gray-200 dark:border-gray-700 my-4"></li>
                             <li className="flex items-center gap-6">
                                 <ThemeToggle />
                                 <LanguageToggle />
-                            </li>
+                            </li> */}
                         </ul>
                     </motion.div>
                 )}

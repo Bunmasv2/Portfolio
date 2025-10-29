@@ -121,7 +121,7 @@ const Hero: React.FC = () => {
                     className="flex flex-wrap justify-center gap-4 mt-5"
                 >
                     <motion.a
-                        href="/project"
+                        href="/project#projects"
                         whileHover={!isMobile ? { scale: 1.05 } : {}}
                         whileTap={{ scale: 0.95 }}
                         className="bg-indigo-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-indigo-700 transition-colors font-semibold"

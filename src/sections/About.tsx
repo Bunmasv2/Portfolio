@@ -24,7 +24,7 @@ const translations = {
         location: "Vietnam",
         major: "Software Engineer (IT) – Senior Year",
         languages: "Vietnamese, English",
-        education: "HUTECH - GPA: 3.54/4.0",
+        education: "HUTECH - GPA: 3.58/4.0",
         timeline: [
             {
                 period: "03/02/2025 – 10/05/2025",
